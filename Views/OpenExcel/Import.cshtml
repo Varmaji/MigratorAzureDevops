@@ -1,0 +1,18 @@
+﻿@model MigratorAzureDevops.Models.ExcelModel
+@{
+    ViewBag.Title = "Import";
+}
+
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    @Html.DropDownListFor(model => model.sheetName, new SelectList(new[] { "--Worksheet Names--" }), htmlAttributes: new { @class = "form-control", id = "Worksheet" })
+
+
+
+</body>
+</html>
