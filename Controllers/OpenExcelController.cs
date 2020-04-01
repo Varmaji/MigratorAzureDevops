@@ -56,9 +56,6 @@ namespace MigratorAzureDevops.Controllers
                     Excel.Worksheet worksheet = workbook.ActiveSheet;
                     Excel.Range range = worksheet.UsedRange;
                     excel.sheetName=LoadExcelWorkSheets(path);
-
-
-
                     return View(excel);
                 }
                 else

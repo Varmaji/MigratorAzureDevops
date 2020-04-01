@@ -9,16 +9,19 @@
     <title>Index</title>
 </head>
 <body>
-    @using (Html.BeginForm("Import", "OpenExcel", FormMethod.Post, new { enctype = "multipart/form-data" }))
-    {
-        @Html.Raw(ViewBag.Error)
-        <span>Excel File</span><input type="file" name="excelfile" />
-        <br />
-        <input type="submit" value="Import" />
-    }
-
-
-    
+    <div style="margin-top:50px;">
+        @using (Html.BeginForm("Index", "ExcelReader", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.Raw(ViewBag.Error)
+            
+                <span>Specify filepath for the Excel workbook</span><br />
+            
+            
+                <input type="text" /> <input type="file" name="excelfile"/>
+        
+            <br />
+            <input type="submit" value="Import" />
+        }
+    </div>
 </body>
 </html>
-
