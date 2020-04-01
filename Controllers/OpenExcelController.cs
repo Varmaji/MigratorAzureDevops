@@ -1,10 +1,9 @@
 ﻿using Microsoft.Office.Interop.Excel;
-
 using MigratorAzureDevops.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
+using System.Data;
 using System.Web;
 using System.Web.Mvc;
 using Excel = Microsoft.Office.Interop.Excel;
@@ -37,17 +36,22 @@ namespace MigratorAzureDevops.Controllers
                 {
 
                     string path = Server.MapPath("~/ExcelFile/" + excelfile.FileName);
-                   
-                   
-                    if (System.IO.File.Exists(path))
-                        System.IO.File.Delete(path);
-                    excelfile.SaveAs(path);
+                    //FileInfo Fi = new FileInfo(excelfile.FileName);
+                    //application.Workbooks.Close(path);
+                   /* string path = Fi.Directory.ToString();
+*/
 
                     
+                    /*if (System.IO.File.Exists(path))
+                        System.IO.File.Delete(path);
+                    excelfile.SaveAs(path);*/
+
+
 
 
                     //Read data from Excel file
                     Excel.Application application = new Excel.Application();
+
                     Excel.Workbook workbook =application.Workbooks.Open(path);
                     Excel.Worksheet worksheet = workbook.ActiveSheet;
                     Excel.Range range = worksheet.UsedRange;
@@ -74,10 +78,14 @@ namespace MigratorAzureDevops.Controllers
             Excel.Workbook excelBook = xlApp.Workbooks.Open(filePath);
             String[] excelSheets = new String[excelBook.Worksheets.Count];
             int i = 0;
-            
+            Operations op = new Operations();
+            System.Data.DataTable Dt = new System.Data.DataTable();
+            Dictionary<string, System.Data.DataTable> ExcelSheets = new Dictionary<string, System.Data.DataTable>();
             foreach (Excel.Worksheet wSheet in excelBook.Worksheets)
             {
                WorksheetName.Add(wSheet.Name);
+                Dt= Operations.ReadExcel(wSheet);
+                ExcelSheets.Add(wSheet.Name, Dt);
                 i++;
             }
             return WorksheetName;
