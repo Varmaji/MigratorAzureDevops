@@ -8,12 +8,12 @@ using System.Web;
 using System.Web.Mvc;
 using Excel = Microsoft.Office.Interop.Excel;
 using OfficeOpenXml;
-
+using MigratorAzureDevops.Models;
 namespace MigratorAzureDevops.Controllers
 {
     public class ExcelReaderController : Controller
     {
-
+        static Dictionary<string, DataTable> sheets = new Dictionary<string, DataTable>();
         static DataTable DT;
         static List<string> TitleColumns = new List<string>();
         // GET: ExcelReader
@@ -36,13 +36,10 @@ namespace MigratorAzureDevops.Controllers
             //ProjectName = Proj;
             try
             {
-                var excelStream = Excel.InputStream;
-                //Stream zipStream;
-               // System.IO.Compression.ZipArchive zipArchive;
-                //List<WorkitemFromExcel> WiList;
+                var excelStream = Excel.InputStream;              
                 ExcelPackage excel = new ExcelPackage(excelStream);
                 //WIOps.ConnectWithPAT(URI, UserPAT);
-                DT = ReadExcel(excel);
+                ReadExcel(excel);
                 
             }
             catch (IndexOutOfRangeException)
@@ -55,21 +52,22 @@ namespace MigratorAzureDevops.Controllers
                 ViewBag.message = "Something Went Wrong, Please Download Excel/Attachments From 'Export Attachments'";
 
             }
-            return View();
+            var model = new sheetList()
+            {
+                Sheets = sheets
+            }; 
+            return Json(model,JsonRequestBehavior.AllowGet);
 
         }
-        public static DataTable ReadExcel(ExcelPackage Excel)
+        public void ReadExcel(ExcelPackage Excel)
         {
-            DataTable Dt = new DataTable();
             //Console.Write("Enter The Ecel File Path:");
             /*string ExcelPath=Console.ReadLine();*/
-            foreach ( var sheets in Excel.Workbook.Worksheets)
+            foreach ( var WorkSheet in Excel.Workbook.Worksheets)
             {
-                var WorkSheet = sheets;
-
+                DataTable Dt = new DataTable();
                 int rowCount = WorkSheet.Dimension.End.Row;
-                int colCount = WorkSheet.Dimension.End.Column;
-                
+                int colCount = WorkSheet.Dimension.End.Column;                
                 DataRow row;
                 for (int i = 1; i <= rowCount; i++)
                 {
@@ -97,11 +95,13 @@ namespace MigratorAzureDevops.Controllers
                     if (i != 1)
                         Dt.Rows.Add(row);
                 }
+                int x = 1;
+                if(sheets.ContainsKey(WorkSheet.Name))
+                sheets.Add(WorkSheet.Name+"("+x++ +")", Dt);
+                else
+                    sheets.Add(WorkSheet.Name, Dt);
             }
-            
-
-            
-            return Dt;
+            /*return sheets;*/
         }
     }
 }
