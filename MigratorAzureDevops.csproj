@@ -153,14 +153,6 @@
     <Compile Include="Models\ExcelFields.cs" />
     <Compile Include="Models\ExcelModel.cs" />
     <Compile Include="Models\WiModel.cs" />
-    <Compile Include="packages\ExcelToClasses.1.1.3\content\Excel Code Generation\ClassGenerator.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ClassGenerator.tt</DependentUpon>
-    </Compile>
-    <Compile Include="packages\ExcelToClasses.1.1.3\content\Excel Code Generation\DataSetAnnotations.cs">
-      <DependentUpon>ClassGenerator.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -264,12 +256,18 @@
     <Content Include="packages\EPPlus.4.0.1.1\lib\net20\EPPlus.dll" />
     <Content Include="packages\EPPlus.4.0.1.1\lib\net20\EPPlus.XML" />
     <Content Include="packages\EPPlus.4.0.1.1\readme.txt" />
-    <Content Include="packages\ExcelToClasses.1.1.3\content\Excel Code Generation\ClassGenerator.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ClassGenerator.cs</LastGenOutput>
-    </Content>
-    <Content Include="packages\ExcelToClasses.1.1.3\lib\ExcelLibrary.dll" />
-    <Content Include="packages\ExcelToClasses.1.1.3\readme.txt" />
+    <Content Include="packages\EPPlus.5.0.4\EPPlusLogo.png" />
+    <Content Include="packages\EPPlus.5.0.4\lib\net35\EPPlus.dll" />
+    <Content Include="packages\EPPlus.5.0.4\lib\net35\EPPlus.xml" />
+    <Content Include="packages\EPPlus.5.0.4\lib\net40\EPPlus.dll" />
+    <Content Include="packages\EPPlus.5.0.4\lib\net40\EPPlus.xml" />
+    <Content Include="packages\EPPlus.5.0.4\lib\net45\EPPlus.dll" />
+    <Content Include="packages\EPPlus.5.0.4\lib\net45\EPPlus.xml" />
+    <Content Include="packages\EPPlus.5.0.4\lib\netstandard2.0\EPPlus.dll" />
+    <Content Include="packages\EPPlus.5.0.4\lib\netstandard2.0\EPPlus.xml" />
+    <Content Include="packages\EPPlus.5.0.4\lib\netstandard2.1\EPPlus.dll" />
+    <Content Include="packages\EPPlus.5.0.4\lib\netstandard2.1\EPPlus.xml" />
+    <Content Include="packages\EPPlus.5.0.4\readme.txt" />
     <Content Include="obj\Debug\build.force" />
     <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <Content Include="obj\Debug\MigratorAzureDevops.csproj.CopyComplete" />
@@ -289,6 +287,9 @@
     <Content Include="bin\roslyn\vbc.exe.config" />
     <Content Include="bin\roslyn\vbc.rsp" />
     <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
+    <Content Include="packages\EPPlus.5.0.4\.signature.p7s" />
+    <Content Include="packages\EPPlus.5.0.4\EPPlus.5.0.4.nupkg" />
+    <Content Include="packages\EPPlus.5.0.4\license.md" />
     <None Include="packages\jQuery.3.4.1\Content\Scripts\jquery-3.4.1-vsdoc.js" />
     <Content Include="packages\jQuery.3.4.1\Content\Scripts\jquery-3.4.1.js" />
     <Content Include="packages\jQuery.3.4.1\Content\Scripts\jquery-3.4.1.min.js" />
@@ -394,6 +395,51 @@
     <Content Include="packages\Newtonsoft.Json.12.0.2\lib\portable-net40+sl5+win8+wp8+wpa81\Newtonsoft.Json.xml" />
     <Content Include="packages\Newtonsoft.Json.12.0.2\lib\portable-net45+win8+wp8+wpa81\Newtonsoft.Json.dll" />
     <Content Include="packages\Newtonsoft.Json.12.0.2\lib\portable-net45+win8+wp8+wpa81\Newtonsoft.Json.xml" />
+    <Content Include="packages\SharpCompress.0.24.0\lib\net35\SharpCompress.dll" />
+    <Content Include="packages\SharpCompress.0.24.0\lib\net45\SharpCompress.dll" />
+    <Content Include="packages\SharpCompress.0.24.0\lib\netstandard1.0\SharpCompress.dll" />
+    <Content Include="packages\SharpCompress.0.24.0\lib\netstandard1.3\SharpCompress.dll" />
+    <Content Include="packages\SharpCompress.0.24.0\lib\netstandard2.0\SharpCompress.dll" />
+    <Content Include="packages\System.IO.Compression.4.3.0\dotnet_library_license.txt" />
+    <Content Include="packages\System.IO.Compression.4.3.0\lib\net46\System.IO.Compression.dll" />
+    <Content Include="packages\System.IO.Compression.4.3.0\ref\net46\System.IO.Compression.dll" />
+    <Content Include="packages\System.IO.Compression.4.3.0\ref\netcore50\de\System.IO.Compression.xml" />
+    <Content Include="packages\System.IO.Compression.4.3.0\ref\netcore50\es\System.IO.Compression.xml" />
+    <Content Include="packages\System.IO.Compression.4.3.0\ref\netcore50\fr\System.IO.Compression.xml" />
+    <Content Include="packages\System.IO.Compression.4.3.0\ref\netcore50\it\System.IO.Compression.xml" />
+    <Content Include="packages\System.IO.Compression.4.3.0\ref\netcore50\ja\System.IO.Compression.xml" />
+    <Content Include="packages\System.IO.Compression.4.3.0\ref\netcore50\ko\System.IO.Compression.xml" />
+    <Content Include="packages\System.IO.Compression.4.3.0\ref\netcore50\ru\System.IO.Compression.xml" />
+    <Content Include="packages\System.IO.Compression.4.3.0\ref\netcore50\System.IO.Compression.dll" />
+    <Content Include="packages\System.IO.Compression.4.3.0\ref\netcore50\System.IO.Compression.xml" />
+    <Content Include="packages\System.IO.Compression.4.3.0\ref\netcore50\zh-hans\System.IO.Compression.xml" />
+    <Content Include="packages\System.IO.Compression.4.3.0\ref\netcore50\zh-hant\System.IO.Compression.xml" />
+    <Content Include="packages\System.IO.Compression.4.3.0\ref\netstandard1.1\de\System.IO.Compression.xml" />
+    <Content Include="packages\System.IO.Compression.4.3.0\ref\netstandard1.1\es\System.IO.Compression.xml" />
+    <Content Include="packages\System.IO.Compression.4.3.0\ref\netstandard1.1\fr\System.IO.Compression.xml" />
+    <Content Include="packages\System.IO.Compression.4.3.0\ref\netstandard1.1\it\System.IO.Compression.xml" />
+    <Content Include="packages\System.IO.Compression.4.3.0\ref\netstandard1.1\ja\System.IO.Compression.xml" />
+    <Content Include="packages\System.IO.Compression.4.3.0\ref\netstandard1.1\ko\System.IO.Compression.xml" />
+    <Content Include="packages\System.IO.Compression.4.3.0\ref\netstandard1.1\ru\System.IO.Compression.xml" />
+    <Content Include="packages\System.IO.Compression.4.3.0\ref\netstandard1.1\System.IO.Compression.dll" />
+    <Content Include="packages\System.IO.Compression.4.3.0\ref\netstandard1.1\System.IO.Compression.xml" />
+    <Content Include="packages\System.IO.Compression.4.3.0\ref\netstandard1.1\zh-hans\System.IO.Compression.xml" />
+    <Content Include="packages\System.IO.Compression.4.3.0\ref\netstandard1.1\zh-hant\System.IO.Compression.xml" />
+    <Content Include="packages\System.IO.Compression.4.3.0\ref\netstandard1.3\de\System.IO.Compression.xml" />
+    <Content Include="packages\System.IO.Compression.4.3.0\ref\netstandard1.3\es\System.IO.Compression.xml" />
+    <Content Include="packages\System.IO.Compression.4.3.0\ref\netstandard1.3\fr\System.IO.Compression.xml" />
+    <Content Include="packages\System.IO.Compression.4.3.0\ref\netstandard1.3\it\System.IO.Compression.xml" />
+    <Content Include="packages\System.IO.Compression.4.3.0\ref\netstandard1.3\ja\System.IO.Compression.xml" />
+    <Content Include="packages\System.IO.Compression.4.3.0\ref\netstandard1.3\ko\System.IO.Compression.xml" />
+    <Content Include="packages\System.IO.Compression.4.3.0\ref\netstandard1.3\ru\System.IO.Compression.xml" />
+    <Content Include="packages\System.IO.Compression.4.3.0\ref\netstandard1.3\System.IO.Compression.dll" />
+    <Content Include="packages\System.IO.Compression.4.3.0\ref\netstandard1.3\System.IO.Compression.xml" />
+    <Content Include="packages\System.IO.Compression.4.3.0\ref\netstandard1.3\zh-hans\System.IO.Compression.xml" />
+    <Content Include="packages\System.IO.Compression.4.3.0\ref\netstandard1.3\zh-hant\System.IO.Compression.xml" />
+    <Content Include="packages\System.IO.Compression.4.3.0\runtimes\unix\lib\netstandard1.3\System.IO.Compression.dll" />
+    <Content Include="packages\System.IO.Compression.4.3.0\runtimes\win\lib\net46\System.IO.Compression.dll" />
+    <Content Include="packages\System.IO.Compression.4.3.0\runtimes\win\lib\netstandard1.3\System.IO.Compression.dll" />
+    <Content Include="packages\System.IO.Compression.4.3.0\ThirdPartyNotices.txt" />
     <Content Include="packages\WebGrease.1.6.0\lib\WebGrease.dll" />
     <Content Include="packages\WebGrease.1.6.0\tools\WG.EXE" />
     <Content Include="Scripts\bootstrap.js" />
@@ -421,9 +467,6 @@
     <Content Include="packages\bootstrap.3.4.1\content\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="packages\EPPlus.4.0.1.1\.signature.p7s" />
     <Content Include="packages\EPPlus.4.0.1.1\EPPlus.4.0.1.1.nupkg" />
-    <Content Include="packages\ExcelToClasses.1.1.3\.signature.p7s" />
-    <Content Include="packages\ExcelToClasses.1.1.3\content\Excel Code Generation\T4Helper.ttinclude" />
-    <Content Include="packages\ExcelToClasses.1.1.3\ExcelToClasses.1.1.3.nupkg" />
     <Content Include="packages\jQuery.3.4.1\.signature.p7s" />
     <Content Include="packages\jQuery.3.4.1\Content\Scripts\jquery-3.4.1.min.map" />
     <Content Include="packages\jQuery.3.4.1\Content\Scripts\jquery-3.4.1.slim.min.map" />
@@ -495,6 +538,30 @@
     <Content Include="packages\Newtonsoft.Json.12.0.2\Newtonsoft.Json.12.0.2.nupkg" />
     <Content Include="packages\WebGrease.1.6.0\.signature.p7s" />
     <Content Include="packages\WebGrease.1.6.0\WebGrease.1.6.0.nupkg" />
+    <Content Include="packages\SharpCompress.0.24.0\.signature.p7s" />
+    <Content Include="packages\SharpCompress.0.24.0\SharpCompress.0.24.0.nupkg" />
+    <Content Include="packages\System.IO.Compression.4.3.0\.signature.p7s" />
+    <Content Include="packages\System.IO.Compression.4.3.0\lib\MonoAndroid10\_._" />
+    <Content Include="packages\System.IO.Compression.4.3.0\lib\MonoTouch10\_._" />
+    <Content Include="packages\System.IO.Compression.4.3.0\lib\net45\_._" />
+    <Content Include="packages\System.IO.Compression.4.3.0\lib\portable-net45+win8+wpa81\_._" />
+    <Content Include="packages\System.IO.Compression.4.3.0\lib\win8\_._" />
+    <Content Include="packages\System.IO.Compression.4.3.0\lib\wpa81\_._" />
+    <Content Include="packages\System.IO.Compression.4.3.0\lib\xamarinios10\_._" />
+    <Content Include="packages\System.IO.Compression.4.3.0\lib\xamarinmac20\_._" />
+    <Content Include="packages\System.IO.Compression.4.3.0\lib\xamarintvos10\_._" />
+    <Content Include="packages\System.IO.Compression.4.3.0\lib\xamarinwatchos10\_._" />
+    <Content Include="packages\System.IO.Compression.4.3.0\ref\MonoAndroid10\_._" />
+    <Content Include="packages\System.IO.Compression.4.3.0\ref\MonoTouch10\_._" />
+    <Content Include="packages\System.IO.Compression.4.3.0\ref\net45\_._" />
+    <Content Include="packages\System.IO.Compression.4.3.0\ref\portable-net45+win8+wpa81\_._" />
+    <Content Include="packages\System.IO.Compression.4.3.0\ref\win8\_._" />
+    <Content Include="packages\System.IO.Compression.4.3.0\ref\wpa81\_._" />
+    <Content Include="packages\System.IO.Compression.4.3.0\ref\xamarinios10\_._" />
+    <Content Include="packages\System.IO.Compression.4.3.0\ref\xamarinmac20\_._" />
+    <Content Include="packages\System.IO.Compression.4.3.0\ref\xamarintvos10\_._" />
+    <Content Include="packages\System.IO.Compression.4.3.0\ref\xamarinwatchos10\_._" />
+    <Content Include="packages\System.IO.Compression.4.3.0\System.IO.Compression.4.3.0.nupkg" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
