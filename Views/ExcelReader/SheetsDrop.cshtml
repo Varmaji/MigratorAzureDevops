@@ -13,11 +13,49 @@
     <title>SheetsDrop</title>
 </head>
 <body>
-    <div>
-        @foreach (var state in Model.Sheets)
-        {
-            <h2>@state</h2>
-        }
+    <div class="col-md-3 dropdowns" style="margin-top:10px">
+        <label style="margin-top:20px;">
+            <b>
+                Sheet Names
+            </b>
+        </label>
+        @Html.DropDownListFor(m => m.Sheets, // Store selected value in Model.sheets
+
+
+                         new SelectList(Model.Sheets.Keys),
+
+                         // A class name to put on the "<select>"
+                         new { @class = "form-control", @id = "Sheets" }
+                         )
+
     </div>
+
+
+
+
 </body>
 </html>
+
+<script>
+    $('#Sheets').change(function () {
+        var selectedSheet = $('#Sheets').val();
+        var Name = @Html.Raw(Model);
+        
+         @*$.ajax({
+                    type: 'get',
+                    dataType: 'json',
+                    data: { 'Sheet': selectedSheet },
+                    url: '@Url.Action("ColumnsInSheet", "ExcelReader")',
+             success: function (data) {
+                 console.log(data);
+                    },
+                    failure: function (data) {
+                        if (data == null) {
+                            alert("No Worksheet");
+                        }
+                    }
+         });*@
+
+    }
+
+</script>

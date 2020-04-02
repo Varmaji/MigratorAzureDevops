@@ -63,14 +63,14 @@ namespace MigratorAzureDevops.Controllers
                 Sheets = sheets,
                 fields=fieldsList.value
             }; 
-            return View("SheetsDrop",model);
+                return View("SheetsDrop",model);
 
         }
         public void ReadExcel(ExcelPackage Excel)
         {
             //Console.Write("Enter The Ecel File Path:");
             /*string ExcelPath=Console.ReadLine();*/
-            sheets = = new Dictionary<string, DataTable>();
+            sheets = new Dictionary<string, DataTable>();
             foreach ( var WorkSheet in Excel.Workbook.Worksheets)
             {
                 DataTable Dt = new DataTable();
@@ -110,6 +110,13 @@ namespace MigratorAzureDevops.Controllers
                     sheets.Add(WorkSheet.Name, Dt);
             }
             /*return sheets;*/
+        }
+
+        public JsonResult ColumnsInSheet(string SheetName)
+        {
+
+
+            return Json(DT, JsonRequestBehavior.AllowGet);
         }
     }
 }
