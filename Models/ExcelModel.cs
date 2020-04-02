@@ -15,6 +15,7 @@ namespace MigratorAzureDevops.Models
     public class sheetList
     {
         public Dictionary<string,DataTable> Sheets { get; set; }
+        public string  selectedSheet { get; set; }
         public List<Field> fields { get; set; }
     }
     public class Fields
