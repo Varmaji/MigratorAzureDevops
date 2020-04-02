@@ -153,14 +153,6 @@
     <Compile Include="Models\ExcelFields.cs" />
     <Compile Include="Models\ExcelModel.cs" />
     <Compile Include="Models\WiModel.cs" />
-    <Compile Include="packages\ExcelToClasses.1.1.3\content\Excel Code Generation\ClassGenerator.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ClassGenerator.tt</DependentUpon>
-    </Compile>
-    <Compile Include="packages\ExcelToClasses.1.1.3\content\Excel Code Generation\DataSetAnnotations.cs">
-      <DependentUpon>ClassGenerator.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -225,12 +217,18 @@
     <Content Include="packages\EPPlus.4.0.1.1\lib\net20\EPPlus.dll" />
     <Content Include="packages\EPPlus.4.0.1.1\lib\net20\EPPlus.XML" />
     <Content Include="packages\EPPlus.4.0.1.1\readme.txt" />
-    <Content Include="packages\ExcelToClasses.1.1.3\content\Excel Code Generation\ClassGenerator.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ClassGenerator.cs</LastGenOutput>
-    </Content>
-    <Content Include="packages\ExcelToClasses.1.1.3\lib\ExcelLibrary.dll" />
-    <Content Include="packages\ExcelToClasses.1.1.3\readme.txt" />
+    <Content Include="packages\EPPlus.5.0.4\EPPlusLogo.png" />
+    <Content Include="packages\EPPlus.5.0.4\lib\net35\EPPlus.dll" />
+    <Content Include="packages\EPPlus.5.0.4\lib\net35\EPPlus.xml" />
+    <Content Include="packages\EPPlus.5.0.4\lib\net40\EPPlus.dll" />
+    <Content Include="packages\EPPlus.5.0.4\lib\net40\EPPlus.xml" />
+    <Content Include="packages\EPPlus.5.0.4\lib\net45\EPPlus.dll" />
+    <Content Include="packages\EPPlus.5.0.4\lib\net45\EPPlus.xml" />
+    <Content Include="packages\EPPlus.5.0.4\lib\netstandard2.0\EPPlus.dll" />
+    <Content Include="packages\EPPlus.5.0.4\lib\netstandard2.0\EPPlus.xml" />
+    <Content Include="packages\EPPlus.5.0.4\lib\netstandard2.1\EPPlus.dll" />
+    <Content Include="packages\EPPlus.5.0.4\lib\netstandard2.1\EPPlus.xml" />
+    <Content Include="packages\EPPlus.5.0.4\readme.txt" />
     <Content Include="obj\Debug\build.force" />
     <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <Content Include="obj\Debug\MigratorAzureDevops.csproj.CopyComplete" />
@@ -240,6 +238,9 @@
     <Content Include=".vs\MigratorAzureDevops\v16\Server\sqlite3\storage.ide" />
     <Content Include=".vs\slnx.sqlite" />
     <Content Include=".vs\VSWorkspaceState.json" />
+    <Content Include="packages\EPPlus.5.0.4\.signature.p7s" />
+    <Content Include="packages\EPPlus.5.0.4\EPPlus.5.0.4.nupkg" />
+    <Content Include="packages\EPPlus.5.0.4\license.md" />
     <None Include="packages\jQuery.3.4.1\Content\Scripts\jquery-3.4.1-vsdoc.js" />
     <Content Include="packages\jQuery.3.4.1\Content\Scripts\jquery-3.4.1.js" />
     <Content Include="packages\jQuery.3.4.1\Content\Scripts\jquery-3.4.1.min.js" />
@@ -372,9 +373,6 @@
     <Content Include="packages\bootstrap.3.4.1\content\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="packages\EPPlus.4.0.1.1\.signature.p7s" />
     <Content Include="packages\EPPlus.4.0.1.1\EPPlus.4.0.1.1.nupkg" />
-    <Content Include="packages\ExcelToClasses.1.1.3\.signature.p7s" />
-    <Content Include="packages\ExcelToClasses.1.1.3\content\Excel Code Generation\T4Helper.ttinclude" />
-    <Content Include="packages\ExcelToClasses.1.1.3\ExcelToClasses.1.1.3.nupkg" />
     <Content Include="packages\jQuery.3.4.1\.signature.p7s" />
     <Content Include="packages\jQuery.3.4.1\Content\Scripts\jquery-3.4.1.min.map" />
     <Content Include="packages\jQuery.3.4.1\Content\Scripts\jquery-3.4.1.slim.min.map" />
