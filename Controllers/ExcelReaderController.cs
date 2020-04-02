@@ -70,7 +70,7 @@ namespace MigratorAzureDevops.Controllers
         {
             //Console.Write("Enter The Ecel File Path:");
             /*string ExcelPath=Console.ReadLine();*/
-            sheets = = new Dictionary<string, DataTable>();
+            sheets  = new Dictionary<string, DataTable>();
             foreach ( var WorkSheet in Excel.Workbook.Worksheets)
             {
                 DataTable Dt = new DataTable();
