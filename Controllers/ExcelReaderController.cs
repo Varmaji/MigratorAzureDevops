@@ -63,7 +63,7 @@ namespace MigratorAzureDevops.Controllers
                 Sheets = sheets,
                 fields=fieldsList.value
             }; 
-            return View("SheetsDrop",model);
+                return View("SheetsDrop",model);
 
         }
         public void ReadExcel(ExcelPackage Excel)
@@ -110,6 +110,13 @@ namespace MigratorAzureDevops.Controllers
                     sheets.Add(WorkSheet.Name, Dt);
             }
             /*return sheets;*/
+        }
+
+        public JsonResult ColumnsInSheet(string SheetName)
+        {
+
+
+            return Json(DT, JsonRequestBehavior.AllowGet);
         }
     }
 }
