@@ -9,13 +9,16 @@ using System.Web.Mvc;
 using Excel = Microsoft.Office.Interop.Excel;
 using OfficeOpenXml;
 using MigratorAzureDevops.Models;
+using Newtonsoft.Json;
+
 namespace MigratorAzureDevops.Controllers
 {
     public class ExcelReaderController : Controller
     {
-        static Dictionary<string, DataTable> sheets = new Dictionary<string, DataTable>();
+        static Dictionary<string, DataTable> sheets;
         static DataTable DT;
         static List<string> TitleColumns = new List<string>();
+        
         // GET: ExcelReader
         public ActionResult Index()
         {
@@ -32,14 +35,14 @@ namespace MigratorAzureDevops.Controllers
         public ActionResult ReadExcelFile(HttpPostedFileBase Excel)
         {
             //URI = @"https://dev.azure.com/" + Org + "/";
-            //UserPAT = Session["PAT"] != null ? Session["PAT"].ToString() : "";
-            //ProjectName = Proj;
+            string UserPAT = "";
+            string ProjectName = "test2";
             try
             {
                 var excelStream = Excel.InputStream;              
                 ExcelPackage excel = new ExcelPackage(excelStream);
                 //WIOps.ConnectWithPAT(URI, UserPAT);
-                ReadExcel(excel);
+               ReadExcel(excel);
                 
             }
             catch (IndexOutOfRangeException)
@@ -52,17 +55,22 @@ namespace MigratorAzureDevops.Controllers
                 ViewBag.message = "Something Went Wrong, Please Download Excel/Attachments From 'Export Attachments'";
 
             }
+            APIRequest req = new APIRequest(UserPAT);
+            string response=req.ApiRequest("https://dev.azure.com/sagorg1/test2/_apis/wit/fields?api-version=5.1");
+            Fields fieldsList = JsonConvert.DeserializeObject<Fields>(response);
             var model = new sheetList()
             {
-                Sheets = sheets
+                Sheets = sheets,
+                fields=fieldsList.value
             }; 
-            return Json(model,JsonRequestBehavior.AllowGet);
+            return View("SheetsDrop",model);
 
         }
         public void ReadExcel(ExcelPackage Excel)
         {
             //Console.Write("Enter The Ecel File Path:");
             /*string ExcelPath=Console.ReadLine();*/
+            sheets = = new Dictionary<string, DataTable>();
             foreach ( var WorkSheet in Excel.Workbook.Worksheets)
             {
                 DataTable Dt = new DataTable();
