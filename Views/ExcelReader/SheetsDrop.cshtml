@@ -19,43 +19,54 @@
                 Sheet Names
             </b>
         </label>
-        @Html.DropDownListFor(m => m.Sheets, // Store selected value in Model.sheets
-
-
-                         new SelectList(Model.Sheets.Keys),
-
-                         // A class name to put on the "<select>"
-                         new { @class = "form-control", @id = "Sheets" }
-                         )
+        @Html.DropDownList("sheet", new SelectList( ViewBag.Selectlist,"Value","Text"), "<select>", new { @class = "form-control", @id = "Sheets" })
 
     </div>
+    <table class="table table-hover" id="table" >
+        <thead>
+            <tr>
+                @*<th>Environment Name</th>*@
+                <th align="center">Excel Columns</th>
+                <th align="center">Fields</th>
+            </tr>
+        </thead>
 
+        <tbody id="body">
+            <tr>
+        
+            </tr>
+        </tbody>
+    </table>
 
 
 
 </body>
 </html>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
     $('#Sheets').change(function () {
         var selectedSheet = $('#Sheets').val();
-        var Name = @Html.Raw(Model);
-        
-         @*$.ajax({
-                    type: 'get',
-                    dataType: 'json',
-                    data: { 'Sheet': selectedSheet },
-                    url: '@Url.Action("ColumnsInSheet", "ExcelReader")',
-             success: function (data) {
-                 console.log(data);
-                    },
-                    failure: function (data) {
-                        if (data == null) {
-                            alert("No Worksheet");
-                        }
-                    }
-         });*@
 
-    }
+        var Dt = JSON.parse(selectedSheet);
+        var FieledList = @Html.Raw(Json.Encode(ViewBag.fields));
+        console.log(FieledList);
+        $("#table").empty();
+        for (let key in  Dt[0])
+        {
+            if (Dt[0].hasOwnProperty(key)) {
+                
+                var row = "<tr ><td>" + key + "</td><td><select class='SelectLists onChange'><option value='0'><Ignore></option>";
+                for (let i = 0; i < FieledList.length; i++)
+                {
+                    console.log(FieledList[i].Text);
+                    row += "<option value=" + FieledList[i].Text + ">"+FieledList[i].Text+"</option>";
+                }
+                row += "</select></td></tr>";
+                $("#table").append(row);
 
+            }
+       
+        }       
+
+    })
 </script>

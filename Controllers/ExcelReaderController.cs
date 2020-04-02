@@ -62,10 +62,26 @@ namespace MigratorAzureDevops.Controllers
             {
                 Sheets = sheets,
                 fields=fieldsList.value
-            }; 
+            };
+            string data = JsonConvert.SerializeObject(model);
+            ViewBag.model = data;
+            List<SelectListItem> list =new List<SelectListItem>();
+            foreach (var key in model.Sheets.Keys)
+            {
+                list.Add(new SelectListItem() { Text = key, Value = JsonConvert.SerializeObject(model.Sheets[key]) });
+            }
+            List<SelectListItem> flist = new List<SelectListItem>();
+            foreach (var field in model.fields)
+            {
+                flist.Add(new SelectListItem() { Text = field.name, Value = field.name });
+            }
+            ViewBag.fields = flist;
+            ViewBag.Selectlist = list;
                 return View("SheetsDrop",model);
 
         }
+
+        
         public void ReadExcel(ExcelPackage Excel)
         {
             //Console.Write("Enter The Ecel File Path:");
