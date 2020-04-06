@@ -12,6 +12,11 @@
     <meta name="viewport" content="width=device-width" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
     <title>SheetsDrop</title>
+    <style>
+        .disabled {
+            display: none;
+        }
+    </style>
 </head>
 <body>
     <div class="col-md-3 dropdowns" style="margin-top:10px">
@@ -20,24 +25,25 @@
                 Sheet Names
             </b>
         </label>
-        @Html.DropDownList("sheet", new SelectList( ViewBag.Selectlist,"Value","Text"), "<select>", new { @class = "form-control", @id = "Sheets" })
+        @Html.DropDownList("sheet", new SelectList(ViewBag.Selectlist, "Value", "Text"), "<select>", new { @class = "form-control", @id = "Sheets", onchange = "Tablechange()" })
 
     </div>
-    <table class="table table-hover" id="table" >
-        <thead>
-            <tr>
-                @*<th>Environment Name</th>*@
-                <th align="center">Excel Columns</th>
-                <th align="center">Fields</th>
-            </tr>
-        </thead>
+    <div>
+        <table class="table table-bordered" id="tableData">
+            <thead>
+                <tr id="rowValue">
+                    @*<th>Environment Name</th>*@
+                    <th align="center">Excel Columns</th>
+                    <th align="center">Fields</th>
+                </tr>
+            </thead>
 
-        <tbody id="body">
-            <tr>
-        
-            </tr>
-        </tbody>
-    </table>
+            <tbody id="body">
+            </tbody>
+        </table>
+    </div>
+
+    <input type="submit" value="Next" onclick="showTableData()" class="btn-success form-control" style="margin-right:1220px;" />
 
 
 
@@ -45,29 +51,89 @@
 </html>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
-    $('#Sheets').change(function () {
+   function Tablechange() {
         var selectedSheet = $('#Sheets').val();
 
         var Dt = JSON.parse(selectedSheet);
         var FieledList = @Html.Raw(Json.Encode(ViewBag.fields));
-        console.log(FieledList);
+
+
         $("#table").empty();
-        for (let key in  Dt[0])
-        {
+        for (let key in Dt[0]) {
             if (Dt[0].hasOwnProperty(key)) {
-                
-                var row = "<tr ><td>" + key + "</td><td><select class='SelectLists onChange'><option value='0'><Ignore></option>";
-                for (let i = 0; i < FieledList.length; i++)
-                {
+
+                var row = "<tr ><td>" + key + "</td><td><select class='list' onchange='DropDownValue(this)'><option value='0'>--Ignore--</option>";
+                for (let i = 0; i < FieledList.length; i++) {
                     console.log(FieledList[i].Text);
-                    row += "<option value=" + FieledList[i].Text + ">"+FieledList[i].Text+"</option>";
+                    row += "<option value='" + FieledList[i].Text + "'>" + FieledList[i].Text + "</option>";
                 }
                 row += "</select></td></tr>";
-                $("#table").append(row);
+                $("#tableData").append(row);
+            }
+        }
+    }
+    var currentval = "";
+    function DropDownValue(changed) {
+        $('.disabled').removeClass('disabled');
+        var val = $(changed).val();
+        console.log(val);
+        var list = $('.list');
+        var seletlist = [];
+        for (let i = 0; i < list.length; i++) {
+            var val = $(list[i]).val();
+            if (val != '0') {
+                seletlist[seletlist.length] = val;
+            }
+        }
+        console.log(seletlist);
+        for (let i = 0; i < list.length; i++) {
+            for (let j = 0; j < seletlist.length; j++) {
+                var val = $(list[i]).val();
+                if (val != seletlist[j]) {
+                    var optionlist = $(list[i]).children();
+                    for (let i = 0; i < optionlist.length; i++) {
+                        if ($(optionlist[i]).val() == seletlist[j]) {
+                            $(optionlist[i]).addClass('disabled');
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+
+    function showTableData() {
+        //document.getElementById('info').innerHTML = "";
+        var myTab = document.getElementById('tableData');
+        var exportData = new Object;
+        // LOOP THROUGH EACH ROW OF THE TABLE AFTER HEADER.
+        for (i = 1; i < myTab.rows.length; i++) {
+            // GET THE CELLS COLLECTION OF THE CURRENT ROW.
+            var objCells = myTab.rows.item(i).cells;
+            if ($(objCells.item(1).firstChild).val() != "0") {
+                var key = (objCells.item(0).innerHTML);
+                exportData[key] = $(objCells.item(1).firstChild).val();
+                
+
+                //console.log(obj);
+                //exportData.push(obj);
+            }
+        }
+        console.log(exportData);
+
+        var myDictionary = exportData;
+        $.ajax({
+            type: "POST",
+            url:'@Url.Action("createExcel", "ExcelReader")',
+            data: { "myDictionary": myDictionary },
+            success: function (data) {
 
             }
-       
-        }       
-
-    })
+           
+        });
+        console.log(Response);
+            ////ajax method
+                 // ADD A BREAK (TAG)
+    }
 </script>

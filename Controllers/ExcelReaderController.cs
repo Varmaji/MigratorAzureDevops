@@ -128,11 +128,10 @@ namespace MigratorAzureDevops.Controllers
             /*return sheets;*/
         }
 
-        public JsonResult ColumnsInSheet(string SheetName)
+        
+        public  void createExcel(Dictionary<string, string> myDictionary)
         {
 
-
-            return Json(DT, JsonRequestBehavior.AllowGet);
         }
     }
 }
