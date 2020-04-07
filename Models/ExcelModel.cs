@@ -28,5 +28,14 @@ namespace MigratorAzureDevops.Models
     {
         public string name { get; set; }
     }
+    public class inputmodel
+    {
+        public Dictionary<string,string> MappedFields { get;set; }
+        public string Organisation { get; set; }
+        public string SourceProj { get; set; }
+        public string DestinationProj { get; set; }
+        public string PAT { get; set; }
+        public string SheetName { get; set; }
 
+    }
 }
