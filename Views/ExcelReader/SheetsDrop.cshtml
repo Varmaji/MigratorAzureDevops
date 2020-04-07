@@ -1,7 +1,7 @@
 ﻿
-
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
 }
 
 <!DOCTYPE html>
@@ -19,32 +19,33 @@
     </style>
 </head>
 <body>
-    <div class="col-md-3 dropdowns" style="margin-top:10px">
-        <label style="margin-top:20px;">
-            <b>
-                Sheet Names
-            </b>
-        </label>
-        @Html.DropDownList("sheet", new SelectList(ViewBag.Selectlist, "Value", "Text"), "<select>", new { @class = "form-control", @id = "Sheets", onchange = "Tablechange()" })
+    <div style="margin-left:200px">
+        <div class="col-md-3 dropdowns">
+            <label style="margin-top:20px;">
+                <b>
+                    Sheet Names
+                </b>
+            </label>
+            @Html.DropDownList("sheet", new SelectList(ViewBag.Selectlist, "Value", "Text"), "<select>", new { @class = "form-control", @id = "Sheets", onchange = "Tablechange()" })
 
+        </div>
+        <div>
+            <table class="table table-bordered" id="tableData">
+                <thead>
+                    <tr id="rowValue">
+                        @*<th>Environment Name</th>*@
+                        <th align="center">Excel Columns</th>
+                        <th align="center">Fields</th>
+                    </tr>
+                </thead>
+
+                <tbody id="body">
+                </tbody>
+            </table>
+        </div>
+
+        <input type="submit" value="Next" onclick="showTableData()" class="btn-success form-control" style="margin-right:1220px;" />
     </div>
-    <div>
-        <table class="table table-bordered" id="tableData">
-            <thead>
-                <tr id="rowValue">
-                    @*<th>Environment Name</th>*@
-                    <th align="center">Excel Columns</th>
-                    <th align="center">Fields</th>
-                </tr>
-            </thead>
-
-            <tbody id="body">
-            </tbody>
-        </table>
-    </div>
-
-    <input type="submit" value="Next" onclick="showTableData()" class="btn-success form-control" style="margin-right:1220px;" />
-
 
 
 </body>
@@ -114,7 +115,7 @@
             if ($(objCells.item(1).firstChild).val() != "0") {
                 var key = (objCells.item(0).innerHTML);
                 exportData[key] = $(objCells.item(1).firstChild).val();
-                
+
 
                 //console.log(obj);
                 //exportData.push(obj);
@@ -130,7 +131,7 @@
             success: function (data) {
 
             }
-           
+
         });
         console.log(Response);
             ////ajax method
