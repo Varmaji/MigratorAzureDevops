@@ -20,12 +20,12 @@
             console.log(x);
             $('#ex').html(x[2]);
         }
-        /*     if (b != '') {
-                 var x = b.split('\\');
-                 console.log(x);
-                 $('#zp').html(x[2]);
-             }*/
-        if (($('input[name$="Excel"]').val() == '') || ($('#org').val() == 0) || ($('#proj').val() == 0)) {
+   /*     if (b != '') {
+            var x = b.split('\\');
+            console.log(x);
+            $('#zp').html(x[2]);
+        }*/
+        if (($('input[name$="Excel"]').val() == '') || ($('#Organisation').val() == 0)|| ($('#SourceProj').val() == 0) || ($('#DestionationProj').val() == 0)) {
             document.getElementById("submit").disabled = true;
 
             return;
@@ -35,14 +35,21 @@
 </script>
 @using (Html.BeginForm("ReadExcelFile", "ExcelReader", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
-    <div style="margin-left:300px;margin-top:50px;">
-        <div class="form-row">
-            <label id="ex" class="btn btn-success" for="Excel">Choose Excel</label>
-            <input id="Excel" type="file" name="Excel" data-max-size="321540" accept=".xls,.xlsx" style="display:none" onchange="check()" />
-        </div>
-        <div class="btn btn-dark">
-            <button id="submit" class="btn btn-dark">Submit</button>
-        </div>
+    <div class="form-row">
+        <label id="ex" class="btn btn-success" for="Excel">Choose Excel</label>
+        <input id="Excel" type="file" name="Excel" data-max-size="321540" accept=".xls,.xlsx" style="display:none" onchange="check()" />
+        </div><div class="form-row">
+        <lable>Organisation:</lable><input id="Organisation" type="text" name="Organisation" onchange="check()" />
+        <lable>PAT:</lable><input id="PAT" type="text" name="PAT" onchange="check()" />
+    </div>
+    <div class="form-row">
+    <lable>Source Project:</lable><input id="SourceProj" type="text" name="SourceProj"  onchange="check()" />
+        <lable> Destination Project:</lable><input id="DestionationProj" type="text" name="DestionationProj"  onchange="check()" />
+    </div>
+    <br />
+    <br />
+    <div>
+        <button id="submit" class="btn btn-dark">Submit</button>
     </div>
 }
 

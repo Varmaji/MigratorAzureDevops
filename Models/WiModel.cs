@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MigratorAzureDevops.Models
 {
-    class WorkitemFromExcel
+    public class WorkitemFromExcel
     {
         public int id { get; set; }
         public string tittle { get; set; }
@@ -17,7 +17,7 @@ namespace MigratorAzureDevops.Models
         public string Itertation { get; set; }
         //public string  WiState { get; set; }
     }
-    class ParentWorkItem
+    public class ParentWorkItem
     {
         public int Id { get; set; }
         public string tittle { get; set; }
