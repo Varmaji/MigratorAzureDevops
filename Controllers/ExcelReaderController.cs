@@ -46,7 +46,7 @@ namespace MigratorAzureDevops.Controllers
             {
                 var excelStream = Excel.InputStream;              
                 ExcelPackage excel = new ExcelPackage(excelStream);
-                //WIOps.ConnectWithPAT(URI, UserPAT);
+             
                ReadExcel(excel);
                 
             }
@@ -55,10 +55,9 @@ namespace MigratorAzureDevops.Controllers
                 ViewBag.message = "No Work Sheets Found";
             }
             catch (Exception ex)
-            {
-                //throw ex;
+            {                
                 ViewBag.message = "Something Went Wrong, Please Download Excel/Attachments From 'Export Attachments'";
-
+                throw (ex);
             }
             BaseUrl += Organisation;
             ProjectName = DestionationProj;
@@ -88,7 +87,6 @@ namespace MigratorAzureDevops.Controllers
             ViewBag.fields = flist;
             ViewBag.Selectlist = list;
                 return View("SheetsDrop");
-
         }
 
         
@@ -103,13 +101,13 @@ namespace MigratorAzureDevops.Controllers
                 int rowCount = WorkSheet.Dimension.End.Row;
                 int colCount = WorkSheet.Dimension.End.Column;                
                 DataRow row;
-                for (int i = 1; i <= rowCount; i++)
+                for (int i = WorkSheet.Dimension.Start.Row; i <= rowCount; i++)
                 {
                     row = Dt.NewRow();
-                    for (int j = 1; j <= colCount; j++)
+                    for (int j = WorkSheet.Dimension.Start.Column; j <= colCount; j++)
                     {
-                        string ColName;
-                        if (i == 1)
+                        string ColName="";
+                        if (i == WorkSheet.Dimension.Start.Row)
                         {
                             ColName = WorkSheet.Cells[i, j].Value.ToString();
                             if (ColName.StartsWith("Title"))
@@ -121,12 +119,12 @@ namespace MigratorAzureDevops.Controllers
                         }
                         else
                         {
-                            ColName = WorkSheet.Cells[1, j].Value.ToString();
+                            ColName = WorkSheet.Cells[WorkSheet.Dimension.Start.Row, j].Value.ToString();
                             if (WorkSheet.Cells[i, j].Value != null)
                                 row[ColName] = WorkSheet.Cells[i, j].Value.ToString();
                         }
                     }
-                    if (i != 1)
+                    if (i != WorkSheet.Dimension.Start.Row)
                         Dt.Rows.Add(row);
                 }
                 int x = 1;
@@ -143,24 +141,19 @@ namespace MigratorAzureDevops.Controllers
         [HttpPost]
         public JsonResult createExcel(Dictionary<string, string> FList,string SheetName)
         {
-            string status = "";
+           
             try
             {
                 MappedFields = FList;
                 DT = sheets[SheetName];
-                List<WorkitemFromExcel> WiList = GetWorkItems();
-                if (WiList.Count <= 0)
-                    return Json("Some Error Has Occured", JsonRequestBehavior.AllowGet);
+                List<WorkitemFromExcel> WiList = GetWorkItems();               
                 CreateLinks(WiList);
                 bool isUpdated=UpdateWIFields();
-                if (isUpdated==true)
-                    status = "Successfully Migrated" + DT.Rows.Count + " WorkItems";
-                else
-                    status = "Something Went Wrong";
-                return Json(status, JsonRequestBehavior.AllowGet);
+                WIOps.status="Successfully Migrated workitems";
+                return Json(WIOps.status, JsonRequestBehavior.AllowGet);
             }catch(Exception E)
             {
-                return Json(E.InnerException, JsonRequestBehavior.AllowGet);
+                return Json(E.InnerException.ToString(), JsonRequestBehavior.AllowGet);
             }
 
         }
@@ -206,8 +199,9 @@ namespace MigratorAzureDevops.Controllers
             }
             catch (Exception E)
             {
+                
                 throw(E);
-                return null;
+                
             }
 
         }
@@ -255,7 +249,6 @@ namespace MigratorAzureDevops.Controllers
             }
             catch (Exception E)
             {
-                throw(E);
                 return null;
             }
 
@@ -264,17 +257,24 @@ namespace MigratorAzureDevops.Controllers
 
         static int createWorkItem(DataRow Dr)
         {
-            Dictionary<string, object> fields = new Dictionary<string, object>();
-            foreach (DataColumn column in DT.Columns)
+            try
             {
-                if (!string.IsNullOrEmpty(Dr[column].ToString()))
+                Dictionary<string, object> fields = new Dictionary<string, object>();
+                foreach (DataColumn column in DT.Columns)
                 {
-                    if (column.ToString().StartsWith("Title"))
-                        fields.Add("Title", Dr[column].ToString());
+                    if (!string.IsNullOrEmpty(Dr[column].ToString()))
+                    {
+                        if (column.ToString().StartsWith("Title"))
+                            fields.Add("Title", Dr[column].ToString());
+                    }
                 }
+                var newWi = WIOps.CreateWorkItem(ProjectName, Dr["Work Item Type"].ToString(), fields);
+                return newWi.Id.Value;
             }
-            var newWi = WIOps.CreateWorkItem(ProjectName, Dr["Work Item Type"].ToString(), fields);            
-            return newWi.Id.Value;
+            catch(Exception E)
+            {
+                return -1;
+            }
         }
         public static bool UpdateWIFields()
         {
@@ -308,7 +308,7 @@ namespace MigratorAzureDevops.Controllers
             }
             catch (Exception E)
             {
-                return false;
+                throw (E);
             }
 
         }
