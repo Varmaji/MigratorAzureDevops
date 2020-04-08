@@ -214,7 +214,6 @@
     <Compile Include="Controllers\ExcelReaderController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Class\Operations.cs" />
-    <Compile Include="Controllers\OpenExcelController.cs" />
     <Compile Include="Controllers\WelcomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

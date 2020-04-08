@@ -8,15 +8,20 @@
     <div class="header"><h2>Welcome</h2></div>
     <div class="info">
         <p>This wizard enables you to do the following:</p><br />
-        <p>1. Migrate work item(s) from an Excel workbook into TFS work item(s). Supported work item types are Test Cases, User Stories/Requirements and Bugs.</p><br />
-        <p>2. Migrate VS2005/VS2008 manual test cases templates from a Word/MHT document into a TFS test case work item."</p><br />
+       
+        <p>Migrate work item(s) from an Excel workbook into Azure work item(s). Supported work item types are Epic, User Story, Feature, Product Backlog Item, Task,Test Cases and Bugs.</p><br />
+
+        @*<p>2. Migrate VS2005/VS2008 manual test cases templates from a Word/MHT document into a TFS test case work item."</p><br />*@
         <p>You can also save the settings, which capture the following information, for later use:</p><br />
         <ol>
             <li>Field Mappings</li>
-            <li>Data Mappings</li>
+            @*<li>Data Mappings</li>
             <li>Link Mappings</li>
-            <li>Miscellaneous settings</li>
+            <li>Miscellaneous settings</li>*@
         </ol><br />
         <p>Check that your MS Office(Excel/Word) is version 2003 or greater.</p>
+    </div>
+    <div>
+        <input type="button" value="Next" class="btn btn-info" onclick="location.href='@Url.Action("ReadExcelFile", "ExcelReader")'"/>
     </div>
 </div>

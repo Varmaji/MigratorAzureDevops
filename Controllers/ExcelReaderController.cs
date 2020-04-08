@@ -146,8 +146,6 @@ namespace MigratorAzureDevops.Controllers
             string status = "";
             try
             {
-
-
                 MappedFields = FList;
                 DT = sheets[SheetName];
                 List<WorkitemFromExcel> WiList = GetWorkItems();
