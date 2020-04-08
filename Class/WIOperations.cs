@@ -12,7 +12,7 @@ namespace MigratorAzureDevops.Class
     class WIOps
     {
         static string Url;
-
+        public static string status = "";
         static WorkItemTrackingHttpClient WitClient;
         public static WorkItem CreateWorkItem(string ProjectName, string WorkItemTypeName, Dictionary<string, object> Fields)
         {
@@ -31,7 +31,8 @@ namespace MigratorAzureDevops.Class
             }
             catch (Exception E)
             {
-                return null;
+            throw (E);
+                
             }
         }
         public static WorkItem UpdateWorkItemLink(int parentId, int childId, string message)
@@ -58,7 +59,7 @@ namespace MigratorAzureDevops.Class
             }
             catch (Exception E)
             {
-                return null;
+                throw (E);
             }
         }
         public static WorkItem UpdateWorkItemFields(int WIId, Dictionary<string, object> Fields)
@@ -84,7 +85,7 @@ namespace MigratorAzureDevops.Class
             }
             catch (Exception E)
             {
-                return null;
+                throw (E);
             }
         }
 
@@ -98,7 +99,7 @@ namespace MigratorAzureDevops.Class
             }
             catch (Exception E)
             {
-
+                throw (E);
             }
         }
         static void InitClients(VssConnection Connection)
@@ -109,7 +110,7 @@ namespace MigratorAzureDevops.Class
             }
             catch (Exception E)
             {
-
+                throw (E);
             }
         }
     }
