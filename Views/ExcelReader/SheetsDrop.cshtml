@@ -1,25 +1,53 @@
-﻿
-@*@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
+﻿@{
+        Layout = "~/Views/Shared/_Layout.cshtml";
 
-}*@
+    }
 
-<!DOCTYPE html>
+
 @model MigratorAzureDevops.Models.sheetList
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-    <title>SheetsDrop</title>
+
+    
+    <link href="../Content/bootstrap.min.css" rel="stylesheet" />
+    
     <style>
         .disabled {
             display: none;
         }
     </style>
-</head>
-<body>
-    <p id="status" ></p>
+
+
+    <p id="status"></p>
+
+    <div class="col-xs-4">
+
+        @Html.Label("Organization", htmlAttributes: new { @class = "control-label display-4  sizeNormal", style = "padding-right:40px" })
+
+        @Html.DropDownList("Organisation", new SelectList(new[] { "Empty List" }), htmlAttributes: new { @class = "form-control borderRadius width", id = "org", onchange = "check()", style = "opacity:0.8;" })
+
+        @Html.ValidationMessage("Organisation", "", new { @class = "text-danger" })
+
+    </div>
+    <div class="form-row">
+        <lable>Source Project:</lable><input id="SourceProj" type="text" name="SourceProj" onchange="check()" />
+        @*<lable> Destination Project:</lable><input id="DestionationProj" type="text" name="DestionationProj" onchange="check()" />*@
+
+        <div class="col-xs-4 ml-5">
+
+            @Html.Label("Destination Project Name ", htmlAttributes: new { @class = "control-label  display-4 sizeNormal", style = "padding-right:35px" })
+
+            @Html.DropDownList("ProjectName", new SelectList(new[] { "Empty List" }), htmlAttributes: new { @class = "form-control borderRadius width", id = "ProjectName", name = "SourceProj", onchange = "check()", style = "opacity:0.8" })
+
+            @Html.ValidationMessage("ProjectName", "", new { @class = "text-danger" })
+
+        </div>
+    </div>
+    <div>
+        <input type="submit" value="Submit" id="Submit" onclick="check()" class="btn-success form-control" style="margin-right:1220px;" />
+
+    </div>
+    <br />
+
     <div class="col-md-3 dropdowns" style="margin-top:10px">
         <label style="margin-top:20px;">
             <b>
@@ -29,7 +57,7 @@
         @Html.DropDownList("sheet", new SelectList(ViewBag.Selectlist, "Value", "Text"), "<select>", new { @class = "form-control", @id = "Sheets", onchange = "Tablechange()" })
 
     </div>
-    
+
     <div>
         <table class="table table-bordered" id="tableData">
             <thead>
@@ -40,18 +68,91 @@
                 </tr>
             </thead>
 
-                <tbody id="body">
-                </tbody>
-            </table>
-        </div>
+            <tbody id="body">
+            </tbody>
+        </table>
+    </div>
 
-    <input type="submit" value="Next" id="SubmitButton"  onclick="showTableData()" class="btn-success form-control" style="margin-right:1220px;" />
+    <input type="submit" value="Next" id="SubmitButton" onclick="showTableData()" class="btn-success form-control" style="margin-right:1220px;" />
 
-    
 
-</body>
-</html>
+
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+    alert("hi");
+     $(document).ready(function () {
+        $.ajax({
+            type: 'get',
+            dataType: 'json',
+            url: '@Url.Action("AccountList","Account")',
+            success: function (data) {
+
+                var s = '<option value="0">--Choose Organisation--</option>';
+                $("#org").empty();
+                console.log(data)
+                for (var i = 0; i < data.length; i++) {
+                    s += '<option value="' + data[i].accountName + '">' + data[i].accountName + '</option>';
+                }
+                $("#org").append(s);
+            }
+
+
+        });
+         
+        $("#org").change(function () {
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("ProjectList", "Account")',
+                data: { "ORG":$(this).val()},
+                success:
+                    function (data) {
+                        console.log(data);
+                        document.getElementById("ProjectName").innerHTML = "<option value='0'>--ALL--</option>";
+                        for (let i = 0; i < data.length; i++) {
+                            document.getElementById("ProjectName").innerHTML += "<option value='" + data[i].Name + "'>" + data[i].Name + "</option>";
+                        }
+                    }
+                ,
+                failure:
+                    function () { alert("Something went wrong, Please try Again"); }
+
+            });
+        });
+        function check() {
+            console.log($('input[name$="Excel"]').val());
+            var a = $('input[name$="Excel"]').val();
+            if (a != '') {
+                var x = a.split('\\');
+                console.log(x);
+                $('#ex').html(x[2]);
+            }
+            if (($('#org').val() == 0) || ($('#ProjectName').val() == 0) || ($('#DestionationProj').val() == 0)) {
+                document.getElementById("Submit").disabled = true;
+
+                return;
+            }
+            document.getElementById("Submit").disabled = false;
+        }
+     })
+    var SourceProj = document.getElementById("ProjectName").val;
+    var Organisation = document.getElementById("org").val;
+    var DestionationProj = document.getElementById("DestionationProj").val;
+    $("#Submit").click(function () {
+        $.ajax({
+            type: 'get',
+            dataType: 'json',
+            url: '@Url.Action("AccountList","Account")',
+            data: { 'OrganisationName': Organisation, 'SourceProj': SourceProj,'DestionationProj':DestionationProj },
+            success: function (data) {
+                alert("Select Sheet Name To Continue");
+            },
+            failure: function () {
+                alert("Error Occured To Connect To Project Or You Don't Have Access To Access" + DestionationProj)
+            }
+    })
+
+</script>
 <script>
     var selectedSheet;
     function Tablechange() {
@@ -77,7 +178,7 @@
     function DropDownValue(changed) {
         $('.disabled').removeClass('disabled');
         var val = $(changed).val();
-        
+
         var list = $('.list');
         var seletlist = [];
         for (let i = 0; i < list.length; i++) {
@@ -86,7 +187,7 @@
                 seletlist[seletlist.length] = val;
             }
         }
-      
+
         for (let i = 0; i < list.length; i++) {
             for (let j = 0; j < seletlist.length; j++) {
                 var val = $(list[i]).val();
@@ -122,7 +223,7 @@
                 //exportData.push(obj);
             }
         }
-        console.log(exportData);     
+        console.log(exportData);
         var myDictionary = exportData;
         //var selectedSheet = document.getElementById("Sheets");
         var SheetName = $("#Sheets").find("option:selected").text();
@@ -132,11 +233,11 @@
             url: '@Url.Action("createExcel", "ExcelReader")',
             data: { "FList": myDictionary, "SheetName": SheetName },
 
-            
+
             success: function (data) {
                 alert(data);
                 $("#status").html = data;
-               
+
             }
 
         });

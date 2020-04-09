@@ -17,7 +17,7 @@
     <AssemblyName>MigratorAzureDevops</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort>44309</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
@@ -213,6 +213,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Class\ApiRequest.cs" />
     <Compile Include="Class\WIOperations.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ExcelReaderController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Class\Operations.cs" />
@@ -220,10 +221,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AccountsModel.cs" />
     <Compile Include="Models\ExcelFields.cs" />
     <Compile Include="Models\ExcelModel.cs" />
+    <Compile Include="Models\ProjectsModel.cs" />
     <Compile Include="Models\WiModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\AccountService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include=".gitattributes" />
@@ -744,6 +748,175 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="vendor\bootstrap\css\bootstrap-grid.css" />
+    <Content Include="vendor\bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="vendor\bootstrap\css\bootstrap-reboot.css" />
+    <Content Include="vendor\bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="vendor\bootstrap\css\bootstrap.css" />
+    <Content Include="vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="vendor\bootstrap\js\bootstrap.bundle.js" />
+    <Content Include="vendor\bootstrap\js\bootstrap.bundle.min.js" />
+    <Content Include="vendor\bootstrap\js\bootstrap.js" />
+    <Content Include="vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="vendor\chart.js\Chart.bundle.js" />
+    <Content Include="vendor\chart.js\Chart.bundle.min.js" />
+    <Content Include="vendor\chart.js\Chart.js" />
+    <Content Include="vendor\chart.js\Chart.min.js" />
+    <Content Include="vendor\font-awesome\css\font-awesome.css" />
+    <Content Include="vendor\font-awesome\css\font-awesome.min.css" />
+    <Content Include="vendor\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="vendor\font-awesome\HELP-US-OUT.txt" />
+    <Content Include="vendor\jquery-validation\additional-methods.js" />
+    <Content Include="vendor\jquery-validation\additional-methods.min.js" />
+    <Content Include="vendor\jquery-validation\jquery.validate.js" />
+    <Content Include="vendor\jquery-validation\jquery.validate.min.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_ar.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_ar.min.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_az.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_az.min.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_bg.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_bg.min.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_bn_BD.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_bn_BD.min.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_ca.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_ca.min.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_cs.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_cs.min.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_da.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_da.min.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_de.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_de.min.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_el.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_el.min.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_es.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_es.min.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_es_AR.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_es_AR.min.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_es_PE.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_es_PE.min.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_et.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_et.min.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_eu.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_eu.min.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_fa.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_fa.min.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_fi.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_fi.min.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_fr.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_fr.min.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_ge.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_ge.min.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_gl.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_gl.min.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_he.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_he.min.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_hr.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_hr.min.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_hu.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_hu.min.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_hy_AM.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_hy_AM.min.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_id.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_id.min.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_is.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_is.min.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_it.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_it.min.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_ja.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_ja.min.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_ka.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_ka.min.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_kk.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_kk.min.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_ko.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_ko.min.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_lt.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_lt.min.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_lv.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_lv.min.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_mk.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_mk.min.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_my.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_my.min.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_nl.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_nl.min.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_no.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_no.min.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_pl.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_pl.min.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_pt_BR.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_pt_BR.min.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_pt_PT.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_pt_PT.min.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_ro.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_ro.min.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_ru.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_ru.min.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_sd.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_sd.min.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_si.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_si.min.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_sk.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_sk.min.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_sl.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_sl.min.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_sr.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_sr.min.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_sr_lat.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_sr_lat.min.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_sv.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_sv.min.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_th.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_th.min.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_tj.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_tj.min.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_tr.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_tr.min.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_uk.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_uk.min.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_ur.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_ur.min.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_vi.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_vi.min.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_zh.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_zh.min.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_zh_TW.js" />
+    <Content Include="vendor\jquery-validation\localization\messages_zh_TW.min.js" />
+    <Content Include="vendor\jquery-validation\localization\methods_de.js" />
+    <Content Include="vendor\jquery-validation\localization\methods_de.min.js" />
+    <Content Include="vendor\jquery-validation\localization\methods_es_CL.js" />
+    <Content Include="vendor\jquery-validation\localization\methods_es_CL.min.js" />
+    <Content Include="vendor\jquery-validation\localization\methods_fi.js" />
+    <Content Include="vendor\jquery-validation\localization\methods_fi.min.js" />
+    <Content Include="vendor\jquery-validation\localization\methods_it.js" />
+    <Content Include="vendor\jquery-validation\localization\methods_it.min.js" />
+    <Content Include="vendor\jquery-validation\localization\methods_nl.js" />
+    <Content Include="vendor\jquery-validation\localization\methods_nl.min.js" />
+    <Content Include="vendor\jquery-validation\localization\methods_pt.js" />
+    <Content Include="vendor\jquery-validation\localization\methods_pt.min.js" />
+    <Content Include="vendor\jquery.cookie\jquery.cookie.js" />
+    <Content Include="vendor\jquery.cookie\MIT-LICENSE.txt" />
+    <Content Include="vendor\jquery\core.js" />
+    <Content Include="vendor\jquery\jquery.js" />
+    <Content Include="vendor\jquery\jquery.min.js" />
+    <Content Include="vendor\jquery\jquery.slim.js" />
+    <Content Include="vendor\jquery\jquery.slim.min.js" />
+    <Content Include="vendor\malihu-custom-scrollbar-plugin\jquery.mCustomScrollbar.concat.min.js" />
+    <Content Include="vendor\malihu-custom-scrollbar-plugin\jquery.mCustomScrollbar.css" />
+    <Content Include="vendor\malihu-custom-scrollbar-plugin\jquery.mCustomScrollbar.js" />
+    <Content Include="vendor\malihu-custom-scrollbar-plugin\mCSB_buttons.png" />
+    <Content Include="vendor\popper.js\esm\popper-utils.js" />
+    <Content Include="vendor\popper.js\esm\popper-utils.min.js" />
+    <Content Include="vendor\popper.js\esm\popper.js" />
+    <Content Include="vendor\popper.js\esm\popper.min.js" />
+    <Content Include="vendor\popper.js\popper-utils.js" />
+    <Content Include="vendor\popper.js\popper-utils.min.js" />
+    <Content Include="vendor\popper.js\popper.js" />
+    <Content Include="vendor\popper.js\popper.min.js" />
+    <Content Include="vendor\popper.js\umd\popper-utils.js" />
+    <Content Include="vendor\popper.js\umd\popper-utils.min.js" />
+    <Content Include="vendor\popper.js\umd\popper.js" />
+    <Content Include="vendor\popper.js\umd\popper.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -771,6 +944,15 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\Account\Verify.cshtml" />
+    <Content Include="vendor\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="vendor\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="vendor\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="vendor\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="vendor\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="vendor\jquery.cookie\component.json" />
+    <Content Include="vendor\jquery.cookie\cookie.jquery.json" />
+    <Content Include="vendor\popper.js\umd\poppper.js.flow" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -807,7 +989,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>62530</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44309/</IISUrl>
+          <IISUrl>https://WIMigrate.com:450/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

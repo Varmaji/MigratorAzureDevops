@@ -110,7 +110,7 @@ namespace MigratorAzureDevops.Class
             }
             catch (Exception E)
             {
-                throw (E);
+                throw E;
             }
         }
     }

@@ -1,0 +1,46 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewBag.Title = "";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <title>Verify</title>
+
+</head>
+<body>
+
+
+    <h3 class="display-3 text-light my-5" style="padding-left:22%;font-size:35px"><span><img width="75" src="~/Content/Images/VS_logo.png" class="mr-3" /></span> Azure DevOps Custom Report</h3>
+
+    @*<h4 class="display-4" style="padding-left:32%;font-size:30px">Please Sign-In to Continue</h4>*@
+    <section class="section-1 d-flex flex-column">
+        <main class="d-flex">
+
+
+            <div class="text-center" style="margin-left:56%;margin-top:145px">
+                <button class="btn btn-lg text-primary btn-block font-weight-light" id="signInWithVSTS" onclick="this.blur();">Sign In ></button>
+            </div>
+
+
+        </main>
+
+    </section>
+</body>
+</html>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#signInWithVSTS').click(function () {
+            window.location.href = "../Account/index";
+        });
+
+
+    });
+</script>

@@ -12,6 +12,9 @@ using MigratorAzureDevops.Models;
 using MigratorAzureDevops.Class;
 using Newtonsoft.Json;
 using Microsoft.TeamFoundation.WorkItemTracking.WebApi.Models;
+using MigratorAzureDevops.Models.Accounts;
+using System.Configuration;
+using MigratorAzureDevops.Services;
 
 namespace MigratorAzureDevops.Controllers
 {
@@ -26,21 +29,55 @@ namespace MigratorAzureDevops.Controllers
         static public int titlecount = 0;
         static public List<string> titles = new List<string>();       
         static public string OldTeamProject;// = "HOLMES-AutomationStudio";
-        
+        readonly AccountService Account = new AccountService();
+
         // GET: ExcelReader
         public ActionResult Index()
         {
+            
             return View();
         }
         
-        [HttpGet]
         public ActionResult ReadExcelFile()
         {
+            if (Session["visited"] == null)
+                return RedirectToAction("../Account/Verify");
+
+            if (Session["PAT"] == null)
+            {
+                try
+                {
+                    AccessDetails _accessDetails = new AccessDetails();
+                    AccountsResponse.AccountList accountList = null;
+                    string code = Session["PAT"] == null ? Request.QueryString["code"] : Session["PAT"].ToString();
+                    string redirectUrl = ConfigurationManager.AppSettings["RedirectUri"];
+                    string clientId = ConfigurationManager.AppSettings["ClientSecret"];
+                    string accessRequestBody = string.Empty;
+                    accessRequestBody = Account.GenerateRequestPostData(clientId, code, redirectUrl);
+                    _accessDetails = Account.GetAccessToken(accessRequestBody);
+                    ProfileDetails profile = Account.GetProfile(_accessDetails);
+                    if (!string.IsNullOrEmpty(_accessDetails.access_token))
+                    {
+                        Session["PAT"] = _accessDetails.access_token;
+
+                        if (profile.displayName != null || profile.emailAddress != null)
+                        {
+                            Session["User"] = profile.displayName ?? string.Empty;
+                            Session["Email"] = profile.emailAddress ?? profile.displayName.ToLower();
+                        }
+                    }
+                    accountList = Account.GetAccounts(profile.id, _accessDetails);
+                    Session["AccountList"] = accountList;
+                    string pat = Session["PAT"].ToString();
+                    
+                }
+                catch (Exception) { }
+            }
             return View();
         }
 
         [HttpPost]
-        public ActionResult ReadExcelFile(HttpPostedFileBase Excel, string Organisation, string PAT,string SourceProj,string DestionationProj)
+        public ActionResult ReadExcelFile(HttpPostedFileBase Excel)
         {
             try
             {
@@ -59,22 +96,22 @@ namespace MigratorAzureDevops.Controllers
                 ViewBag.message = "Something Went Wrong, Please Download Excel/Attachments From 'Export Attachments'";
                 throw (ex);
             }
-            BaseUrl += Organisation;
+
+            return RedirectToAction("SheetsDrop","ExcelReader");
+        }
+        static string Organisation = "";
+        [HttpPost]
+        public ActionResult SheetsDrop(string OrganisationName, string SourceProj, string DestionationProj)
+        {
             ProjectName = DestionationProj;
             OldTeamProject = SourceProj;
-            UserPAT = PAT;
-            WIOps.ConnectWithPAT(BaseUrl, UserPAT);
+            Organisation = OrganisationName;
+            UserPAT = Session["PAT"].ToString();
+            WIOps.ConnectWithPAT(BaseUrl + Organisation, UserPAT);
             APIRequest req = new APIRequest(UserPAT);
-            string response=req.ApiRequest("https://dev.azure.com/"+Organisation+"/"+DestionationProj+"/_apis/wit/fields?api-version=5.1");
+            string response = req.ApiRequest(BaseUrl + Organisation + "/" + ProjectName + "/_apis/wit/fields?api-version=5.1");
             Fields fieldsList = JsonConvert.DeserializeObject<Fields>(response);
-            /*var model = new sheetList()
-            {
-                Sheets = sheets,
-                fields=fieldsList.value
-            };
-            string data = JsonConvert.SerializeObject(model);
-            ViewBag.model = data;*/
-            List<SelectListItem> list =new List<SelectListItem>();
+            List<SelectListItem> list = new List<SelectListItem>();
             foreach (var key in sheets.Keys)
             {
                 list.Add(new SelectListItem() { Text = key, Value = JsonConvert.SerializeObject(sheets[key]) });
@@ -86,7 +123,20 @@ namespace MigratorAzureDevops.Controllers
             }
             ViewBag.fields = flist;
             ViewBag.Selectlist = list;
-                return View("SheetsDrop");
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult SheetsDrop()
+        {
+            List<SelectListItem> list = new List<SelectListItem>();
+            foreach (var key in sheets.Keys)
+            {
+                list.Add(new SelectListItem() { Text = key, Value = JsonConvert.SerializeObject(sheets[key]) });
+            }
+            ViewBag.Selectlist = list;
+
+            return View();
         }
 
         
