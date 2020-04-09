@@ -1,8 +1,7 @@
-﻿
-@*@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
+﻿@*@{
+        Layout = "~/Views/Shared/_Layout.cshtml";
 
-}*@
+    }*@
 
 <!DOCTYPE html>
 @model MigratorAzureDevops.Models.sheetList
@@ -71,9 +70,17 @@
                 </tbody>
             </table>
         </div>
-        
-        <div style="margin-left:20px;">
-            <input type="submit" value="Next" class="btn-primary" id="SubmitButton" onclick="showTableData()" style="margin-right:1220px;margin-left:7px" />
+
+        <div style="margin-left:20px;" class="row">
+            <div>
+                <input type="submit" value="Next" class="btn-primary" id="SubmitButton" onclick="showTableData()" style="margin-right:1220px;margin-left:7px" />
+            </div>
+
+            <div>
+                <img src="~/Content/Images/loadinggif.gif" id="Load"/>
+            </div>
+
+
         </div>
 
     </div>
@@ -131,9 +138,10 @@
 
     }
 
-
-
     function showTableData() {
+
+        $(".overlay").show();
+
         //document.getElementById('info').innerHTML = "";
         var myTab = document.getElementById('tableData');
         var exportData = new Object;
@@ -162,6 +170,7 @@
 
 
             success: function (data) {
+
                 alert(data);
                 $("#status").html = data;
 
