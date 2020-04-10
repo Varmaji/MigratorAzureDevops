@@ -42,127 +42,24 @@
     <link rel="stylesheet" href="~/css/custom.css">
     <!-- Favicon-->
     <link rel="shortcut icon" href="~/img/assets/logoicon.png">
+    <link href="~/Content/MigratorCSS/Layout.css" rel="stylesheet" />
 
 
-    <style>
-       
-        .navbar-header {
-            color: #fff;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            list-style: none;
-            text-decoration: none;
-            font-family: 'Josefin Sans', sans-serif;
-        }
-
-        body {
-            background-color: #f3f5f9;
-        }
-
-        .wrapper {
-            display: flex;
-            position: relative;
-        }
-
-            .wrapper .sidebar {
-                width: 200px;
-                height: 92%;
-                background: #4b4276;
-                padding: 30px 0px;
-                position: fixed;
-            }
-
-                .wrapper .sidebar h2 {
-                    color: #fff;
-                    text-transform: uppercase;
-                    text-align: center;
-                    margin-bottom: 10px;
-                }
-
-                .wrapper .sidebar ul li {
-                    padding: 15px;
-                    border-bottom: 1px solid #bdb8d7;
-                    border-bottom: 1px solid rgba(0,0,0,0.05);
-                    border-top: 1px solid rgba(255,255,255,0.05);
-                }
-
-                    .wrapper .sidebar ul li a {
-                        color: #bdb8d7;
-                        display: block;
-                    }
-
-                        .wrapper .sidebar ul li a .fas {
-                            width: 25px;
-                        }
-
-                    .wrapper .sidebar ul li:hover {
-                        background-color: #594f8d;
-                    }
-
-                        .wrapper .sidebar ul li:hover a {
-                            color: #fff;
-                        }
-
-                .wrapper .sidebar .social_media {
-                    position: absolute;
-                    bottom: 0;
-                    left: 50%;
-                    transform: translateX(-50%);
-                    display: flex;
-                }
-
-                    .wrapper .sidebar .social_media a {
-                        display: block;
-                        width: 40px;
-                        background: #594f8d;
-                        height: 40px;
-                        line-height: 45px;
-                        text-align: center;
-                        margin: 0 5px;
-                        color: #bdb8d7;
-                        border-top-left-radius: 5px;
-                        border-top-right-radius: 5px;
-                    }
-
-            .wrapper .main_content {
-                width: 100%;
-                margin-left: 200px;
-            }
-
-                .wrapper .main_content .header {
-                    padding: 20px;
-                    background: #fff;
-                    color: #717171;
-                    border-bottom: 1px solid #e0e4e8;
-                }
-
-                .wrapper .main_content .info {
-                    margin: 20px;
-                    color: #717171;
-                    line-height: 25px;
-                }
-
-                    .wrapper .main_content .info div {
-                        margin-bottom: 20px;
-                    }
-    </style>
 </head>
 <body>
     <header>
-        <div class="navbar navbar-inverse navbar-fixed-top" style="background-color:#4b4276;">
+        <div class="navbar navbar-inverse navbar-fixed-top fixed-top" style="background-color:#4b4276;height:30px;">
+            @Html.ActionLink("Canarys", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             <div class="container">
-                <div class="navbar-header">
+
+                @*<div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    @Html.ActionLink("Canarys", "Index", "Home", new { area = "" }, new { @class = "navbar-brand"})
-                </div>
+
+                </div>*@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         @*<li>@Html.ActionLink("Home", "Index", "Home")</li>
@@ -176,15 +73,14 @@
     <nav>
         <div class="wrapper">
             <div class="sidebar">
-                <h2>Migrator</h2>
                 <ul>
                     <li><a href="../Welcome/Welcomepage"><i class="fas fa-home"></i>Welcome</a></li>
                     <li><a href="#"><i class="fas fa-user"></i>Data Source</a></li>
                     <li><a href="#"><i class="fas fa-address-card"></i>Field Mapping</a></li>
                     @*<li><a href="#"><i class="fas fa-project-diagram"></i>Data Mapping</a></li>
-                    <li><a href="#"><i class="fas fa-blog"></i>Links Mapping</a></li>
-                    <li><a href="#"><i class="fas fa-address-book"></i>Miscellaneous</a></li>
-                    <li><a href="#"><i class="fas fa-map-pin"></i>Confirm</a></li>*@
+                        <li><a href="#"><i class="fas fa-blog"></i>Links Mapping</a></li>
+                        <li><a href="#"><i class="fas fa-address-book"></i>Miscellaneous</a></li>
+                        <li><a href="#"><i class="fas fa-map-pin"></i>Confirm</a></li>*@
                 </ul>
                 <div class="social_media">
                     <a href="#"><i class="fab fa-facebook-f"></i></a>

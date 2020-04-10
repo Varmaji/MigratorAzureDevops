@@ -59,11 +59,12 @@ namespace MigratorAzureDevops.Controllers
                 ViewBag.message = "Something Went Wrong, Please Download Excel/Attachments From 'Export Attachments'";
                 throw (ex);
             }
-            BaseUrl += Organisation;
+            //BaseUrl += Organisation;
+
             ProjectName = DestionationProj;
             OldTeamProject = SourceProj;
             UserPAT = PAT;
-            WIOps.ConnectWithPAT(BaseUrl, UserPAT);
+            WIOps.ConnectWithPAT(BaseUrl+Organisation, UserPAT);
             APIRequest req = new APIRequest(UserPAT);
             string response=req.ApiRequest("https://dev.azure.com/"+Organisation+"/"+DestionationProj+"/_apis/wit/fields?api-version=5.1");
             Fields fieldsList = JsonConvert.DeserializeObject<Fields>(response);
@@ -271,7 +272,8 @@ namespace MigratorAzureDevops.Controllers
             }
             catch(Exception E)
             {
-                return -1;
+                throw E;
+                
             }
         }
         public static bool UpdateWIFields()

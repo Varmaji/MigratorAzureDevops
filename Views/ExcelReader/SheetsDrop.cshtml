@@ -1,93 +1,10 @@
-﻿@*@{
-        Layout = "~/Views/Shared/_Layout.cshtml";
+﻿@model MigratorAzureDevops.Models.sheetList
 
-    }*@
+@*@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
 
-<!DOCTYPE html>
-@model MigratorAzureDevops.Models.sheetList
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-    <title>SheetsDrop</title>
-    <style>
-        .disabled {
-            display: none;
-        }
-
-        #tableData {
-            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-            border-collapse: collapse;
-            column-width: 25px;
-        }
-
-            #tableData td, #tableData th {
-                border: 1px solid #ddd;
-                padding: 8px;
-            }
-
-            #tableData tr:nth-child(even) {
-                background-color: #f2f2f2;
-            }
-
-            #tableData tr:hover {
-                background-color: #ddd;
-            }
-
-            #tableData th {
-                padding-top: 12px;
-                padding-bottom: 12px;
-                text-align: left;
-                background-color: #4e4475;
-                color: white;
-            }
-    </style>
-</head>
-<body>
-    <div style="margin-left:100px;">
-        <p id="status"></p>
-        <div class="col-md-3 dropdowns" style="margin-left:10px;">
-            <label>
-                <b>
-                    Sheet Names
-                </b>
-            </label>
-            @Html.DropDownList("sheet", new SelectList(ViewBag.Selectlist, "Value", "Text"), "<select>", new { @class = "form-control", @id = "Sheets", onchange = "Tablechange()" })
-
-        </div>
-        <br />
-        <div style="margin-top:50px;margin-left:25px;">
-            <table class="table table-hover w-auto" id="tableData">
-                <thead>
-                    <tr id="rowValue">
-                        @*<th>Environment Name</th>*@
-                        <th class="th-lg" align="center">Excel Columns</th>
-                        <th class="th-lg" align="center">Fields</th>
-                    </tr>
-                </thead>
-                <tbody id="body">
-                </tbody>
-            </table>
-        </div>
-
-        <div style="margin-left:20px;" class="row">
-            <div>
-                <input type="submit" value="Next" class="btn-primary" id="SubmitButton" onclick="showTableData()" style="margin-right:1220px;margin-left:7px" />
-            </div>
-
-            <div>
-                <img src="~/Content/Images/loadinggif.gif" id="Load"/>
-            </div>
-
-
-        </div>
-
-    </div>
-</body>
-</html>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script>
+}*@
+    <script>
     var selectedSheet;
     function Tablechange() {
         var selectedSheet = $('#Sheets').val();
@@ -139,8 +56,7 @@
     }
 
     function showTableData() {
-
-        $(".overlay").show();
+        document.getElementById("Load").hidden = false;
 
         //document.getElementById('info').innerHTML = "";
         var myTab = document.getElementById('tableData');
@@ -152,10 +68,6 @@
             if ($(objCells.item(1).firstChild).val() != "0") {
                 var key = (objCells.item(0).innerHTML);
                 exportData[key] = $(objCells.item(1).firstChild).val();
-
-
-                //console.log(obj);
-                //exportData.push(obj);
             }
         }
         console.log(exportData);
@@ -167,18 +79,60 @@
            type: "POST",
             url: '@Url.Action("createExcel", "ExcelReader")',
             data: { "FList": myDictionary, "SheetName": SheetName },
-
-
             success: function (data) {
-
-                alert(data);
                 $("#status").html = data;
-
+                document.getElementById("Load").hidden = true;
+                alert(data);
             }
-
         });
         console.log(Response);
             ////ajax method
                  // ADD A BREAK (TAG)
     }
-</script>
+    </script>
+<html>
+<head>
+    
+    <link href="~/Content/font-awesome.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/MigratorCSS/SheetsDrop.css" rel="stylesheet" />
+    <title>SheetsDrop</title>
+ 
+</head>
+<body>
+    <div style="margin-left:100px;">
+        <p id="status"></p>
+        <div class="col-md-3 dropdowns" style="margin-left:10px;">
+            <label>
+                <b>
+                    Sheet Names
+                </b>
+            </label>
+            @Html.DropDownList("sheet", new SelectList(ViewBag.Selectlist, "Value", "Text"), "<select>", new { @class = "form-control", @id = "Sheets", onchange = "Tablechange()" })
+
+        </div>
+        <br />
+        <div style="margin-top:50px;margin-left:25px;">
+            <table class="table table-primary" id="tableData">
+                <thead>
+                    <tr id="rowValue">
+                        @*<th>Environment Name</th>*@
+                        <th align="center">Excel Columns</th>
+                        <th align="center">Fields</th>
+                    </tr>
+                </thead>
+                <tbody id="body">
+                </tbody>
+            </table>
+        </div>
+
+        <div class="row" style="margin-left:20px;">
+                <input type="submit" value="Next" class=" btn btn-primary" id="SubmitButton" onclick="showTableData()" style="margin-right:1220px;margin-left:7px" /> 
+                <img src="~/Content/Images/LoadingBalls.gif" id="Load" hidden style="margin-left:40px;margin-top:-15px;" />
+        </div>
+
+    </div>
+</body>
+</html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
