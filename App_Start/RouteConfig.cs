@@ -16,7 +16,7 @@ namespace MigratorAzureDevops
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "ExcelReader", action = "ReadExcelFile", id = UrlParameter.Optional }
+                defaults: new { controller = "Welcome", action = "Welcomepage", id = UrlParameter.Optional }
             );
         }
     }
