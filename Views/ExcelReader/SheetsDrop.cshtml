@@ -10,20 +10,32 @@
         var selectedSheet = $('#Sheets').val();
         var Dt = JSON.parse(selectedSheet);
         var FieledList = @Html.Raw(Json.Encode(ViewBag.fields));
-
-        $("#table").empty();
+        $("#tableData").empty();
+        var RowAppended = false;
         for (let key in Dt[0]) {
             if (Dt[0].hasOwnProperty(key)) {
-
-                var row = "<tr ><td>" + key + "</td><td><select class='list' onchange='DropDownValue(this)'><option value='0'>--Ignore--</option>";
+                var colExists = false;
+                    var row = "<tr ><td>" + key + "</td><td><select class='list' onchange='DropDownValue(this)'><option value='0'>--Ignore--</option>";
                 for (let i = 0; i < FieledList.length; i++) {
-                    console.log(FieledList[i].Text);
-                    row += "<option value='" + FieledList[i].Text + "'>" + FieledList[i].Text + "</option>";
-                }
+                    if (key == FieledList[i].Text || key.startsWith("Title")) {
+                        colExists = true;
+                        break;
+                    }
+                        row += "<option value='" + FieledList[i].Text + "'>" + FieledList[i].Text + "</option>";
+                    }
                 row += "</select></td></tr>";
-                $("#tableData").append(row);
+                if (colExists != true) {
+                    $("#tableData").append(row);
+                    RowAppended = true;
+                }
+
+
+
             }
+
         }
+         if (RowAppended == false)
+                $("#tableData").append("No Un Mapped Fields");
     }
     var currentval = "";
     function DropDownValue(changed) {
@@ -53,10 +65,16 @@
             }
         }
 
+
+
     }
+
+
 
     function showTableData() {
         document.getElementById("Load").hidden = false;
+
+
 
         //document.getElementById('info').innerHTML = "";
         var myTab = document.getElementById('tableData');
@@ -74,6 +92,8 @@
         var myDictionary = exportData;
         //var selectedSheet = document.getElementById("Sheets");
         var SheetName = $("#Sheets").find("option:selected").text();
+
+
 
         $.ajax({
            type: "POST",

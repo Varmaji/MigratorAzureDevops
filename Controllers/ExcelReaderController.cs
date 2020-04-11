@@ -135,15 +135,22 @@ namespace MigratorAzureDevops.Controllers
                     sheets.Add(WorkSheet.Name, Dt);
             }
             /*return sheets;*/
+
         }
 
         static Dictionary<string, string> MappedFields ;
+        static List<string> SheetNames = new List<string>();
 
         [HttpPost]
         public JsonResult createExcel(Dictionary<string, string> FList,string SheetName)
         {
+            
             try
             {
+                if (!SheetNames.Contains(SheetName))
+                    SheetNames.Add(SheetName);
+                else
+                    return Json("WorkItems From This Sheet Already Migrated", JsonRequestBehavior.AllowGet);
                 MappedFields = FList;
                 DT = sheets[SheetName];
                 List<WorkitemFromExcel> WiList = GetWorkItems();               
