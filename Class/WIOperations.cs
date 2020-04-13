@@ -71,7 +71,7 @@ namespace MigratorAzureDevops.Class
                 {
                     JsonPatchOperation Jsonpatch = new JsonPatchOperation()
                     {
-                        Operation = Operation.Replace,
+                        Operation = Operation.Add,
                         Path = "/fields/" + key,
                         Value = Fields[key]
                     };
@@ -94,12 +94,12 @@ namespace MigratorAzureDevops.Class
             try
             {
                 Url = ServiceURL;
-                VssConnection connection = new VssConnection(new Uri(ServiceURL), new VssBasicCredential("xx", PAT));
+                VssConnection connection = new VssConnection(new Uri(ServiceURL), new VssBasicCredential("xx",PAT));
                 InitClients(connection);
             }
             catch (Exception E)
             {
-                throw (E);
+                throw E;
             }
         }
         static void InitClients(VssConnection Connection)

@@ -77,7 +77,7 @@
 
 
         //document.getElementById('info').innerHTML = "";
-        var myTab = document.getElementById('tableData');
+        var myTab = document.getElementById('table');
         var exportData = new Object;
         // LOOP THROUGH EACH ROW OF THE TABLE AFTER HEADER.
         for (i = 1; i < myTab.rows.length; i++) {
@@ -133,7 +133,7 @@
         </div>
         <br />
         <div style="margin-top:50px;margin-left:25px;">
-            <table class="table table-primary" id="tableData">
+            <table class="table table-primary" id="table">
                 <thead>
                     <tr id="rowValue">
                         @*<th>Environment Name</th>*@
@@ -141,7 +141,7 @@
                         <th align="center">Fields</th>
                     </tr>
                 </thead>
-                <tbody id="body">
+                <tbody id="tableData">
                 </tbody>
             </table>
         </div>

@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
@@ -12,6 +11,7 @@ using MigratorAzureDevops.Models;
 using MigratorAzureDevops.Class;
 using Newtonsoft.Json;
 using Microsoft.TeamFoundation.WorkItemTracking.WebApi.Models;
+using Microsoft.TeamFoundation.Common;
 
 namespace MigratorAzureDevops.Controllers
 {
@@ -30,7 +30,7 @@ namespace MigratorAzureDevops.Controllers
         // GET: ExcelReader
         public ActionResult Index()
         {
-            return View();
+          return View();
         }
         
         [HttpGet]
@@ -62,9 +62,9 @@ namespace MigratorAzureDevops.Controllers
             //BaseUrl += Organisation;
 
             ProjectName = DestionationProj;
-            OldTeamProject = SourceProj;
+            //OldTeamProject = SourceProj;
             UserPAT = PAT;
-            WIOps.ConnectWithPAT(BaseUrl+Organisation, UserPAT);
+            WIOps.ConnectWithPAT(BaseUrl+Organisation+"/", UserPAT);
             APIRequest req = new APIRequest(UserPAT);
             string response=req.ApiRequest("https://dev.azure.com/"+Organisation+"/"+DestionationProj+"/_apis/wit/fields?api-version=5.1");
             Fields fieldsList = JsonConvert.DeserializeObject<Fields>(response);
@@ -123,6 +123,7 @@ namespace MigratorAzureDevops.Controllers
                             ColName = WorkSheet.Cells[WorkSheet.Dimension.Start.Row, j].Value.ToString();
                             if (WorkSheet.Cells[i, j].Value != null)
                                 row[ColName] = WorkSheet.Cells[i, j].Value.ToString();
+                            
                         }
                     }
                     if (i != WorkSheet.Dimension.Start.Row)
@@ -133,6 +134,7 @@ namespace MigratorAzureDevops.Controllers
                 sheets.Add(WorkSheet.Name+"("+x++ +")", Dt);
                 else
                     sheets.Add(WorkSheet.Name, Dt);
+                    
             }
             /*return sheets;*/
 
@@ -166,8 +168,10 @@ namespace MigratorAzureDevops.Controllers
         }
         public  List<WorkitemFromExcel> GetWorkItems()
         {
+            
             try
             {
+                OldTeamProject = null;
                 List<WorkitemFromExcel> workitemlist = new List<WorkitemFromExcel>();
                 if (DT.Rows.Count > 0)
                 {
@@ -178,6 +182,22 @@ namespace MigratorAzureDevops.Controllers
                         if (DT.Rows[i] != null)
                         {
                             item.id = createWorkItem(dr);
+
+                            if (OldTeamProject.IsNullOrEmpty())
+                            {
+                                
+                               if (!dr["Area Path"].ToString().IsNullOrEmpty() || !dr["Iteration Path"].ToString().IsNullOrEmpty())
+                                {
+
+                                    string ColVal = dr["Iteration Path"].ToString();
+                                    string[] ValArr = ColVal.Split('/');
+                                    OldTeamProject = ValArr[0];
+                                    
+                                }
+                                
+                            }
+                            
+
                             //("WorkItemPublish Created= " + item.id);
                             dr["ID"] = item.id.ToString();
 

@@ -25,7 +25,7 @@
                  console.log(x);
                  $('#zp').html(x[2]);
              }*/
-        if (($('input[name$="Excel"]').val() == '') || ($('#Organisation').val() == 0) || ($('#SourceProj').val() == 0) || ($('#DestionationProj').val() == 0)) {
+        if (($('input[name$="Excel"]').val() == '') || ($('#Organisation').val() == 0)|| ($('#DestionationProj').val() == 0)) {
             document.getElementById("submit").disabled = true;
 
             return;
@@ -47,7 +47,7 @@
         </div>
         <br/>
         <div class="form-row">
-            <lable>Source Project:</lable><input id="SourceProj" type="text" name="SourceProj" onchange="check()" />
+            @*<lable>Source Project:</lable><input id="SourceProj" type="text" name="SourceProj" onchange="check()" />*@
             <lable> Destination Project:</lable><input id="DestionationProj" type="text" name="DestionationProj" onchange="check()" />
         </div>
         <br />
