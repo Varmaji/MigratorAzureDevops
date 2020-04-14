@@ -12,7 +12,6 @@ namespace MigratorAzureDevops.Class
     class WIOps
     {
         static string Url;
-        public static string status = "";
         static WorkItemTrackingHttpClient WitClient;
         public static WorkItem CreateWorkItem(string ProjectName, string WorkItemTypeName, Dictionary<string, object> Fields)
         {

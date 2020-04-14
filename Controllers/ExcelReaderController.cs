@@ -23,7 +23,7 @@ namespace MigratorAzureDevops.Controllers
         static string ProjectName;
         static public int titlecount = 0;
         static public List<string> titles = new List<string>();
-        static public string OrganisationName="";
+        static public string OrganisationName = "";
         static public string OldTeamProject = "";
 
         // GET: ExcelReader
@@ -66,9 +66,8 @@ namespace MigratorAzureDevops.Controllers
             UserPAT = PAT;
             WIOps.ConnectWithPAT(BaseUrl, UserPAT);
             req = new APIRequest(UserPAT);
-
-            string response = req.ApiRequest(BaseUrl+ DestionationProj + "/_apis/wit/fields?api-version=5.1");
-            Fields fieldsList = JsonConvert.DeserializeObject<Fields>(response);          
+            string response = req.ApiRequest(BaseUrl + DestionationProj + "/_apis/wit/fields?api-version=5.1");
+            Fields fieldsList = JsonConvert.DeserializeObject<Fields>(response);
             List<SelectListItem> list = new List<SelectListItem>();
             foreach (var key in sheets.Keys)
             {
@@ -86,7 +85,7 @@ namespace MigratorAzureDevops.Controllers
 
 
         public void ReadExcel(ExcelPackage Excel)
-        {           
+        {
             sheets = new Dictionary<string, DataTable>();
             foreach (var WorkSheet in Excel.Workbook.Worksheets)
             {
@@ -125,13 +124,13 @@ namespace MigratorAzureDevops.Controllers
                     sheets.Add(WorkSheet.Name + "(" + x++ + ")", Dt);
                 else
                     sheets.Add(WorkSheet.Name, Dt);
-            }        
+            }
 
         }
 
         static Dictionary<string, string> MappedFields;
         static List<string> SheetNames = new List<string>();
-
+        public static string status = "";
         [HttpPost]
         public JsonResult createExcel(Dictionary<string, string> FList, string SheetName)
         {
@@ -140,18 +139,18 @@ namespace MigratorAzureDevops.Controllers
                 DT = sheets[SheetName];
                 foreach (var item in FList)
                 {
-                    if(DT.Columns.Contains(item.Key))
-                    DT.Columns[item.Key].ColumnName = item.Value;
-                }                
-                if(SheetNames.Contains(SheetName))
+                    if (DT.Columns.Contains(item.Key))
+                        DT.Columns[item.Key].ColumnName = item.Value;
+                }
+                if (SheetNames.Contains(SheetName))
                     return Json("WorkItems From This Sheet Already Migrated", JsonRequestBehavior.AllowGet);
                 List<WorkitemFromExcel> WiList = GetWorkItems();
                 CreateLinks(WiList);
                 bool isUpdated = UpdateWIFields();
                 if (!SheetNames.Contains(SheetName))
                     SheetNames.Add(SheetName);
-                WIOps.status = "Successfully Migrated"+WiList.Count+" workitems";
-                return Json(WIOps.status, JsonRequestBehavior.AllowGet);
+                status = "Successfully Migrated" + WiList.Count + " workitems";
+                return Json(status, JsonRequestBehavior.AllowGet);
             }
             catch (Exception E)
             {
@@ -174,16 +173,6 @@ namespace MigratorAzureDevops.Controllers
                         if (DT.Rows[i] != null)
                         {
                             item.id = createWorkItem(dr);
-                            if (OldTeamProject.IsNullOrEmpty())
-                            {
-                                if (!dr["Iteration Path"].ToString().IsNullOrEmpty())
-                                {
-                                    string ColVal = dr["Iteration Path"].ToString();
-                                    string[] ValArr = ColVal.Split('/');
-                                    OldTeamProject = ValArr[0];
-                                }
-
-                            }
                             dr["ID"] = item.id.ToString();
                             int columnindex = 0;
                             foreach (var col in TitleColumns)
@@ -259,7 +248,7 @@ namespace MigratorAzureDevops.Controllers
             catch (Exception E)
             {
                 throw E;
-             
+
             }
 
         }
@@ -267,20 +256,48 @@ namespace MigratorAzureDevops.Controllers
         static int createWorkItem(DataRow Dr)
         {
             try
-            {                 
+            {
                 Dictionary<string, object> fields = new Dictionary<string, object>();
                 foreach (DataColumn column in DT.Columns)
                 {
+                    if (column.ColumnName.StartsWith("Iteration")|| column.ColumnName.StartsWith("Area"))
+                    {
+                        if (OldTeamProject.IsNullOrEmpty())
+                        {
+                            string ColVal = Dr[column.ColumnName].ToString();
+                            string[] ValArr ;
+                            if (ColVal.Contains("/"))
+                                ValArr = ColVal.Split('/');
+                            else
+                                ValArr = ColVal.Split('\\');
+                            OldTeamProject = ValArr[0];
+                        }
+                      
+                    }
                     if (!string.IsNullOrEmpty(Dr[column].ToString()))
                     {
-                        if (column.ToString().StartsWith("Title")||column.ToString()=="CLM_ID")
+                        if (column.ToString().StartsWith("Title"))
                             fields.Add("Title", Dr[column].ToString());
+                        else if (column.ToString() != "State" || column.ToString() != "Reason" || column.ToString() != "ID")
+                        {
+                            if (column.ColumnName.StartsWith("Iteration") || column.ColumnName.StartsWith("Area"))
+                            {
+                                if (!string.IsNullOrEmpty(OldTeamProject))
+                                {
+                                    string val = Dr[column.ToString()].ToString().Replace(OldTeamProject, ProjectName).TrimStart('\\');
+                                    fields.Add(column.ToString(), val);
+                                }
+                            }
+                            else
+                                fields.Add(column.ToString(), Dr[column].ToString());
+                        }
+                       
                     }
                 }
-                Object Wiql = new { query = "Select  [Id] From WorkItems Where [System.Title] = '" + fields["Title"] + "' AND  [System.Team Project] ='"+ProjectName+ "' AND  [Custom.CLM_ID] ='" + fields["CLM_ID"] + "'" };
-                string response = req.ApiRequest(BaseUrl+"/_apis/wit/wiql?api-version=4.1", "POST", Wiql.ToString());
+                Object Wiql = new { query = "Select  [Id] From WorkItems Where [System.Title] = '" + fields["Title"] + "' AND  [System.Team Project] ='" + ProjectName + "' AND  [Custom.CLM_ID] ='" + fields["CLM_ID"] + "'" };
+                string response = req.ApiRequest(BaseUrl + "_apis/wit/wiql?api-version=4.1", "POST", JsonConvert.SerializeObject(Wiql));
                 WIS ExistingWI = JsonConvert.DeserializeObject<WIS>(response);
-                if(ExistingWI.WorkItems.Count>=0)
+                if (ExistingWI.WorkItems.Count >= 0)
                     return int.Parse(ExistingWI.WorkItems[0].Id);
                 var newWi = WIOps.CreateWorkItem(ProjectName, Dr["Work Item Type"].ToString(), fields);
                 return newWi.Id.Value;
@@ -301,14 +318,11 @@ namespace MigratorAzureDevops.Controllers
                     {
                         if (!string.IsNullOrEmpty(row[col].ToString()))
                         {
-                            if (col.ToString() != "ID" && col.ToString() != "Reason")
+                            if (col.ToString() == "State" && col.ToString() == "Reason")
                             {
-                                string val = row
-                                    [col.ToString()].ToString().Replace(OldTeamProject, ProjectName).TrimStart('\\');
-                                if (!string.IsNullOrEmpty(val))
-                                {                                   
-                                        Updatefields.Add(col.ToString(), val);
-                                }
+
+                                Updatefields.Add(col.ToString(), row[col].ToString());
+
                             }
                         }
                     }
