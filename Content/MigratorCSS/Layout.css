@@ -4,6 +4,7 @@
     color: #fff;
 }
 
+
 * {
     margin: 0;
     padding: 0;
@@ -15,6 +16,7 @@
 
 body {
     background-color: #f3f5f9;
+    font-size: 14px !important;
 }
 
 .wrapper {
