@@ -10,18 +10,15 @@ namespace MigratorAzureDevops.Models
     {
         public int id { get; set; }
         public string tittle { get; set; }
-        //public string createdID { get; set; }
         public ParentWorkItem parent { get; set; }
         public string WiState { get; set; }
         public string AreaPath { get; set; }
         public string Itertation { get; set; }
-        //public string  WiState { get; set; }
     }
     public class ParentWorkItem
     {
         public int Id { get; set; }
         public string tittle { get; set; }
-        //public string createdID { get; set; }
     }
     public class WItypeStates
     {
@@ -30,7 +27,13 @@ namespace MigratorAzureDevops.Models
     public class States
     {
         public string name { get; set; }
-        //public string category { get; set; }
-
+    }
+    public class WIS
+    {
+        public List<WI> WorkItems { get; set; }
+    }
+    public class WI
+    {
+        public string Id { get; set; }
     }
 }

@@ -8,7 +8,7 @@ namespace MigratorAzureDevops.Controllers
 {
     public class WelcomeController : Controller
     {
-        // GET: Welcome
+        
         public ActionResult Welcomepage()
         {
             return View();
