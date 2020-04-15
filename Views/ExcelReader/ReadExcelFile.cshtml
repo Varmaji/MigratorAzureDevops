@@ -25,12 +25,39 @@
                  console.log(x);
                  $('#zp').html(x[2]);
              }*/
-        if (($('input[name$="Excel"]').val() == '') || ($('#Organisation').val() == 0)|| ($('#DestionationProj').val() == 0)) {
+        if (($('input[name$="Excel"]').val() == '')/* || ($('#Organisation').val() == 0)|| ($('#DestionationProj').val() == 0)*/) {
             document.getElementById("submit").disabled = true;
-
             return;
         }
         document.getElementById("submit").disabled = false;
+    }
+
+
+    function populateProjects() {
+        var o = document.getElementById("Organisation");
+        var ORG = o.options[o.selectedIndex].text;
+        if (ORG == "--Choose Organisation--") {
+            return;
+        }
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("ProjectList", "ExcelReader")',
+            data: { ORG },
+
+            success:
+                function(data) {
+                    console.log(data);
+                    document.getElementById("DestionationProj").innerHTML = "<option value='0'>select</option>";
+                    for (let i = 0; i < data.length; i++) {
+                        document.getElementById("DestionationProj").innerHTML += "<option value='" + data[i].Name + "'>" + data[i].Name + "</option>";
+                    }
+                }
+            ,
+            failure:
+                function() { alert("Something went wrong, Please try Again"); }
+
+        });
+
     }
 </script>
 @using (Html.BeginForm("ReadExcelFile", "ExcelReader", FormMethod.Post, new { enctype = "multipart/form-data" }))
@@ -40,15 +67,18 @@
             <label id="ex" class="btn btn-success" for="Excel">Choose Excel</label>
             <input id="Excel" type="file" name="Excel" data-max-size="321540" accept=".xls,.xlsx" style="display:none" onchange="check()" />
         </div>
-        <br/>
+        <br />
         <div class="form-row">
-            <lable>Organisation:</lable><input id="Organisation" type="text" name="Organisation" onchange="check()" />
-            <lable>PAT:</lable><input id="PAT" type="text" name="PAT" onchange="check()" />
+            <lable>Organization:</lable>
+            @Html.DropDownList("Organisation", new SelectList(ViewBag.OrganizationList, "Value", "Text"), "<select>", new { @class = "form-control", id = "Organisation", onchange = "populateProjects()" })
+            @*<lable>PAT:</lable><input id="PAT" type="text" name="PAT" onchange="check()" />*@
         </div>
-        <br/>
+        <br />
         <div class="form-row">
             @*<lable>Source Project:</lable><input id="SourceProj" type="text" name="SourceProj" onchange="check()" />*@
-            <lable> Destination Project:</lable><input id="DestionationProj" type="text" name="DestionationProj" onchange="check()" />
+            <lable> Destination Project:</lable>
+            @Html.DropDownList("DestionationProj", new SelectList(new List<SelectListItem>()), "<select>", new { @class = "form-control", id = "DestionationProj" })
+
         </div>
         <br />
         <br />

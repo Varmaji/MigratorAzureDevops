@@ -12,11 +12,16 @@ using MigratorAzureDevops.Class;
 using Newtonsoft.Json;
 using Microsoft.TeamFoundation.WorkItemTracking.WebApi.Models;
 using Microsoft.TeamFoundation.Common;
+using System.Configuration;
+using distribution_copy.Models;
+using MigratorAzureDevops.Service;
 
 namespace MigratorAzureDevops.Controllers
 {
+
     public class ExcelReaderController : Controller
     {
+        static AccountService Account = new AccountService();
         static Dictionary<string, DataTable> sheets;
         static DataTable DT;
         static List<string> TitleColumns = new List<string>();
@@ -32,16 +37,75 @@ namespace MigratorAzureDevops.Controllers
         {
           return View();
         }
+
+        public ActionResult Validation()
+        {
+            try
+            {
+                Session["visited"] = "1";
+                string url = "https://app.vssps.visualstudio.com/oauth2/authorize?client_id={0}&response_type=Assertion&state=User1&scope={1}&redirect_uri={2}";
+                string redirectUrl = System.Configuration.ConfigurationManager.AppSettings["RedirectUri"];
+                string clientId = System.Configuration.ConfigurationManager.AppSettings["ClientId"];
+                string AppScope = System.Configuration.ConfigurationManager.AppSettings["appScope"];
+                url = string.Format(url, clientId, AppScope, redirectUrl);
+                return Redirect(url);
+            }
+            catch (Exception)
+            {
+                //logger.Debug(JsonConvert.SerializeObject(ex, Formatting.Indented) + Environment.NewLine);
+            }
+            return RedirectToAction("Welcomepage", "Welcome");
+        }
         
         [HttpGet]
         public ActionResult ReadExcelFile()
         {
+            if (Session["PAT"] == null)
+            {
+                try
+                {
+                    AccessDetails _accessDetails = new AccessDetails();
+                    AccountsResponse.AccountList accountList = null;
+                    string code = Session["PAT"] == null ? Request.QueryString["code"] : Session["PAT"].ToString();
+                    string redirectUrl = ConfigurationManager.AppSettings["RedirectUri"];
+                    string clientId = ConfigurationManager.AppSettings["ClientSecret"];
+                    string accessRequestBody = string.Empty;
+                    accessRequestBody = Account.GenerateRequestPostData(clientId, code, redirectUrl);
+                    _accessDetails = Account.GetAccessToken(accessRequestBody);
+                    ProfileDetails profile = Account.GetProfile(_accessDetails);
+                    if (!string.IsNullOrEmpty(_accessDetails.access_token))
+                    {
+                        Session["PAT"] = _accessDetails.access_token;
+
+                        if (profile.displayName != null || profile.emailAddress != null)
+                        {
+                            Session["User"] = profile.displayName ?? string.Empty;
+                            Session["Email"] = profile.emailAddress ?? profile.displayName.ToLower();
+                        }
+                    }
+                    accountList = Account.GetAccounts(profile.id, _accessDetails);
+                    Session["AccountList"] = accountList;
+                    string pat = Session["PAT"].ToString();
+                    List<SelectListItem> OrganizationList = new List<SelectListItem>();
+                    foreach (var i in accountList.value)
+                    {
+                        OrganizationList.Add(new SelectListItem { Text = i.accountName, Value = i.accountName });
+                    }
+                    ViewBag.OrganizationList = OrganizationList;
+                }
+                catch (Exception) { }
+            }
             return View();
         }
 
         [HttpPost]
         public ActionResult ReadExcelFile(HttpPostedFileBase Excel, string Organisation, string PAT,string SourceProj,string DestionationProj)
         {
+            if(Session["PAT"]==null)
+            {
+                RedirectToAction("");
+            }
+            PAT = Session["PAT"].ToString();
             try
             {
                 var excelStream = Excel.InputStream;              
@@ -64,7 +128,7 @@ namespace MigratorAzureDevops.Controllers
             ProjectName = DestionationProj;
             //OldTeamProject = SourceProj;
             UserPAT = PAT;
-            WIOps.ConnectWithPAT(BaseUrl+Organisation+"/", UserPAT);
+            WIOps.ConnectWithPAT(BaseUrl+Organisation + "/",UserPAT);
             APIRequest req = new APIRequest(UserPAT);
             string response=req.ApiRequest("https://dev.azure.com/"+Organisation+"/"+DestionationProj+"/_apis/wit/fields?api-version=5.1");
             Fields fieldsList = JsonConvert.DeserializeObject<Fields>(response);
@@ -94,10 +158,18 @@ namespace MigratorAzureDevops.Controllers
 
             ViewBag.fields = flist;
             ViewBag.Selectlist = list;
-                return View("SheetsDrop");
+            return View("SheetsDrop");
         }
 
-        
+
+        [HttpPost]
+        public JsonResult ProjectList(string ORG)
+        {
+            AccountService service = new AccountService();
+            var pm = service.GetApi<ProjectModel>("https://dev.azure.com/" + ORG + "/_apis/projects?api-version=5.1");
+            return Json(pm.Value, JsonRequestBehavior.AllowGet);
+        }
+
         public void ReadExcel(ExcelPackage Excel)
         {
             //Console.Write("Enter The Ecel File Path:");
@@ -157,8 +229,13 @@ namespace MigratorAzureDevops.Controllers
             {
                 if(SheetNames.Contains(SheetName))
                     return Json("WorkItems From This Sheet Already Migrated", JsonRequestBehavior.AllowGet);
-                MappedFields = FList;
+                //MappedFields = FList;
                 DT = sheets[SheetName];
+                foreach (var item in FList)
+                {
+                    if (DT.Columns.Contains(item.Key))
+                        DT.Columns[item.Key].ColumnName = item.Value;
+                }
                 List<WorkitemFromExcel> WiList = GetWorkItems();               
                 CreateLinks(WiList);
                 bool isUpdated=UpdateWIFields();

@@ -1,6 +1,7 @@
 ﻿using Microsoft.TeamFoundation.WorkItemTracking.WebApi;
 using Microsoft.TeamFoundation.WorkItemTracking.WebApi.Models;
 using Microsoft.VisualStudio.Services.Common;
+using Microsoft.VisualStudio.Services.OAuth;
 using Microsoft.VisualStudio.Services.WebApi;
 using Microsoft.VisualStudio.Services.WebApi.Patch;
 using Microsoft.VisualStudio.Services.WebApi.Patch.Json;
@@ -94,7 +95,7 @@ namespace MigratorAzureDevops.Class
             try
             {
                 Url = ServiceURL;
-                VssConnection connection = new VssConnection(new Uri(ServiceURL), new VssBasicCredential("xx",PAT));
+                VssConnection connection = new VssConnection(new Uri(ServiceURL), new VssOAuthAccessTokenCredential(PAT));
                 InitClients(connection);
             }
             catch (Exception E)
