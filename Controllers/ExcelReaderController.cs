@@ -31,6 +31,7 @@ namespace MigratorAzureDevops.Controllers
         static public int titlecount = 0;
         static public List<string> titles = new List<string>();       
         static public string OldTeamProject;// = "HOLMES-AutomationStudio";
+        static public string OrganizationName;
         
         // GET: ExcelReader
         public ActionResult Index()
@@ -60,8 +61,6 @@ namespace MigratorAzureDevops.Controllers
         [HttpGet]
         public ActionResult ReadExcelFile()
         {
-            if (Session["PAT"] == null)
-            {
                 try
                 {
                     AccessDetails _accessDetails = new AccessDetails();
@@ -94,7 +93,7 @@ namespace MigratorAzureDevops.Controllers
                     ViewBag.OrganizationList = OrganizationList;
                 }
                 catch (Exception) { }
-            }
+            
             return View();
         }
 
@@ -124,43 +123,13 @@ namespace MigratorAzureDevops.Controllers
                 throw (ex);
             }
             //BaseUrl += Organisation;
-
+            OrganizationName = Organisation;
             ProjectName = DestionationProj;
             //OldTeamProject = SourceProj;
             UserPAT = PAT;
             WIOps.ConnectWithPAT(BaseUrl+Organisation + "/",UserPAT);
-            APIRequest req = new APIRequest(UserPAT);
-            string response=req.ApiRequest("https://dev.azure.com/"+Organisation+"/"+DestionationProj+"/_apis/wit/fields?api-version=5.1");
-            Fields fieldsList = JsonConvert.DeserializeObject<Fields>(response);
-
-            /*var model = new sheetList()
-            {
-                Sheets = sheets,
-                fields=fieldsList.value
-            };
-            string data = JsonConvert.SerializeObject(model);
-            ViewBag.model = data;*/
-            //List<SelectListItem> list = new List<SelectListItem>();
-
-            //Read Excel sheets Column value 
-            List<SelectListItem> list = new List<SelectListItem>();
-            foreach (var key in sheets.Keys)
-            {
-                list.Add(new SelectListItem() { Text = key, Value = JsonConvert.SerializeObject(sheets[key]) });
-            }
-
-            //Read Azure Devops field name
-            List<SelectListItem> flist = new List<SelectListItem>();
-            foreach (var field in fieldsList.value)
-            {
-                flist.Add(new SelectListItem() { Text = field.name, Value = field.name });
-            }
-
-            ViewBag.fields = flist;
-            ViewBag.Selectlist = list;
-            return View("SheetsDrop");
+            return RedirectToAction("SheetsDrop","ExcelReader");
         }
-
 
         [HttpPost]
         public JsonResult ProjectList(string ORG)
@@ -219,6 +188,39 @@ namespace MigratorAzureDevops.Controllers
 
         }
 
+        public ActionResult SheetsDrop()
+        {
+            APIRequest req = new APIRequest(UserPAT);
+            string response = req.ApiRequest("https://dev.azure.com/" + OrganizationName + "/" + ProjectName + "/_apis/wit/fields?api-version=5.1");
+            Fields fieldsList = JsonConvert.DeserializeObject<Fields>(response);
+
+            /*var model = new sheetList()
+            {
+                Sheets = sheets,
+                fields=fieldsList.value
+            };
+            string data = JsonConvert.SerializeObject(model);
+            ViewBag.model = data;*/
+            //List<SelectListItem> list = new List<SelectListItem>();
+
+            //Read Excel sheets Column value 
+            List<SelectListItem> list = new List<SelectListItem>();
+            foreach (var key in sheets.Keys)
+            {
+                list.Add(new SelectListItem() { Text = key, Value = JsonConvert.SerializeObject(sheets[key]) });
+            }
+
+            //Read Azure Devops field name
+            List<SelectListItem> flist = new List<SelectListItem>();
+            foreach (var field in fieldsList.value)
+            {
+                flist.Add(new SelectListItem() { Text = field.name, Value = field.name });
+            }
+
+            ViewBag.fields = flist;
+            ViewBag.Selectlist = list;
+            return View();
+        }
         static Dictionary<string, string> MappedFields ;
         static List<string> SheetNames = new List<string>();
 
@@ -465,9 +467,9 @@ namespace MigratorAzureDevops.Controllers
                                     [col.ToString()].ToString().Replace(OldTeamProject, ProjectName).TrimStart('\\');
                                 if (!string.IsNullOrEmpty(val))
                                 {
-                                    if (MappedFields.ContainsKey(col.ToString()))
-                                        Updatefields.Add(MappedFields[col.ToString()], val);
-                                    else
+                                    //if (MappedFields.ContainsKey(col.ToString()))
+                                    //    Updatefields.Add(MappedFields[col.ToString()], val);
+                                    //else
                                         Updatefields.Add(col.ToString(), val);
                                 }
                             }
