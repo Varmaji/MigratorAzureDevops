@@ -68,6 +68,7 @@ namespace MigratorAzureDevops.Controllers
             APIRequest req = new APIRequest(UserPAT);
             string response=req.ApiRequest("https://dev.azure.com/"+Organisation+"/"+DestionationProj+"/_apis/wit/fields?api-version=5.1");
             Fields fieldsList = JsonConvert.DeserializeObject<Fields>(response);
+
             /*var model = new sheetList()
             {
                 Sheets = sheets,
@@ -75,16 +76,22 @@ namespace MigratorAzureDevops.Controllers
             };
             string data = JsonConvert.SerializeObject(model);
             ViewBag.model = data;*/
-            List<SelectListItem> list =new List<SelectListItem>();
+            //List<SelectListItem> list = new List<SelectListItem>();
+
+            //Read Excel sheets Column value 
+            List<SelectListItem> list = new List<SelectListItem>();
             foreach (var key in sheets.Keys)
             {
                 list.Add(new SelectListItem() { Text = key, Value = JsonConvert.SerializeObject(sheets[key]) });
             }
+
+            //Read Azure Devops field name
             List<SelectListItem> flist = new List<SelectListItem>();
             foreach (var field in fieldsList.value)
             {
                 flist.Add(new SelectListItem() { Text = field.name, Value = field.name });
             }
+
             ViewBag.fields = flist;
             ViewBag.Selectlist = list;
                 return View("SheetsDrop");
@@ -146,12 +153,9 @@ namespace MigratorAzureDevops.Controllers
         [HttpPost]
         public JsonResult createExcel(Dictionary<string, string> FList,string SheetName)
         {
-            
             try
             {
-                if (!SheetNames.Contains(SheetName))
-                    SheetNames.Add(SheetName);
-                else
+                if(SheetNames.Contains(SheetName))
                     return Json("WorkItems From This Sheet Already Migrated", JsonRequestBehavior.AllowGet);
                 MappedFields = FList;
                 DT = sheets[SheetName];
@@ -159,6 +163,8 @@ namespace MigratorAzureDevops.Controllers
                 CreateLinks(WiList);
                 bool isUpdated=UpdateWIFields();
                 WIOps.status="Successfully Migrated workitems";
+                if (!SheetNames.Contains(SheetName))
+                    SheetNames.Add(SheetName);
                 return Json(WIOps.status, JsonRequestBehavior.AllowGet);
             }catch(Exception E)
             {
@@ -281,6 +287,35 @@ namespace MigratorAzureDevops.Controllers
 
         }
 
+        //static int createWorkItem(DataRow Dr)
+        //{
+        //    try
+        //    {
+        //        Dictionary<string, object> fields = new Dictionary<string, object>();
+        //        foreach (DataColumn column in DT.Columns)
+        //        {
+        //            if (!string.IsNullOrEmpty(Dr[column].ToString()))
+        //            {
+        //                if (column.ToString().StartsWith("Title"))
+        //                    fields.Add("Title", Dr[column].ToString());
+        //            }
+        //        }
+
+        //        //Object Wiql = new { query = "Select  [Id] From WorkItems Where [System.Title] = '" + fields["Title"] + "' AND  [System.TeamProject] ='" + ProjectName + "' AND  [Custom.CLM_ID] ='" + fields["CLM_ID"] + "'" };
+        //        //string response = req.ApiRequest(BaseUrl + "_apis/wit/wiql?api-version=4.1", "POST", JsonConvert.SerializeObject(Wiql));
+        //        //WIS ExistingWI = JsonConvert.DeserializeObject<WIS>(response);
+        //        //if (ExistingWI.WorkItems.Count >= 0)
+        //        //    return int.Parse(ExistingWI.WorkItems[0].Id);
+
+        //        var newWi = WIOps.CreateWorkItem(ProjectName, Dr["Work Item Type"].ToString(), fields);
+        //        return newWi.Id.Value;
+        //    }
+        //    catch(Exception E)
+        //    {
+        //        throw E;
+
+        //    }
+        //}
         static int createWorkItem(DataRow Dr)
         {
             try
@@ -288,19 +323,51 @@ namespace MigratorAzureDevops.Controllers
                 Dictionary<string, object> fields = new Dictionary<string, object>();
                 foreach (DataColumn column in DT.Columns)
                 {
+                    if (column.ColumnName.StartsWith("Iteration") || column.ColumnName.StartsWith("Area"))
+                    {
+                        if (OldTeamProject.IsNullOrEmpty())
+                        {
+                            string ColVal = Dr[column.ColumnName].ToString();
+                            string[] ValArr;
+                            if (ColVal.Contains("/"))
+                                ValArr = ColVal.Split('/');
+                            else
+                                ValArr = ColVal.Split('\\');
+                            OldTeamProject = ValArr[0];
+                        }
+
+                    }
                     if (!string.IsNullOrEmpty(Dr[column].ToString()))
                     {
                         if (column.ToString().StartsWith("Title"))
                             fields.Add("Title", Dr[column].ToString());
+                        else if (column.ToString() != "State" && column.ToString() != "Reason" && column.ToString() != "ID")
+                        {
+                            if (column.ColumnName.StartsWith("Iteration") || column.ColumnName.StartsWith("Area"))
+                            {
+                                if (!string.IsNullOrEmpty(OldTeamProject))
+                                {
+                                    string val = Dr[column.ToString()].ToString().Replace(OldTeamProject, ProjectName).TrimStart('\\');
+                                    fields.Add(column.ToString(), val);
+                                }
+                            }
+                            else
+                                fields.Add(column.ToString(), Dr[column].ToString());
+                        }
+
                     }
                 }
+                //object wiql = new { query = "select  [id] from workitems where [system.title] = '" + fields["title"] + "' and  [system.team project] ='" + projectname + "' and  [custom.clm_id] ='" + fields["clm_id"] + "'" };
+                //string response = req.apirequest(baseurl + "_apis/wit/wiql?api-version=4.1", "post", jsonconvert.serializeobject(wiql));
+                //wis existingwi = jsonconvert.deserializeobject<wis>(response);
+                //if (existingwi.workitems.count >= 0)
+                //    return int.parse(existingwi.workitems[0].id);
                 var newWi = WIOps.CreateWorkItem(ProjectName, Dr["Work Item Type"].ToString(), fields);
                 return newWi.Id.Value;
             }
-            catch(Exception E)
+            catch (Exception E)
             {
                 throw E;
-                
             }
         }
         public static bool UpdateWIFields()
