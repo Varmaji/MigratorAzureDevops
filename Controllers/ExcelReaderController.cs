@@ -253,6 +253,7 @@ namespace MigratorAzureDevops.Controllers
                     if (DT.Columns.Contains(item.Key))
                         DT.Columns[item.Key].ColumnName = item.Value;
                 }
+
                 List<WorkitemFromExcel> WiList = GetWorkItems();               
                 CreateLinks(WiList);
                 bool isUpdated=UpdateWIFields();
