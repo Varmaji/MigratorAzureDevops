@@ -10,7 +10,29 @@
         alert('@ViewBag.message');
     </script>
 }
+
 <script>
+
+    $(document).ready(function () {
+        $.ajax({
+            type: 'get',
+            dataType: 'json',
+            url: '../ExcelReader/AccountList',
+            async: false,
+            success: function (data) {
+                //var s = '<option value="0">--Choose Organisation--</option>';
+                $("#Organisation").empty();
+                s = "";
+                for (var i = 0; i < data.length; i++) {
+                    s += '<option value="' + data[i].accountName + '">' + data[i].accountName + '</option>';
+                }
+                $("#Organisation").append(s);
+            }
+        });
+    });
+    
+
+
     function check() {
         console.log($('input[name$="Excel"]').val());
         var a = $('input[name$="Excel"]').val();
@@ -70,7 +92,7 @@
         <br />
         <div class="form-row">
             <lable>Organization:</lable>
-            @Html.DropDownList("Organisation", new SelectList(ViewBag.OrganizationList, "Value", "Text"), "<select>", new { @class = "form-control", id = "Organisation", onchange = "populateProjects()" })
+            <select class="form-control" id ="Organisation" onchange = "populateProjects()" name="Organisation"></select>
             @*<lable>PAT:</lable><input id="PAT" type="text" name="PAT" onchange="check()" />*@
         </div>
         <br />
@@ -86,7 +108,7 @@
             <button id="submit" class="btn btn-info">Submit</button>
         </div>
     </div>
-}
 
+}
 
 

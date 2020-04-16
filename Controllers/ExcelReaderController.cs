@@ -15,13 +15,14 @@ using Microsoft.TeamFoundation.Common;
 using System.Configuration;
 using distribution_copy.Models;
 using MigratorAzureDevops.Service;
+using System.Threading;
 
 namespace MigratorAzureDevops.Controllers
 {
 
     public class ExcelReaderController : Controller
     {
-        static AccountService Account = new AccountService();
+        
         static Dictionary<string, DataTable> sheets;
         static DataTable DT;
         static List<string> TitleColumns = new List<string>();
@@ -53,14 +54,18 @@ namespace MigratorAzureDevops.Controllers
             }
             catch (Exception)
             {
-                //logger.Debug(JsonConvert.SerializeObject(ex, Formatting.Indented) + Environment.NewLine);
+                return RedirectToAction("Welcomepage", "Welcome");
             }
-            return RedirectToAction("Welcomepage", "Welcome");
+            
         }
         
         [HttpGet]
         public ActionResult ReadExcelFile()
         {
+            Thread.Sleep(2000);
+            AccountService Account = new AccountService();
+            if (Session["PAT"] == null)
+            {
                 try
                 {
                     AccessDetails _accessDetails = new AccessDetails();
@@ -83,6 +88,7 @@ namespace MigratorAzureDevops.Controllers
                         }
                     }
                     accountList = Account.GetAccounts(profile.id, _accessDetails);
+
                     Session["AccountList"] = accountList;
                     string pat = Session["PAT"].ToString();
                     List<SelectListItem> OrganizationList = new List<SelectListItem>();
@@ -93,7 +99,7 @@ namespace MigratorAzureDevops.Controllers
                     ViewBag.OrganizationList = OrganizationList;
                 }
                 catch (Exception) { }
-            
+            }
             return View();
         }
 
@@ -139,6 +145,15 @@ namespace MigratorAzureDevops.Controllers
             return Json(pm.Value, JsonRequestBehavior.AllowGet);
         }
 
+        public JsonResult AccountList()
+        {
+            AccountsResponse.AccountList accountList = new AccountsResponse.AccountList();
+            if (Session["AccountList"] != null)
+            {
+                accountList = (AccountsResponse.AccountList)Session["AccountList"];
+            }
+            return Json(accountList.value, JsonRequestBehavior.AllowGet);
+        }
         public void ReadExcel(ExcelPackage Excel)
         {
             //Console.Write("Enter The Ecel File Path:");
@@ -229,8 +244,8 @@ namespace MigratorAzureDevops.Controllers
         {
             try
             {
-                if(SheetNames.Contains(SheetName))
-                    return Json("WorkItems From This Sheet Already Migrated", JsonRequestBehavior.AllowGet);
+                //if(SheetNames.Contains(SheetName))
+                //    return Json("WorkItems From This Sheet Already Migrated", JsonRequestBehavior.AllowGet);
                 //MappedFields = FList;
                 DT = sheets[SheetName];
                 foreach (var item in FList)
