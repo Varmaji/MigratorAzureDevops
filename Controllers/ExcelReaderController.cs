@@ -16,28 +16,47 @@ using System.Configuration;
 using distribution_copy.Models;
 using MigratorAzureDevops.Service;
 using System.Threading;
+using System.Web.UI;
 
 namespace MigratorAzureDevops.Controllers
 {
 
     public class ExcelReaderController : Controller
     {
-        
+
         static Dictionary<string, DataTable> sheets;
         static DataTable DT;
         static List<string> TitleColumns = new List<string>();
-        static string BaseUrl= "https://dev.azure.com/";
+        static string BaseUrl = "https://dev.azure.com/";
         static string UserPAT;// = "qbi2it66pkjvlj7p4whh7efbkdjqzemume5xazf7ogspqmcieosa";
         static string ProjectName;// = "Agile Project";//"HOLMES-TrainingStudio";
         static public int titlecount = 0;
-        static public List<string> titles = new List<string>();       
+        static public List<string> titles = new List<string>();
         static public string OldTeamProject;// = "HOLMES-AutomationStudio";
         static public string OrganizationName;
+        public static int workitemCount;
+        public static int WorkitemCount
+        {
+            get
+            {
+
+                return workitemCount;
+            }
+            set
+            {
+                workitemCount = value;
+            }
+        }
+        public int WICount;
         
+        private delegate string[] ProcessEnvironment(string SheetName);
+
+
+
         // GET: ExcelReader
         public ActionResult Index()
         {
-          return View();
+            return View();
         }
 
         public ActionResult Validation()
@@ -56,9 +75,9 @@ namespace MigratorAzureDevops.Controllers
             {
                 return RedirectToAction("Welcomepage", "Welcome");
             }
-            
+
         }
-        
+
         [HttpGet]
         public ActionResult ReadExcelFile()
         {
@@ -104,27 +123,27 @@ namespace MigratorAzureDevops.Controllers
         }
 
         [HttpPost]
-        public ActionResult ReadExcelFile(HttpPostedFileBase Excel, string Organisation, string PAT,string SourceProj,string DestionationProj)
+        public ActionResult ReadExcelFile(HttpPostedFileBase Excel, string Organisation, string PAT, string SourceProj, string DestionationProj)
         {
-            if(Session["PAT"]==null)
+            if (Session["PAT"] == null)
             {
                 RedirectToAction("");
             }
             PAT = Session["PAT"].ToString();
             try
             {
-                var excelStream = Excel.InputStream;              
+                var excelStream = Excel.InputStream;
                 ExcelPackage excel = new ExcelPackage(excelStream);
-             
-               ReadExcel(excel);
-                
+
+                ReadExcel(excel);
+
             }
             catch (IndexOutOfRangeException)
             {
                 ViewBag.message = "No Work Sheets Found";
             }
             catch (Exception ex)
-            {                
+            {
                 ViewBag.message = "Something Went Wrong, Please Download Excel/Attachments From 'Export Attachments'";
                 throw (ex);
             }
@@ -133,8 +152,8 @@ namespace MigratorAzureDevops.Controllers
             ProjectName = DestionationProj;
             //OldTeamProject = SourceProj;
             UserPAT = PAT;
-            WIOps.ConnectWithPAT(BaseUrl+Organisation + "/",UserPAT);
-            return RedirectToAction("SheetsDrop","ExcelReader");
+            WIOps.ConnectWithPAT(BaseUrl + Organisation + "/", UserPAT);
+            return RedirectToAction("SheetsDrop", "ExcelReader");
         }
 
         [HttpPost]
@@ -143,6 +162,12 @@ namespace MigratorAzureDevops.Controllers
             AccountService service = new AccountService();
             var pm = service.GetApi<ProjectModel>("https://dev.azure.com/" + ORG + "/_apis/projects?api-version=5.1");
             return Json(pm.Value, JsonRequestBehavior.AllowGet);
+        }
+
+
+        public void Destin(string Organi,string DestinProj)
+        {
+
         }
 
         public JsonResult AccountList()
@@ -158,19 +183,19 @@ namespace MigratorAzureDevops.Controllers
         {
             //Console.Write("Enter The Ecel File Path:");
             /*string ExcelPath=Console.ReadLine();*/
-            sheets  = new Dictionary<string, DataTable>();
-            foreach ( var WorkSheet in Excel.Workbook.Worksheets)
+            sheets = new Dictionary<string, DataTable>();
+            foreach (var WorkSheet in Excel.Workbook.Worksheets)
             {
                 DataTable Dt = new DataTable();
                 int rowCount = WorkSheet.Dimension.End.Row;
-                int colCount = WorkSheet.Dimension.End.Column;                
+                int colCount = WorkSheet.Dimension.End.Column;
                 DataRow row;
                 for (int i = WorkSheet.Dimension.Start.Row; i <= rowCount; i++)
                 {
                     row = Dt.NewRow();
                     for (int j = WorkSheet.Dimension.Start.Column; j <= colCount; j++)
                     {
-                        string ColName="";
+                        string ColName = "";
                         if (i == WorkSheet.Dimension.Start.Row)
                         {
                             ColName = WorkSheet.Cells[i, j].Value.ToString();
@@ -186,18 +211,18 @@ namespace MigratorAzureDevops.Controllers
                             ColName = WorkSheet.Cells[WorkSheet.Dimension.Start.Row, j].Value.ToString();
                             if (WorkSheet.Cells[i, j].Value != null)
                                 row[ColName] = WorkSheet.Cells[i, j].Value.ToString();
-                            
+
                         }
                     }
                     if (i != WorkSheet.Dimension.Start.Row)
                         Dt.Rows.Add(row);
                 }
                 int x = 1;
-                if(sheets.ContainsKey(WorkSheet.Name))
-                sheets.Add(WorkSheet.Name+"("+x++ +")", Dt);
+                if (sheets.ContainsKey(WorkSheet.Name))
+                    sheets.Add(WorkSheet.Name + "(" + x++ + ")", Dt);
                 else
                     sheets.Add(WorkSheet.Name, Dt);
-                    
+
             }
             /*return sheets;*/
 
@@ -208,15 +233,6 @@ namespace MigratorAzureDevops.Controllers
             APIRequest req = new APIRequest(UserPAT);
             string response = req.ApiRequest("https://dev.azure.com/" + OrganizationName + "/" + ProjectName + "/_apis/wit/fields?api-version=5.1");
             Fields fieldsList = JsonConvert.DeserializeObject<Fields>(response);
-
-            /*var model = new sheetList()
-            {
-                Sheets = sheets,
-                fields=fieldsList.value
-            };
-            string data = JsonConvert.SerializeObject(model);
-            ViewBag.model = data;*/
-            //List<SelectListItem> list = new List<SelectListItem>();
 
             //Read Excel sheets Column value 
             List<SelectListItem> list = new List<SelectListItem>();
@@ -236,46 +252,55 @@ namespace MigratorAzureDevops.Controllers
             ViewBag.Selectlist = list;
             return View();
         }
-        static Dictionary<string, string> MappedFields ;
+        static Dictionary<string, string> MappedFields;
         static List<string> SheetNames = new List<string>();
 
         [HttpPost]
-        public JsonResult createExcel(Dictionary<string, string> FList,string SheetName)
+        public bool createExcel(Dictionary<string, string> FList, string SheetName)
         {
+            WorkitemCount = 0;
             try
             {
                 //if(SheetNames.Contains(SheetName))
                 //    return Json("WorkItems From This Sheet Already Migrated", JsonRequestBehavior.AllowGet);
                 //MappedFields = FList;
                 DT = sheets[SheetName];
+
                 foreach (var item in FList)
                 {
                     if (DT.Columns.Contains(item.Key))
                         DT.Columns[item.Key].ColumnName = item.Value;
                 }
+                ProcessEnvironment task = new ProcessEnvironment(GetWorkItems);
+                task.BeginInvoke(SheetName, new AsyncCallback(EndMethod), task);
 
-                List<WorkitemFromExcel> WiList = GetWorkItems();               
-                CreateLinks(WiList);
-                bool isUpdated=UpdateWIFields();
-                WIOps.status="Successfully Migrated workitems";
-                if (!SheetNames.Contains(SheetName))
-                    SheetNames.Add(SheetName);
-                return Json(WIOps.status, JsonRequestBehavior.AllowGet);
-            }catch(Exception E)
+                return true;
+            }
+            catch (Exception E)
             {
-                return Json(E.InnerException.ToString(), JsonRequestBehavior.AllowGet);
+                return false;
             }
 
         }
-        public  List<WorkitemFromExcel> GetWorkItems()
+        public void EndMethod(IAsyncResult result)
         {
-            
+            ProcessEnvironment processTask = (ProcessEnvironment)result.AsyncState;
+            string[] strResult = processTask.EndInvoke(result);
+        }
+
+        public ContentResult WorkItemCount(int WI)
+        {       
+            return Content(WorkitemCount.ToString());
+        }
+        public string[] GetWorkItems(string SheetName)
+        {
             try
             {
                 OldTeamProject = null;
                 List<WorkitemFromExcel> workitemlist = new List<WorkitemFromExcel>();
                 if (DT.Rows.Count > 0)
                 {
+
                     for (int i = 0; i < DT.Rows.Count; i++)
                     {
                         DataRow dr = DT.Rows[i];
@@ -283,21 +308,23 @@ namespace MigratorAzureDevops.Controllers
                         if (DT.Rows[i] != null)
                         {
                             item.id = createWorkItem(dr);
+                            WorkitemCount += 1;
+
 
                             if (OldTeamProject.IsNullOrEmpty())
                             {
-                                
-                               if (!dr["Area Path"].ToString().IsNullOrEmpty() || !dr["Iteration Path"].ToString().IsNullOrEmpty())
+
+                                if (!dr["Area Path"].ToString().IsNullOrEmpty() || !dr["Iteration Path"].ToString().IsNullOrEmpty())
                                 {
 
                                     string ColVal = dr["Iteration Path"].ToString();
                                     string[] ValArr = ColVal.Split('/');
                                     OldTeamProject = ValArr[0];
-                                    
+
                                 }
-                                
+
                             }
-                            
+
 
                             //("WorkItemPublish Created= " + item.id);
                             dr["ID"] = item.id.ToString();
@@ -323,28 +350,37 @@ namespace MigratorAzureDevops.Controllers
 
                     }
                 }
-                return workitemlist;
+                CreateLinks(workitemlist);
+                bool isUpdated = UpdateWIFields();
+                WIOps.status="Successfully Migrated workitems";
+                //WIOps.status = WorkitemCount;
+                if (!SheetNames.Contains(SheetName))
+                    SheetNames.Add(SheetName);
+                return new string[] {"success" };
             }
             catch (Exception E)
             {
+
+                throw (E);
+
+            }
+
+        }
+        public void CreateLinks(List<WorkitemFromExcel> WiList)
+        {
+            foreach (var wi in WiList)
+            {
                 
-                throw(E);
+                WorkItem Wi;
+                if (wi.parent != null)
+                    Wi = WIOps.UpdateWorkItemLink(wi.parent.Id, wi.id, "");
                 
             }
 
         }
-        public  void CreateLinks(List<WorkitemFromExcel> WiList)
-        {
-            foreach (var wi in WiList)
-            {
-                WorkItem Wi;
-                if (wi.parent != null)
-                    Wi=WIOps.UpdateWorkItemLink(wi.parent.Id, wi.id, "");
-                
-            }
-           
-        }
-        public  ParentWorkItem getParentData(DataTable dt, int rowindex, int columnindex)
+
+        
+        public ParentWorkItem getParentData(DataTable dt, int rowindex, int columnindex)
         {
             try
             {
@@ -382,35 +418,7 @@ namespace MigratorAzureDevops.Controllers
 
         }
 
-        //static int createWorkItem(DataRow Dr)
-        //{
-        //    try
-        //    {
-        //        Dictionary<string, object> fields = new Dictionary<string, object>();
-        //        foreach (DataColumn column in DT.Columns)
-        //        {
-        //            if (!string.IsNullOrEmpty(Dr[column].ToString()))
-        //            {
-        //                if (column.ToString().StartsWith("Title"))
-        //                    fields.Add("Title", Dr[column].ToString());
-        //            }
-        //        }
 
-        //        //Object Wiql = new { query = "Select  [Id] From WorkItems Where [System.Title] = '" + fields["Title"] + "' AND  [System.TeamProject] ='" + ProjectName + "' AND  [Custom.CLM_ID] ='" + fields["CLM_ID"] + "'" };
-        //        //string response = req.ApiRequest(BaseUrl + "_apis/wit/wiql?api-version=4.1", "POST", JsonConvert.SerializeObject(Wiql));
-        //        //WIS ExistingWI = JsonConvert.DeserializeObject<WIS>(response);
-        //        //if (ExistingWI.WorkItems.Count >= 0)
-        //        //    return int.Parse(ExistingWI.WorkItems[0].Id);
-
-        //        var newWi = WIOps.CreateWorkItem(ProjectName, Dr["Work Item Type"].ToString(), fields);
-        //        return newWi.Id.Value;
-        //    }
-        //    catch(Exception E)
-        //    {
-        //        throw E;
-
-        //    }
-        //}
         static int createWorkItem(DataRow Dr)
         {
             try
@@ -452,12 +460,13 @@ namespace MigratorAzureDevops.Controllers
 
                     }
                 }
-                //object wiql = new { query = "select  [id] from workitems where [system.title] = '" + fields["title"] + "' and  [system.team project] ='" + projectname + "' and  [custom.clm_id] ='" + fields["clm_id"] + "'" };
-                //string response = req.apirequest(baseurl + "_apis/wit/wiql?api-version=4.1", "post", jsonconvert.serializeobject(wiql));
-                //wis existingwi = jsonconvert.deserializeobject<wis>(response);
-                //if (existingwi.workitems.count >= 0)
-                //    return int.parse(existingwi.workitems[0].id);
+               
+
                 var newWi = WIOps.CreateWorkItem(ProjectName, Dr["Work Item Type"].ToString(), fields);
+
+
+
+
                 return newWi.Id.Value;
             }
             catch (Exception E)
@@ -486,13 +495,16 @@ namespace MigratorAzureDevops.Controllers
                                     //if (MappedFields.ContainsKey(col.ToString()))
                                     //    Updatefields.Add(MappedFields[col.ToString()], val);
                                     //else
-                                        Updatefields.Add(col.ToString(), val);
+                                    Updatefields.Add(col.ToString(), val);
                                 }
                             }
                         }
                     }
-                    WIOps.UpdateWorkItemFields(int.Parse(row["ID"].ToString()), Updatefields);
+                    var Fieldsss = WIOps.FormatDates(Updatefields);
+                    WIOps.UpdateWorkItemFields(int.Parse(row["ID"].ToString()), Fieldsss);
+
                 }
+
                 return true;
             }
             catch (Exception E)

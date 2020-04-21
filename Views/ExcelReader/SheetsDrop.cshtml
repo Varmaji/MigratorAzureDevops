@@ -5,21 +5,26 @@
 
 }
 <style>
-    .disabled{
-        display:none;
+    .disabled {
+        display: none;
     }
 </style>
 
-    <script>
+<script>
     var selectedSheet;
+    var Dt;
     function Tablechange() {
         var selectedSheet = $('#Sheets').val();
-        var Dt = JSON.parse(selectedSheet);
+        Dt = JSON.parse(selectedSheet);
+
+        //var ExcelRow = Dt.length;
+        //console.log(ExcelRow);
         var FieledList = @Html.Raw(Json.Encode(ViewBag.fields));
         $("#tableData").empty();
         var RowAppended = false;
         for (let key in Dt[0]) {
             if (Dt[0].hasOwnProperty(key)) {
+
                 var colExists = false;
                     var row = "<tr ><td>" + key + "</td><td><select class='list' onchange='DropDownValue(this)'><option value='0'>--Ignore--</option>";
                 for (let i = 0; i < FieledList.length; i++) {
@@ -30,19 +35,20 @@
                         row += "<option value='" + FieledList[i].Text + "'>" + FieledList[i].Text + "</option>";
                     }
                 row += "</select></td></tr>";
+
                 if (colExists != true) {
                     $("#tableData").append(row);
                     RowAppended = true;
                 }
-
-
 
             }
 
         }
          if (RowAppended == false)
                 $("#tableData").append("No Un Mapped Fields");
-    }
+        }
+
+
     var currentval = "";
     function DropDownValue(changed) {
         $('.disabled').removeClass('disabled');
@@ -70,12 +76,15 @@
                 }
             }
         }
-    }
+        }
+
+
+    var ExcelRows;
+    var myDictionary;
+    //document.getElementById("prg").style.hidden = none;
+
     function showTableData() {
-        document.getElementById("Load").hidden = false;
-
-
-
+        //document.getElementById("Load").hidden = false;
         //document.getElementById('info').innerHTML = "";
         var myTab = document.getElementById('table');
         var exportData = new Object;
@@ -88,36 +97,132 @@
                 exportData[key] = $(objCells.item(1).firstChild).val();
             }
         }
-        console.log(exportData);
-        var myDictionary = exportData;
+
+        myDictionary = exportData;
         //var selectedSheet = document.getElementById("Sheets");
         var SheetName = $("#Sheets").find("option:selected").text();
+        //ShowMappedFieldTable();
+        document.getElementById("SubmitButton").disabled = false;
+        document.getElementById("MappedFieldTable").hidden = true;
+        document.getElementById("Simpletext1").hidden = true;
 
 
-
+        var WorkitemCount = true;
         $.ajax({
            type: "POST",
             url: '@Url.Action("createExcel", "ExcelReader")',
             data: { "FList": myDictionary, "SheetName": SheetName },
+            async: true,
             success: function (data) {
-                $("#status").html = data;
-                document.getElementById("Load").hidden = true;
-                alert(data);
+                document.getElementById("Simpletext1").hidden = false;
+
+                getProgress(0);
+                WorkitemCount = false;
+                document.getElementById("SubmitButton").disabled = true;
+
+            },
+            error: function () {
+                alert("error");
             }
+
         });
-        console.log(Response);
-            ////ajax method
-                 // ADD A BREAK (TAG)
+
     }
-    </script>
+    function getProgress(WI) {
+
+
+           $.ajax({
+            url: '@Url.Action("WorkItemCount","ExcelReader")',
+             type: 'GET',
+             data: { "WI": WI },
+             async:true,
+            contentType: 'application/json; charset=utf-8',
+               success: function (response) {
+
+                if (response == undefined) {
+                    response = 0;
+
+                   }
+
+                if (response != null) {
+                    if (response < Dt.length) {
+
+                        //document.getElementById("Load").hidden = false;
+                        $("#dataField").html(response);
+                        setTimeout("getProgress(1)", 100);
+                    }
+                    
+                    else {
+                        $("#dataField").html(response);
+                        setTimeout(alert("Successfully Migrated all the workitems.."), 2000);
+                        
+                    }
+
+                   
+
+                    //document.getElementById("Load").hidden = true;
+
+                   }
+
+                   
+               }
+
+
+
+         });
+
+
+        }
+
+
+    //function ShowMappedFieldTable() {
+    //    document.getElementById("MappedFieldTable").hidden = false;
+    //    console.log(myDictionary);
+    //    for (let key in Dt[0]) {
+    //        if (Dt[0].hasOwnProperty(key)) {
+
+
+    //            var value1 = null;
+    //            var row = "<tr ><td>" + key + "</td><td>";
+    //            if (key.startsWith("Title")) {
+    //                value1 = "Title";
+    //            }
+    //            else {
+    //                value1 = key;
+    //            }
+    //            for (let key2 in myDictionary) {
+    //                if (myDictionary.hasOwnProperty(key2))
+
+    //                    if (key2 == key) {
+    //                        row += myDictionary[key2];
+    //                }
+    //                    else {
+
+    //                    row += value1;
+    //                    break;
+    //                }
+    //            }
+    //            }
+    //            row += "</td></tr>";
+
+    //        $("#MappedFieldTable").append(row);
+
+
+    //        }
+
+    //    }
+
+
+
+</script>
 <html>
 <head>
-    
+
     <link href="~/Content/font-awesome.css" rel="stylesheet" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/MigratorCSS/SheetsDrop.css" rel="stylesheet" />
     <title>SheetsDrop</title>
- 
+
 </head>
 <body>
     <div style="margin-left:100px;">
@@ -147,9 +252,45 @@
         </div>
 
         <div class="row" style="margin-left:20px;">
-                <input type="submit" value="Next" class=" btn btn-primary" id="SubmitButton" onclick="showTableData()" style="margin-right:1220px;margin-left:7px" /> 
-                <img src="~/Content/Images/LoadingBalls.gif" id="Load" hidden style="margin-left:40px;margin-top:-15px;" />
+            <input type="submit" value="Next" class=" btn btn-primary" id="SubmitButton" onclick="showTableData()" style="margin-right:1220px;margin-left:7px" />
+            @*<img src="~/Content/Images/LoadingBalls.gif" id="Load" hidden style="margin-left:40px;margin-top:-15px;" />*@
+
+            <input type="submit" value="Show Mapped Fields" class=" btn btn-success" id="simplemap1" onclick="ShowMappedFieldTable()" style="margin-right:1220px;margin-left:65px;margin-bottom:20px;margin-top:-24px;" />
+            @*<p id="Load" hidden style="margin-left:60px;margin-top:-15px;">Field Mapping is in progess please wait...</p>*@
         </div>
+        <div class="row">
+            <p id="Simpletext1" hidden style="margin-left:42px;">Number of Workitems migrated are...</p>
+            <p id="dataField"></p>
+            
+        </div>
+
+
+        @*<div class="progress" style="width:50%">
+                <div class="progress-bar"></div>
+                <div class="percent">0%</div>
+            </div>*@
+
+        @*<div class="progress" id="prg" style="width:500px;height:20px;margin-left:30px; margin-top:10px;">
+                <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+
+                </div>
+            </div>*@
+
+
+        <div style="margin-top:50px;margin-left:25px;">
+            <table class="table table-primary" id="MappedFieldTable" hidden>
+                <thead>
+                    <tr id="rowValue">
+                        @*<th>Environment Name</th>*@
+                        <th align="center">Excel Columns</th>
+                        <th align="center">Fields</th>
+                    </tr>
+                </thead>
+                <tbody id="MappedTable">
+                </tbody>
+            </table>
+        </div>
+
 
     </div>
 </body>

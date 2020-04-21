@@ -7,6 +7,7 @@ using Microsoft.VisualStudio.Services.WebApi.Patch;
 using Microsoft.VisualStudio.Services.WebApi.Patch.Json;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace MigratorAzureDevops.Class
 {
@@ -14,28 +15,65 @@ namespace MigratorAzureDevops.Class
     {
         static string Url;
         public static string status = "";
+        //public static int status = 0;
         static WorkItemTrackingHttpClient WitClient;
         public static WorkItem CreateWorkItem(string ProjectName, string WorkItemTypeName, Dictionary<string, object> Fields)
         {
             JsonPatchDocument patchDocument = new JsonPatchDocument();
             try
             {
-                foreach (var key in Fields.Keys)
+                Dictionary<string, object> Fields1 = FormatDates(Fields);
+                ////foreach(var key in Fields.Keys)
+                ////{
+                ////    if(key.Contains("Date"))
+                ////    {
+                ////        string Date=Fields[key].ToString();
+                ////        DateTime oDate = Convert.ToDateTime(Date);
+                ////        string str = oDate.ToString("yyyy-MM-dd'T'HH:mm:ss.fffffff'Z'");
+
+                ////    }
+                ////}
+                foreach (var item in Fields1.Keys.ToList())
+
                     patchDocument.Add(new JsonPatchOperation()
                     {
                         Operation = Operation.Add,
-                        Path = "/fields/" + key,
-                        Value = Fields[key]
+                        Path = "/fields/" + item,
+                        Value = Fields1[item]
                     });
+
 
                 return WitClient.CreateWorkItemAsync(patchDocument, ProjectName, WorkItemTypeName).Result;
             }
             catch (Exception E)
             {
-            throw (E);
-                
+                throw (E);
+
             }
         }
+
+        public static Dictionary<string, object> FormatDates(Dictionary<string, object> Fld)
+        {
+            Dictionary<string, object> DATFld = new Dictionary<string, object>();
+            foreach(var i in Fld)
+            {
+                DATFld.Add(i.Key,i.Value);
+            }
+
+            foreach (var flds in DATFld.Keys)
+            {
+                if (flds.Contains("Date"))
+                {
+                    string Date = Fld[flds].ToString();
+                    DateTime oDate = Convert.ToDateTime(Date, System.Globalization.CultureInfo.GetCultureInfo("hi-IN").DateTimeFormat);
+                    string FormattedDate = oDate.ToString("yyyy-MM-dd'T'HH:mm:ss.fffffff'Z'");
+                    Fld[flds] = FormattedDate;
+                }
+            }
+            return Fld;
+        }
+
+
         public static WorkItem UpdateWorkItemLink(int parentId, int childId, string message)
         {
             JsonPatchDocument patchDocument = new JsonPatchDocument();
