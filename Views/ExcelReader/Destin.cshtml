@@ -1,0 +1,91 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+@if (IsPost)
+{
+    <script>
+        alert('@ViewBag.message');
+    </script>
+}
+
+
+<script>
+    $("#Destin").addClass("active");
+    $(document).ready(function () {
+        $.ajax({
+            type: 'get',
+            dataType: 'json',
+            url: '../ExcelReader/AccountList',
+            async: false,
+            success: function (data) {
+                //var s = '<option value="0">--Choose Organisation--</option>';
+                $("#Organisation").empty();
+                s = "";
+                for (var i = 0; i < data.length; i++) {
+                    s += '<option value="' + data[i].accountName + '">' + data[i].accountName + '</option>';
+                }
+                $("#Organisation").append(s);
+            }
+        });
+    });
+
+    function populateProjects() {
+        var o = document.getElementById("Organisation");
+        var ORG = o.options[o.selectedIndex].text;
+        if (ORG == "--Choose Organisation--") {
+            return;
+        }
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("ProjectList", "ExcelReader")',
+            data: { ORG },
+
+            success:
+                function(data) {
+                    console.log(data);
+                    document.getElementById("DestionationProj").innerHTML = "<option value='0'>select</option>";
+                    for (let i = 0; i < data.length; i++) {
+                        document.getElementById("DestionationProj").innerHTML += "<option value='" + data[i].Name + "'>" + data[i].Name + "</option>";
+                    }
+                }
+            ,
+            failure:
+                function() { alert("Something went wrong, Please try Again"); }
+
+        });
+
+    }
+</script>
+
+@using (Html.BeginForm("Destin", "ExcelReader", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+<div style="margin-left:100px;margin-top:20px;">
+    <p class="lead">Please select Destination where you want to migrate..</p>
+    <br />
+    <div class="form-row">
+        <lable>Organization:</lable>
+        <select class="form-control" id="Organisation" onchange="populateProjects()" name="Organisation"></select>
+        @*<lable>PAT:</lable><input id="PAT" type="text" name="PAT" onchange="check()" />*@
+    </div>
+    <br />
+    <div class="form-row">
+        @*<lable>Source Project:</lable><input id="SourceProj" type="text" name="SourceProj" onchange="check()" />*@
+        <lable> Destination Project:</lable>
+        @Html.DropDownList("DestionationProj", new SelectList(new List<SelectListItem>()), "<select>", new { @class = "form-control", id = "DestionationProj" })
+
+    </div>
+    <br />
+    <br />
+    <div>
+        <button id="submit" class="btn btn-info">Submit</button>
+    </div>
+    @if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+    {
+        <div class="col-sm-12" style="background-color:#ffaeae">
+            <span style="color:#b71616">@ViewBag.ErrorMessage</span>
+        </div>
+    }
+</div>
+}

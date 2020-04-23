@@ -1,4 +1,5 @@
-﻿using Microsoft.TeamFoundation.WorkItemTracking.WebApi;
+﻿using log4net;
+using Microsoft.TeamFoundation.WorkItemTracking.WebApi;
 using Microsoft.TeamFoundation.WorkItemTracking.WebApi.Models;
 using Microsoft.VisualStudio.Services.Common;
 using Microsoft.VisualStudio.Services.OAuth;
@@ -17,6 +18,7 @@ namespace MigratorAzureDevops.Class
         public static string status = "";
         //public static int status = 0;
         static WorkItemTrackingHttpClient WitClient;
+        public static ILog logger = LogManager.GetLogger("ErrorLog");
         public static WorkItem CreateWorkItem(string ProjectName, string WorkItemTypeName, Dictionary<string, object> Fields)
         {
             JsonPatchDocument patchDocument = new JsonPatchDocument();
@@ -42,14 +44,14 @@ namespace MigratorAzureDevops.Class
                         Value = Fields1[item]
                     });
 
-
-                return WitClient.CreateWorkItemAsync(patchDocument, ProjectName, WorkItemTypeName).Result;
+                
             }
-            catch (Exception E)
+            catch (Exception ex)
             {
-                throw (E);
-
+                logger.Info(DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss") + "\t" + ex.Message + "\n" + ex.StackTrace + "\n");
+                throw (ex);
             }
+            return WitClient.CreateWorkItemAsync(patchDocument, ProjectName, WorkItemTypeName).Result;
         }
 
         public static Dictionary<string, object> FormatDates(Dictionary<string, object> Fld)

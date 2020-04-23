@@ -26,3 +26,15 @@
         background-color: #4e4475;
         color: white;
     }
+
+.my-custom-scrollbar {
+    height: 350px;
+    position: relative;
+    
+    overflow:auto;    
+}
+
+.table-wrapper-scroll-y {
+    display: block;
+    
+}

@@ -17,6 +17,7 @@ using distribution_copy.Models;
 using MigratorAzureDevops.Service;
 using System.Threading;
 using System.Web.UI;
+using log4net;
 
 namespace MigratorAzureDevops.Controllers
 {
@@ -35,6 +36,7 @@ namespace MigratorAzureDevops.Controllers
         static public string OldTeamProject;// = "HOLMES-AutomationStudio";
         static public string OrganizationName;
         public static int workitemCount;
+        public static ILog logger = LogManager.GetLogger("ErrorLog");
         public static int WorkitemCount
         {
             get
@@ -48,7 +50,9 @@ namespace MigratorAzureDevops.Controllers
             }
         }
         public int WICount;
-        
+
+
+        //This delegate is implemented to for fetching workitem count created everytime
         private delegate string[] ProcessEnvironment(string SheetName);
 
 
@@ -71,9 +75,11 @@ namespace MigratorAzureDevops.Controllers
                 url = string.Format(url, clientId, AppScope, redirectUrl);
                 return Redirect(url);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                logger.Info(DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss") + "\t" + ex.Message + "\n" + ex.StackTrace + "\n");
                 return RedirectToAction("Welcomepage", "Welcome");
+
             }
 
         }
@@ -117,19 +123,25 @@ namespace MigratorAzureDevops.Controllers
                     }
                     ViewBag.OrganizationList = OrganizationList;
                 }
-                catch (Exception) { }
+                catch (Exception ex)
+                {
+                    logger.Info(DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss") + "\t" + "Project Name: " + ProjectName + "\t Organization Selected: " + OrganizationName);
+                    logger.Info(DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss") + "\t" + ex.InnerException.Message);
+                    throw (ex);
+                }
             }
+
             return View();
         }
 
         [HttpPost]
-        public ActionResult ReadExcelFile(HttpPostedFileBase Excel, string Organisation, string PAT, string SourceProj, string DestionationProj)
+        public ActionResult ReadExcelFile(HttpPostedFileBase Excel/*, string Organisation, string PAT, string SourceProj, string DestionationProj*/)
         {
-            if (Session["PAT"] == null)
-            {
-                RedirectToAction("");
-            }
-            PAT = Session["PAT"].ToString();
+            //if (Session["PAT"] == null)
+            //{
+            //    RedirectToAction("");
+            //}
+            //PAT = Session["PAT"].ToString();
             try
             {
                 var excelStream = Excel.InputStream;
@@ -144,16 +156,18 @@ namespace MigratorAzureDevops.Controllers
             }
             catch (Exception ex)
             {
+                logger.Info(DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss") + "\t" + "Project Name: " + ProjectName + "\t Organization Selected: " + OrganizationName);
+                logger.Info(DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss") + "\t" + ex.InnerException.Message);
                 ViewBag.message = "Something Went Wrong, Please Download Excel/Attachments From 'Export Attachments'";
-                throw (ex);
+
             }
             //BaseUrl += Organisation;
-            OrganizationName = Organisation;
-            ProjectName = DestionationProj;
-            //OldTeamProject = SourceProj;
-            UserPAT = PAT;
-            WIOps.ConnectWithPAT(BaseUrl + Organisation + "/", UserPAT);
-            return RedirectToAction("SheetsDrop", "ExcelReader");
+            //OrganizationName = Organisation;
+            //ProjectName = DestionationProj;
+            ////OldTeamProject = SourceProj;
+            //UserPAT = PAT;
+            //WIOps.ConnectWithPAT(BaseUrl + Organisation + "/", UserPAT);
+            return RedirectToAction("Destin", "ExcelReader", new { ErrorMessage = ViewBag.message });
         }
 
         [HttpPost]
@@ -164,10 +178,35 @@ namespace MigratorAzureDevops.Controllers
             return Json(pm.Value, JsonRequestBehavior.AllowGet);
         }
 
-
-        public void Destin(string Organi,string DestinProj)
+        [HttpGet]
+        public ActionResult Destin()
         {
+            return View();
+        } 
 
+        [HttpPost]
+        public ActionResult Destin(string Organisation, string DestionationProj)
+        {
+            try
+            {
+                if (Session["PAT"] == null)
+                {
+                    RedirectToAction("");
+                }
+                string PAT = Session["PAT"].ToString();
+                OrganizationName = Organisation;
+                ProjectName = DestionationProj;
+                //OldTeamProject = SourceProj;
+                UserPAT = PAT;
+                WIOps.ConnectWithPAT(BaseUrl + Organisation + "/", UserPAT);
+            }
+            catch (Exception ex)
+            {
+                logger.Info(DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss") + "\t" + "Project Name: " + ProjectName + "\t Organization Selected: " + OrganizationName);
+                logger.Info(DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss") + "\t" + ex.InnerException.Message);
+                ViewBag.ErrorMessage = ex.Message;
+            }
+            return RedirectToAction("SheetsDrop", "ExcelReader");
         }
 
         public JsonResult AccountList()
@@ -184,45 +223,55 @@ namespace MigratorAzureDevops.Controllers
             //Console.Write("Enter The Ecel File Path:");
             /*string ExcelPath=Console.ReadLine();*/
             sheets = new Dictionary<string, DataTable>();
-            foreach (var WorkSheet in Excel.Workbook.Worksheets)
+            try
             {
-                DataTable Dt = new DataTable();
-                int rowCount = WorkSheet.Dimension.End.Row;
-                int colCount = WorkSheet.Dimension.End.Column;
-                DataRow row;
-                for (int i = WorkSheet.Dimension.Start.Row; i <= rowCount; i++)
+                foreach (var WorkSheet in Excel.Workbook.Worksheets)
                 {
-                    row = Dt.NewRow();
-                    for (int j = WorkSheet.Dimension.Start.Column; j <= colCount; j++)
+                    DataTable Dt = new DataTable();
+                    int rowCount = WorkSheet.Dimension.End.Row;
+                    int colCount = WorkSheet.Dimension.End.Column;
+                    DataRow row;
+                    for (int i = WorkSheet.Dimension.Start.Row; i <= rowCount; i++)
                     {
-                        string ColName = "";
-                        if (i == WorkSheet.Dimension.Start.Row)
+                        row = Dt.NewRow();
+                        for (int j = WorkSheet.Dimension.Start.Column; j <= colCount; j++)
                         {
-                            ColName = WorkSheet.Cells[i, j].Value.ToString();
-                            if (ColName.StartsWith("Title"))
+                            string ColName = "";
+                            if (i == WorkSheet.Dimension.Start.Row)
                             {
-                                TitleColumns.Add(ColName);
+                                ColName = WorkSheet.Cells[i, j].Value.ToString();
+                                if (ColName.StartsWith("Title"))
+                                {
+                                    TitleColumns.Add(ColName);
+                                }
+                                DataColumn column = new DataColumn(ColName);
+                                Dt.Columns.Add(column);
                             }
-                            DataColumn column = new DataColumn(ColName);
-                            Dt.Columns.Add(column);
-                        }
-                        else
-                        {
-                            ColName = WorkSheet.Cells[WorkSheet.Dimension.Start.Row, j].Value.ToString();
-                            if (WorkSheet.Cells[i, j].Value != null)
-                                row[ColName] = WorkSheet.Cells[i, j].Value.ToString();
+                            else
+                            {
+                                ColName = WorkSheet.Cells[WorkSheet.Dimension.Start.Row, j].Value.ToString();
+                                if (WorkSheet.Cells[i, j].Value != null)
+                                    row[ColName] = WorkSheet.Cells[i, j].Value.ToString();
 
+                            }
                         }
+                        if (i != WorkSheet.Dimension.Start.Row)
+                            Dt.Rows.Add(row);
                     }
-                    if (i != WorkSheet.Dimension.Start.Row)
-                        Dt.Rows.Add(row);
-                }
-                int x = 1;
-                if (sheets.ContainsKey(WorkSheet.Name))
-                    sheets.Add(WorkSheet.Name + "(" + x++ + ")", Dt);
-                else
-                    sheets.Add(WorkSheet.Name, Dt);
+                    int x = 1;
+                    if (sheets.ContainsKey(WorkSheet.Name))
+                        sheets.Add(WorkSheet.Name + "(" + x++ + ")", Dt);
+                    else
+                        sheets.Add(WorkSheet.Name, Dt);
 
+                }
+            }
+
+            catch (Exception ex)
+            {
+                logger.Info(DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss") + "\t" + "Project Name: " + ProjectName + "\t Organization Selected: " + OrganizationName);
+                logger.Info(DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss") + "\t" + ex.InnerException.Message);
+                throw (ex);
             }
             /*return sheets;*/
 
@@ -230,28 +279,39 @@ namespace MigratorAzureDevops.Controllers
 
         public ActionResult SheetsDrop()
         {
-            APIRequest req = new APIRequest(UserPAT);
-            string response = req.ApiRequest("https://dev.azure.com/" + OrganizationName + "/" + ProjectName + "/_apis/wit/fields?api-version=5.1");
-            Fields fieldsList = JsonConvert.DeserializeObject<Fields>(response);
-
-            //Read Excel sheets Column value 
-            List<SelectListItem> list = new List<SelectListItem>();
-            foreach (var key in sheets.Keys)
+            try
             {
-                list.Add(new SelectListItem() { Text = key, Value = JsonConvert.SerializeObject(sheets[key]) });
-            }
+                APIRequest req = new APIRequest(UserPAT);
+                string response = req.ApiRequest("https://dev.azure.com/" + OrganizationName + "/" + ProjectName + "/_apis/wit/fields?api-version=5.1");
+                Fields fieldsList = JsonConvert.DeserializeObject<Fields>(response);
 
-            //Read Azure Devops field name
-            List<SelectListItem> flist = new List<SelectListItem>();
-            foreach (var field in fieldsList.value)
+                //Read Excel sheets Column value 
+                List<SelectListItem> list = new List<SelectListItem>();
+                foreach (var key in sheets.Keys)
+                {
+                    list.Add(new SelectListItem() { Text = key, Value = JsonConvert.SerializeObject(sheets[key]) });
+                }
+
+                //Read Azure Devops field name
+                List<SelectListItem> flist = new List<SelectListItem>();
+                foreach (var field in fieldsList.value)
+                {
+                    flist.Add(new SelectListItem() { Text = field.name, Value = field.name });
+                }
+
+                ViewBag.fields = flist;
+                ViewBag.Selectlist = list;
+            }
+            catch (Exception ex)
             {
-                flist.Add(new SelectListItem() { Text = field.name, Value = field.name });
+                logger.Info(DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss") + "\t" + "Project Name: " + ProjectName + "\t Organization Selected: " + OrganizationName);
+                logger.Info(DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss") + "\t" + ex.InnerException.Message);
+                ViewBag.ErrorMessage = ex.Message;
             }
-
-            ViewBag.fields = flist;
-            ViewBag.Selectlist = list;
             return View();
         }
+
+
         static Dictionary<string, string> MappedFields;
         static List<string> SheetNames = new List<string>();
 
@@ -276,20 +336,75 @@ namespace MigratorAzureDevops.Controllers
 
                 return true;
             }
-            catch (Exception E)
+            catch (Exception ex)
             {
+                logger.Info(DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss") + "\t" + "Project Name: " + ProjectName + "\t Organization Selected: " + OrganizationName);
+                logger.Info(DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss") + "\t" + ex.InnerException.Message);
+                ViewBag.ErrorMessage = ex.Message;
                 return false;
             }
+            //finally
+            //{
+            //    ExportDataSetToExcel();
+            //}
 
         }
+
         public void EndMethod(IAsyncResult result)
         {
-            ProcessEnvironment processTask = (ProcessEnvironment)result.AsyncState;
-            string[] strResult = processTask.EndInvoke(result);
+            try
+            {
+                ProcessEnvironment processTask = (ProcessEnvironment)result.AsyncState;
+                string[] strResult = processTask.EndInvoke(result);
+            }
+            catch(Exception ex)
+            {
+                logger.Info(DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss") + "\t" + "Project Name: " + ProjectName + "\t Organization Selected: " + OrganizationName);
+                logger.Info(DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss") + "\t" + ex.InnerException.Message);
+               
+            }
         }
 
+        static DataSet DS = new DataSet();
+        //public void ExportDataSetToExcel()
+        //{
+        //    DataTable people = (DataTable)Session["people"];
+
+        //    // Open excel file and insert data table.
+        //    ExcelPackage ef = new ExcelPackage();
+        //    ef.LoadXls(Server.MapPath("MyData.xls"));
+        //    ExcelWorksheet ws = ef.Worksheets[0];
+        //    ws.InsertDataTable(people, "A1", true);
+
+        //    Response.Clear();
+
+        //    // Stream file to browser, in required type.
+        //    switch (this.RadioButtonList1.SelectedValue)
+        //    {
+        //        case "XLS":
+        //            Response.ContentType = "application/vnd.ms-excel";
+        //            Response.AddHeader("Content-Disposition", "attachment; filename=" +
+        //                 "Report.xls");
+        //            ef.SaveXls(Response.OutputStream);
+        //            break;
+
+        //        case "XLSX":
+        //            Response.ContentType = "application/vnd.openxmlformats";
+        //            Response.AddHeader("Content-Disposition", "attachment; filename=" +
+        //                 "Report.xlsx");
+        //            // With XLSX it is a bit more complicated as MS Packaging API
+        //            // can't write directly to Response.OutputStream.
+        //            // Therefore we use temporary MemoryStream.
+        //            MemoryStream ms = new MemoryStream();
+        //            ef.SaveXlsx(ms)
+        //            ms.WriteTo(Response.OutputStream);
+        //            break;
+        //    }
+        //    Response.End();
+        //}
+
         public ContentResult WorkItemCount(int WI)
-        {       
+        {
             return Content(WorkitemCount.ToString());
         }
         public string[] GetWorkItems(string SheetName)
@@ -324,8 +439,6 @@ namespace MigratorAzureDevops.Controllers
                                 }
 
                             }
-
-
                             //("WorkItemPublish Created= " + item.id);
                             dr["ID"] = item.id.ToString();
 
@@ -352,34 +465,44 @@ namespace MigratorAzureDevops.Controllers
                 }
                 CreateLinks(workitemlist);
                 bool isUpdated = UpdateWIFields();
-                WIOps.status="Successfully Migrated workitems";
+                WIOps.status = "Successfully Migrated workitems";
                 //WIOps.status = WorkitemCount;
                 if (!SheetNames.Contains(SheetName))
                     SheetNames.Add(SheetName);
-                return new string[] {"success" };
+                return new string[] { "success" };
             }
-            catch (Exception E)
+
+            catch (Exception ex)
             {
-
-                throw (E);
+                logger.Info(DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss") + "\t" + "Project Name: " + ProjectName + "\t Organization Selected: " + OrganizationName);
+                logger.Info(DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss") + "\t" + ex.InnerException.Message);
+                throw (ex);
 
             }
+            return new string[] { "" };
 
         }
         public void CreateLinks(List<WorkitemFromExcel> WiList)
         {
-            foreach (var wi in WiList)
+            try
             {
-                
-                WorkItem Wi;
-                if (wi.parent != null)
-                    Wi = WIOps.UpdateWorkItemLink(wi.parent.Id, wi.id, "");
-                
+                foreach (var wi in WiList)
+                {
+
+                    WorkItem Wi;
+                    if (wi.parent != null)
+                        Wi = WIOps.UpdateWorkItemLink(wi.parent.Id, wi.id, "");
+
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.Info(DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss") + "\t" + "Project Name: " + ProjectName + "\t Organization Selected: " + OrganizationName);
+                logger.Info(DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss") + "\t" + ex.InnerException.Message);
             }
 
         }
 
-        
         public ParentWorkItem getParentData(DataTable dt, int rowindex, int columnindex)
         {
             try
@@ -411,15 +534,16 @@ namespace MigratorAzureDevops.Controllers
                 }
                 return workItem;
             }
-            catch (Exception E)
+            catch (Exception ex)
             {
+                logger.Info(DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss") + "\t" + "Project Name: " + ProjectName + "\t Organization Selected: " + OrganizationName);
+                logger.Info(DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss") + "\t" + ex.InnerException.Message);
                 return null;
+
             }
 
         }
-
-
-        static int createWorkItem(DataRow Dr)
+        public int createWorkItem(DataRow Dr)
         {
             try
             {
@@ -460,19 +584,23 @@ namespace MigratorAzureDevops.Controllers
 
                     }
                 }
-               
-
                 var newWi = WIOps.CreateWorkItem(ProjectName, Dr["Work Item Type"].ToString(), fields);
 
-
-
+                logger.Info(DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss") + "\t" + "Project Name: " + ProjectName + "\t Organization Selected: " + OrganizationName);
+                logger.Info(DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss") + "\t" + "WorkItem ID Created: " + newWi.Id.Value);
 
                 return newWi.Id.Value;
+
             }
-            catch (Exception E)
+
+            catch (Exception ex)
             {
-                throw E;
+                logger.Info(DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss") + "\t" + "Project Name: " + ProjectName + "\t Organization Selected: " + OrganizationName);
+                logger.Info(DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss") + "\t" + ex.InnerException.Message);
+                throw (ex);
             }
+
+            return 0;
         }
         public static bool UpdateWIFields()
         {
@@ -507,11 +635,25 @@ namespace MigratorAzureDevops.Controllers
 
                 return true;
             }
-            catch (Exception E)
+            catch (Exception ex)
             {
-                throw (E);
+                logger.Info(DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss") + "\t" + "Project Name: " + ProjectName + "\t Organization Selected: " + OrganizationName);
+                logger.Info(DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss") + "\t" + ex.InnerException.Message);
+                throw (ex);
             }
 
+        }
+
+        public FileResult Download()
+        {
+            var directory = new DirectoryInfo(@"D:\All My Applications\MigratorAzureDevops\Logs\");
+            var myFile = (from f in directory.GetFiles()
+                          orderby f.LastWriteTime descending
+                          select f).First();
+            string FilePath = Path.Combine(directory.ToString(), myFile.ToString());
+            //byte[] fileBytes = System.IO.File.ReadAllBytes(FilePath);
+            string fileName = "Logs.txt";
+            return File(FilePath, "text/plain", fileName);
         }
     }
 }

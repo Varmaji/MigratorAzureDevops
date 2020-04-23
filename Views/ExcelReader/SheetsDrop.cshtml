@@ -8,11 +8,35 @@
     .disabled {
         display: none;
     }
+
+
+    #myProgress {
+        width: 100%;
+        background-color: #ddd;
+    }
+
+    #myBar {
+        width: 10%;
+        height: 30px;
+        background-color: #4CAF50;
+        text-align: center;
+        line-height: 30px;
+        color: white;
+    }
+
+    .lead{
+        font-size:21px !important;
+    }
 </style>
 
 <script>
+    $("#Field").addClass("active");
     var selectedSheet;
     var Dt;
+    document.getElementById("SubmitButton").hidden = true;
+    document.getElementById("simplemap1").hidden = true;
+    document.getElementById("Rule").hidden = true;
+    
     function Tablechange() {
         var selectedSheet = $('#Sheets').val();
         Dt = JSON.parse(selectedSheet);
@@ -24,25 +48,35 @@
         var RowAppended = false;
         for (let key in Dt[0]) {
             if (Dt[0].hasOwnProperty(key)) {
-
+                if (key.startsWith("Title")) {
+                    //colExists = true;
+                    continue;
+                }
                 var colExists = false;
-                    var row = "<tr ><td>" + key + "</td><td><select class='list' onchange='DropDownValue(this)'><option value='0'>--Ignore--</option>";
+                var row = "<tr ><td>" + key + "</td><td><select class='list' onchange='DropDownValue(this)'><option value='0'>" + key + "</option>";
                 for (let i = 0; i < FieledList.length; i++) {
-                    if (key == FieledList[i].Text || key.startsWith("Title")) {
+                    if (key == FieledList[i].Text)
                         colExists = true;
-                        break;
-                    }
                         row += "<option value='" + FieledList[i].Text + "'>" + FieledList[i].Text + "</option>";
                     }
-                row += "</select></td></tr>";
+                row += "</select>";
 
                 if (colExists != true) {
-                    $("#tableData").append(row);
+                    row = row + '<img src = "/Content/Images/star.png"/>' + "</td ></tr >";
                     RowAppended = true;
                 }
+                else 
+                {
+                    row = row + "</td ></tr >";
+                    }
+              
+                $("#tableData").append(row);
 
             }
-
+            document.getElementById("SubmitButton").hidden = false;
+            document.getElementById("simplemap1").hidden = false;
+            document.getElementById("Rule").hidden = false;
+            
         }
          if (RowAppended == false)
                 $("#tableData").append("No Un Mapped Fields");
@@ -87,7 +121,7 @@
         //document.getElementById("Load").hidden = false;
         //document.getElementById('info').innerHTML = "";
         var myTab = document.getElementById('table');
-        var exportData = new Object;
+         var exportData = new Object;
         // LOOP THROUGH EACH ROW OF THE TABLE AFTER HEADER.
         for (i = 1; i < myTab.rows.length; i++) {
             // GET THE CELLS COLLECTION OF THE CURRENT ROW.
@@ -102,7 +136,7 @@
         //var selectedSheet = document.getElementById("Sheets");
         var SheetName = $("#Sheets").find("option:selected").text();
         //ShowMappedFieldTable();
-        document.getElementById("SubmitButton").disabled = false;
+        
         document.getElementById("MappedFieldTable").hidden = true;
         document.getElementById("Simpletext1").hidden = true;
 
@@ -118,7 +152,7 @@
 
                 getProgress(0);
                 WorkitemCount = false;
-                document.getElementById("SubmitButton").disabled = true;
+                
 
             },
             error: function () {
@@ -130,7 +164,7 @@
     }
     function getProgress(WI) {
 
-
+           var elem = document.getElementById("myBar");
            $.ajax({
             url: '@Url.Action("WorkItemCount","ExcelReader")',
              type: 'GET',
@@ -143,28 +177,39 @@
                     response = 0;
 
                    }
-
+                   document.getElementById("DownLog").hidden = true;
+                   document.getElementById("myBar").hidden = false;
                 if (response != null) {
                     if (response < Dt.length) {
 
+                        var width = (response / Dt.length) * 100;
+                        width = Math.round(width);
                         //document.getElementById("Load").hidden = false;
                         $("#dataField").html(response);
+                        elem.style.width = width + "%";
+                        elem.innerHTML = width + "%";
                         setTimeout("getProgress(1)", 100);
                     }
-                    
+
                     else {
+
                         $("#dataField").html(response);
-                        setTimeout(alert("Successfully Migrated all the workitems.."), 2000);
+                        elem.style.width = 100 + "%";
+                        elem.innerHTML = 100 + "%";
+                        $("#myElem").show();
+                        document.getElementById("DownLog").hidden = false;
+
                         
+                        setTimeout(function () { $("#myElem").hide(); }, 5000);
                     }
 
-                   
+
 
                     //document.getElementById("Load").hidden = true;
 
                    }
 
-                   
+
                }
 
 
@@ -175,43 +220,33 @@
         }
 
 
-    //function ShowMappedFieldTable() {
-    //    document.getElementById("MappedFieldTable").hidden = false;
-    //    console.log(myDictionary);
-    //    for (let key in Dt[0]) {
-    //        if (Dt[0].hasOwnProperty(key)) {
+    function ShowMappedFieldTable() {
+        var myTab = document.getElementById('table');
+        var exportData = new Object;
+        document.getElementById("MappedFieldTable").empty;
+        // LOOP THROUGH EACH ROW OF THE TABLE AFTER HEADER.
+        for (i = 1; i < myTab.rows.length; i++) {
+            // GET THE CELLS COLLECTION OF THE CURRENT ROW.
+            var objCells = myTab.rows.item(i).cells;
+            if ($(objCells.item(1).firstChild).val() != "0") {
+                var key = (objCells.item(0).innerHTML);
+                exportData[key] = $(objCells.item(1).firstChild).val();
+            }
+        }
 
+        myDictionary = exportData;
+        document.getElementById("MappedFieldTable").hidden = false;
+        console.log(myDictionary);
 
-    //            var value1 = null;
-    //            var row = "<tr ><td>" + key + "</td><td>";
-    //            if (key.startsWith("Title")) {
-    //                value1 = "Title";
-    //            }
-    //            else {
-    //                value1 = key;
-    //            }
-    //            for (let key2 in myDictionary) {
-    //                if (myDictionary.hasOwnProperty(key2))
+                for (let key2 in myDictionary) {
+                    var row = "<tr ><td>" + key2 + "</td><td>";
+                    if (myDictionary.hasOwnProperty(key2))
+                         row += myDictionary[key2];
 
-    //                    if (key2 == key) {
-    //                        row += myDictionary[key2];
-    //                }
-    //                    else {
-
-    //                    row += value1;
-    //                    break;
-    //                }
-    //            }
-    //            }
-    //            row += "</td></tr>";
-
-    //        $("#MappedFieldTable").append(row);
-
-
-    //        }
-
-    //    }
-
+                }
+                row += "</td></tr>";
+            $("#MappedFieldTable").append(row);
+    }
 
 
 </script>
@@ -225,8 +260,11 @@
 
 </head>
 <body>
-    <div style="margin-left:100px;">
+    <div style="margin-left:100px;overflow-x:hidden; overflow-y:hidden;">
         <p id="status"></p>
+        <p>Please choose the excel sheet name from dropdown..</p>
+
+
         <div class="col-md-3 dropdowns" style="margin-left:10px;">
             <label>
                 <b>
@@ -236,12 +274,15 @@
             @Html.DropDownList("sheet", new SelectList(ViewBag.Selectlist, "Value", "Text"), "<select>", new { @class = "form-control", @id = "Sheets", onchange = "Tablechange()" })
 
         </div>
+        <div class="col-md-3" style="margin-top:45px;">
+            <a type="file" href="~/ExcelReader/Download" value="Download Log" hidden class=" btn btn-success" id="DownLog" style="margin-right:1220px;margin-left:65px;margin-bottom:20px;margin-top:-24px;">Click here to download the Log</a>
+        </div>
+
         <br />
-        <div style="margin-top:50px;margin-left:25px;">
-            <table class="table table-primary" id="table">
+        <div style="margin-top:50px;margin-left:25px;" class="table-wrapper-scroll-y my-custom-scrollbar">
+            <table class="table table-bordered table-striped mb-0" id="table">
                 <thead>
                     <tr id="rowValue">
-                        @*<th>Environment Name</th>*@
                         <th align="center">Excel Columns</th>
                         <th align="center">Fields</th>
                     </tr>
@@ -250,31 +291,27 @@
                 </tbody>
             </table>
         </div>
-
-        <div class="row" style="margin-left:20px;">
-            <input type="submit" value="Next" class=" btn btn-primary" id="SubmitButton" onclick="showTableData()" style="margin-right:1220px;margin-left:7px" />
-            @*<img src="~/Content/Images/LoadingBalls.gif" id="Load" hidden style="margin-left:40px;margin-top:-15px;" />*@
-
-            <input type="submit" value="Show Mapped Fields" class=" btn btn-success" id="simplemap1" onclick="ShowMappedFieldTable()" style="margin-right:1220px;margin-left:65px;margin-bottom:20px;margin-top:-24px;" />
-            @*<p id="Load" hidden style="margin-left:60px;margin-top:-15px;">Field Mapping is in progess please wait...</p>*@
+        
+            <p style="margin-left:86%;" id="Rule" hidden>
+                <img src="~/Content/Images/star.png" /> - Unmapped fields
+            </p>
+        
+        <div class="row" style="margin-left:20px; margin-top:10px;">
+            <input type="submit" value="Next" class=" btn btn-primary" id="SubmitButton" onclick="showTableData()" style="margin-right:1220px;margin-left:7px" hidden="hidden" />
+            <input type="submit" hidden value="Show Mapped Fields"  class="btn btn-success" id="simplemap1" onclick="ShowMappedFieldTable()" style="margin-right:1220px;margin-left:65px;margin-bottom:20px;margin-top:-24px;" />
         </div>
         <div class="row">
             <p id="Simpletext1" hidden style="margin-left:42px;">Number of Workitems migrated are...</p>
             <p id="dataField"></p>
-            
+
         </div>
-
-
-        @*<div class="progress" style="width:50%">
-                <div class="progress-bar"></div>
-                <div class="percent">0%</div>
-            </div>*@
-
-        @*<div class="progress" id="prg" style="width:500px;height:20px;margin-left:30px; margin-top:10px;">
-                <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
-
-                </div>
-            </div>*@
+        <div class="row">
+            <div  id="myProgress" style="margin-left:42px; width:50%">
+                <div id="myBar" hidden></div>
+            </div> 
+            <p id="myElem" class="badge badge-pill" style="display:none">Succesfully Migrated</p>
+        </div>
+       
 
 
         <div style="margin-top:50px;margin-left:25px;">
@@ -291,6 +328,12 @@
             </table>
         </div>
 
+        @if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+        {
+            <div class="col-sm-12" style="background-color:#ffaeae">
+                <span style="color:#b71616">@ViewBag.ErrorMessage</span>
+            </div>
+        }
 
     </div>
 </body>
