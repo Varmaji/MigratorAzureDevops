@@ -182,7 +182,7 @@ namespace MigratorAzureDevops.Controllers
         public ActionResult Destin()
         {
             return View();
-        } 
+        }
 
         [HttpPost]
         public ActionResult Destin(string Organisation, string DestionationProj)
@@ -357,11 +357,11 @@ namespace MigratorAzureDevops.Controllers
                 ProcessEnvironment processTask = (ProcessEnvironment)result.AsyncState;
                 string[] strResult = processTask.EndInvoke(result);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 logger.Info(DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss") + "\t" + "Project Name: " + ProjectName + "\t Organization Selected: " + OrganizationName);
                 logger.Info(DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss") + "\t" + ex.InnerException.Message);
-               
+                throw (ex);
             }
         }
 
@@ -407,10 +407,14 @@ namespace MigratorAzureDevops.Controllers
         {
             return Content(WorkitemCount.ToString());
         }
+
+        APIRequest req = new APIRequest(UserPAT);
+
         public string[] GetWorkItems(string SheetName)
         {
             try
             {
+                
                 OldTeamProject = null;
                 List<WorkitemFromExcel> workitemlist = new List<WorkitemFromExcel>();
                 if (DT.Rows.Count > 0)
@@ -420,8 +424,11 @@ namespace MigratorAzureDevops.Controllers
                     {
                         DataRow dr = DT.Rows[i];
                         WorkitemFromExcel item = new WorkitemFromExcel();
+
                         if (DT.Rows[i] != null)
                         {
+
+
                             item.id = createWorkItem(dr);
                             WorkitemCount += 1;
 
@@ -584,12 +591,20 @@ namespace MigratorAzureDevops.Controllers
 
                     }
                 }
-                var newWi = WIOps.CreateWorkItem(ProjectName, Dr["Work Item Type"].ToString(), fields);
-
-                logger.Info(DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss") + "\t" + "Project Name: " + ProjectName + "\t Organization Selected: " + OrganizationName);
-                logger.Info(DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss") + "\t" + "WorkItem ID Created: " + newWi.Id.Value);
-
-                return newWi.Id.Value;
+                Object Wiql = new { query = "Select  [Id] From WorkItems Where [System.Title] = '" + fields["Title"] + "' AND  [System.TeamProject] ='" + ProjectName + "'" };
+                string response = req.ApiRequest(BaseUrl +  OrganizationName + "/_apis/wit/wiql?api-version=4.1", "POST", JsonConvert.SerializeObject(Wiql));
+                WIS ExistingWI = JsonConvert.DeserializeObject<WIS>(response);
+                if (ExistingWI.WorkItems.Count > 0)
+                {
+                    return int.Parse(ExistingWI.WorkItems[0].Id);
+                }
+                else
+                {
+                    var newWi = WIOps.CreateWorkItem(ProjectName, Dr["Work Item Type"].ToString(), fields);
+                    logger.Info(DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss") + "\t" + "Project Name: " + ProjectName + "\t Organization Selected: " + OrganizationName);
+                    logger.Info(DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss") + "\t" + "WorkItem ID Created: " + newWi.Id.Value);
+                    return newWi.Id.Value;
+                }
 
             }
 
@@ -646,7 +661,7 @@ namespace MigratorAzureDevops.Controllers
 
         public FileResult Download()
         {
-            var directory = new DirectoryInfo(@"D:\All My Applications\MigratorAzureDevops\Logs\");
+            var directory = new DirectoryInfo(Server.MapPath("~\\Logs"));
             var myFile = (from f in directory.GetFiles()
                           orderby f.LastWriteTime descending
                           select f).First();

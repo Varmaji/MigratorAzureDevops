@@ -33,4 +33,12 @@ namespace MigratorAzureDevops.Models
         //public string category { get; set; }
 
     }
+    public class WIS
+    {
+        public List<WI> WorkItems { get; set; }
+    }
+    public class WI
+    {
+        public string Id { get; set; }
+    }
 }
