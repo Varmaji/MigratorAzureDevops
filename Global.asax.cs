@@ -16,6 +16,7 @@ namespace MigratorAzureDevops
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            log4net.GlobalContext.Properties["LogFileName"] = @"Logs\log.txt"; //log file path
             log4net.Config.XmlConfigurator.Configure();
         }
     }
