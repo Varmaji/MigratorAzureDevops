@@ -312,7 +312,7 @@ namespace MigratorAzureDevops.Controllers
         }
 
 
-        static Dictionary<string, string> MappedFields;
+        //static Dictionary<string, string> MappedFields;
         static List<string> SheetNames = new List<string>();
 
         [HttpPost]
@@ -479,7 +479,7 @@ namespace MigratorAzureDevops.Controllers
                 throw (ex);
 
             }
-            return new string[] { "" };
+            //return new string[] { "" };
 
         }
         public void CreateLinks(List<WorkitemFromExcel> WiList)
@@ -600,7 +600,7 @@ namespace MigratorAzureDevops.Controllers
                 throw (ex);
             }
 
-            return 0;
+            //return 0;
         }
         public static bool UpdateWIFields()
         {
