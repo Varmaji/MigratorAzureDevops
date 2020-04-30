@@ -18,14 +18,14 @@
     #myBar {
         width: 10%;
         height: 30px;
-        background-color: #4CAF50;
+        background-color: darkcyan;
         text-align: center;
         line-height: 30px;
         color: white;
     }
 
-    .lead{
-        font-size:21px !important;
+    .lead {
+        font-size: 21px !important;
     }
 </style>
 
@@ -36,16 +36,29 @@
     document.getElementById("SubmitButton").hidden = true;
     document.getElementById("simplemap1").hidden = true;
     document.getElementById("Rule").hidden = true;
-    
+
     function Tablechange() {
         var selectedSheet = $('#Sheets').val();
         Dt = JSON.parse(selectedSheet);
-
+        console.log(Dt);
         //var ExcelRow = Dt.length;
         //console.log(ExcelRow);
         var FieledList = @Html.Raw(Json.Encode(ViewBag.fields));
         $("#tableData").empty();
         var RowAppended = false;
+
+        var Dropdwn = document.getElementById('UniqueColumn');
+
+
+           for(let key1 in Dt[1]){
+                var el = document.createElement("option");
+                txt = document.createTextNode(key1);
+                el.appendChild(txt);
+                Dropdwn.insertBefore(el, Dropdwn.lastChild);
+            }
+
+
+
         for (let key in Dt[0]) {
             if (Dt[0].hasOwnProperty(key)) {
                 if (key.startsWith("Title")) {
@@ -65,19 +78,22 @@
                     row = row + '<img src = "/Content/Images/star.png"/>' + "</td ></tr >";
                     RowAppended = true;
                 }
-                else 
+                else
                 {
                     row = row + "</td ></tr >";
                     }
-              
+
                 $("#tableData").append(row);
 
             }
             document.getElementById("SubmitButton").hidden = false;
             document.getElementById("simplemap1").hidden = false;
             document.getElementById("Rule").hidden = false;
-            
+
         }
+
+
+
          if (RowAppended == false)
                 $("#tableData").append("No Un Mapped Fields");
         }
@@ -135,24 +151,28 @@
         myDictionary = exportData;
         //var selectedSheet = document.getElementById("Sheets");
         var SheetName = $("#Sheets").find("option:selected").text();
+        var UniqCol = $("#UniqueColumn").find("option:selected").text();
+        console.log(UniqCol);
         //ShowMappedFieldTable();
-        
+
         document.getElementById("MappedFieldTable").hidden = true;
-        document.getElementById("Simpletext1").hidden = true;
+        document.getElementById("SimpleText1").hidden = true;
+        document.getElementById("SimpleText2").hidden = true;
 
 
         var WorkitemCount = true;
         $.ajax({
            type: "POST",
             url: '@Url.Action("createExcel", "ExcelReader")',
-            data: { "FList": myDictionary, "SheetName": SheetName },
+            data: { "FList": myDictionary, "SheetName": SheetName, "UniqCol": UniqCol},
             async: true,
             success: function (data) {
-                document.getElementById("Simpletext1").hidden = false;
+                document.getElementById("SimpleText1").hidden = false;
+                document.getElementById("SimpleText2").hidden = false;
 
                 getProgress(0);
                 WorkitemCount = false;
-                
+
 
             },
             error: function () {
@@ -172,20 +192,27 @@
              async:true,
             contentType: 'application/json; charset=utf-8',
                success: function (response) {
-
-                if (response == undefined) {
+                   var response = JSON.parse(response);
+                   var WorkitemCount = response["WorkitemCount"];
+                   var TotalMigratedCount = response["TotalMigratedCount"];
+                   console.log(response);
+                   console.log(WorkitemCount);
+                   console.log(TotalMigratedCount);
+                   if (response == undefined) {
                     response = 0;
-
                    }
                    document.getElementById("DownLog").hidden = true;
                    document.getElementById("myBar").hidden = false;
-                if (response != null) {
-                    if (response < Dt.length) {
 
-                        var width = (response / Dt.length) * 100;
+
+                   if (response != null) {
+                       if (TotalMigratedCount < Dt.length) {
+
+                           var width = (TotalMigratedCount / Dt.length) * 100;
                         width = Math.round(width);
                         //document.getElementById("Load").hidden = false;
-                        $("#dataField").html(response);
+                           $("#totalcreated").html(WorkitemCount);
+                           $("#totalmigreated").html(TotalMigratedCount);
                         elem.style.width = width + "%";
                         elem.innerHTML = width + "%";
                         setTimeout("getProgress(1)", 100);
@@ -193,13 +220,15 @@
 
                     else {
 
-                        $("#dataField").html(response);
+                           $("#totalcreated").html(WorkitemCount);
+                           $("#totalmigreated").html(TotalMigratedCount);
+
                         elem.style.width = 100 + "%";
                         elem.innerHTML = 100 + "%";
                         $("#myElem").show();
                         document.getElementById("DownLog").hidden = false;
 
-                        
+
                         setTimeout(function () { $("#myElem").hide(); }, 5000);
                     }
 
@@ -262,24 +291,34 @@
 <body>
     <div style="margin-left:100px;overflow-x:hidden; overflow-y:hidden;">
         <p id="status"></p>
-        <p>Please choose the excel sheet name from dropdown..</p>
+        <p class="lead">Please choose the excel sheet name from dropdown..</p>
 
+        <div class="row">
+            <div class="col-md-3 dropdowns" style="margin-left:10px;">
+                <label>
+                    <b>
+                        Sheet Names
+                    </b>
+                </label>
+                @Html.DropDownList("sheet", new SelectList(ViewBag.Selectlist, "Value", "Text"), "<select>", new { @class = "form-control", @id = "Sheets", onchange = "Tablechange()" })
 
-        <div class="col-md-3 dropdowns" style="margin-left:10px;">
-            <label>
-                <b>
-                    Sheet Names
-                </b>
-            </label>
-            @Html.DropDownList("sheet", new SelectList(ViewBag.Selectlist, "Value", "Text"), "<select>", new { @class = "form-control", @id = "Sheets", onchange = "Tablechange()" })
+            </div>
 
+            <div class="col-md-3">
+                <label>
+                    <b>
+                        Select Unique Column
+                    </b>
+                </label>
+                <select id="UniqueColumn" class="form-control">
+                    <option vaue="UniqueColumn">Select Unique Column</option>
+                </select>
+            </div>
+            <div class="col-md-3" style="margin-top:45px;">
+                <a type="file" href="~/ExcelReader/Download" value="Download Log" hidden class=" btn btn-success" id="DownLog" style="margin-right:1220px;margin-bottom:20px;margin-top:-19px;background-color:darkcyan">Click here to download the Log</a>
+            </div>
         </div>
-        <div class="col-md-3" style="margin-top:45px;">
-            <a type="file" href="~/ExcelReader/Download" value="Download Log" hidden class=" btn btn-success" id="DownLog" style="margin-right:1220px;margin-left:65px;margin-bottom:20px;margin-top:-24px;">Click here to download the Log</a>
-        </div>
-
-        <br />
-        <div style="margin-top:50px;margin-left:25px;" class="table-wrapper-scroll-y my-custom-scrollbar">
+        <div style="margin-top:10px;margin-left:10px;" class="table-wrapper-scroll-y my-custom-scrollbar">
             <table class="table table-bordered table-striped mb-0" id="table">
                 <thead>
                     <tr id="rowValue">
@@ -291,27 +330,28 @@
                 </tbody>
             </table>
         </div>
-        
-            <p style="margin-left:86%;" id="Rule" hidden>
-                <img src="~/Content/Images/star.png" /> - Unmapped fields
-            </p>
-        
-        <div class="row" style="margin-left:20px; margin-top:10px;">
-            <input type="submit" value="Next" class=" btn btn-primary" id="SubmitButton" onclick="showTableData()" style="margin-right:1220px;margin-left:7px" hidden="hidden" />
-            <input type="submit" hidden value="Show Mapped Fields"  class="btn btn-success" id="simplemap1" onclick="ShowMappedFieldTable()" style="margin-right:1220px;margin-left:65px;margin-bottom:20px;margin-top:-24px;" />
-        </div>
-        <div class="row">
-            <p id="Simpletext1" hidden style="margin-left:42px;">Number of Workitems migrated are...</p>
-            <p id="dataField"></p>
 
+        <p style="margin-left:86%;" id="Rule" hidden>
+            <img src="~/Content/Images/star.png" /> - Unmapped fields
+        </p>
+
+        <div class="row" style="margin-left:20px; margin-top:10px;">
+            <input type="submit" value="Next" class=" btn btn-outline-primary" id="SubmitButton" onclick="showTableData()" style="margin-right:1220px;margin-left:7px" hidden="hidden" />
+            <input type="submit" hidden value="Show Mapped Fields" class="btn btn-outline-success" id="simplemap1" onclick="ShowMappedFieldTable()" style="margin-right:1220px;margin-left:65px;margin-bottom:20px;margin-top:-24px;" />
         </div>
         <div class="row">
-            <div  id="myProgress" style="margin-left:42px; width:50%">
+            <p id="SimpleText1" class="SimpleText" hidden style="margin-left:42px;">Number of Workitems created newly are...</p>
+            <p id="totalcreated"></p>
+            <p id="SimpleText2" class="SimpleText" hidden style="margin-left:42px;">Number of Workitems Migrated are...</p>
+            <p id="totalmigreated"></p>
+        </div>
+        <div class="row">
+            <div id="myProgress" style="margin-left:42px; width:50%">
                 <div id="myBar" hidden></div>
-            </div> 
+            </div>
             <p id="myElem" class="badge badge-pill" style="display:none">Succesfully Migrated</p>
         </div>
-       
+
 
 
         <div style="margin-top:50px;margin-left:25px;">

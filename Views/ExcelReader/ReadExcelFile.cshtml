@@ -30,7 +30,7 @@
     //        }
     //    });
     //});
-    
+
 
 
     function check() {
@@ -85,24 +85,27 @@
 @using (Html.BeginForm("ReadExcelFile", "ExcelReader", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
 
-<div style="margin-left:100px;margin-top:20px;">
-    <p class="lead">Please select excel file from which you want migrate...</p>
-    <div class="form-row">
-        <label id="ex" class="btn btn-success" for="Excel">Choose Excel</label>
-        <input id="Excel" type="file" name="Excel" data-max-size="321540" accept=".xls,.xlsx" style="display:none" onchange="check()" />
-    </div>
-    <br />
+    <div style="margin-left:100px;margin-top:20px;">
+        <div class="jumbotron">
+            <p class="lead">Please select excel file from which you want migrate...</p>
 
-    <div>
-        <button id="submit" class="btn btn-info">Submit</button>
-    </div>
-    @if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
-    {
-        <div class="col-sm-12" style="background-color:#ffaeae">
-            <span style="color:#b71616">@ViewBag.ErrorMessage</span>
+            <div class="form-row">
+                <label id="ex" class="btn btn-success" for="Excel">Choose Excel</label>
+                <input id="Excel" type="file" name="Excel" data-max-size="321540" accept=".xls,.xlsx" style="display:none" onchange="check()" />
+            </div>
+            <br />
+
+            <div>
+                <button id="submit" class="btn btn-info">Submit</button>
+            </div>
         </div>
-    }
-</div>
+        @if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+        {
+            <div class="col-sm-12" style="background-color:#ffaeae">
+                <span style="color:#b71616">@ViewBag.ErrorMessage</span>
+            </div>
+        }
+    </div>
 
 }
 

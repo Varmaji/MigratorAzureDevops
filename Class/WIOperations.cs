@@ -79,8 +79,8 @@ namespace MigratorAzureDevops.Class
         public static WorkItem UpdateWorkItemLink(int parentId, int childId, string message)
         {
             JsonPatchDocument patchDocument = new JsonPatchDocument();
-            try
-            {
+            //try
+            //{
                 patchDocument.Add(new JsonPatchOperation()
                 {
                     Operation = Operation.Add,
@@ -97,11 +97,11 @@ namespace MigratorAzureDevops.Class
                 });
 
                 return WitClient.UpdateWorkItemAsync(patchDocument, childId).Result;
-            }
-            catch (Exception E)
-            {
-                throw (E);
-            }
+            //}
+            //catch (Exception E)
+            //{
+            //    throw (E);
+            
         }
         public static WorkItem UpdateWorkItemFields(int WIId, Dictionary<string, object> Fields)
         {
@@ -126,6 +126,7 @@ namespace MigratorAzureDevops.Class
             }
             catch (Exception E)
             {
+                return null;
                 throw (E);
             }
         }

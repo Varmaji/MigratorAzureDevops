@@ -1,0 +1,1158 @@
+2020-04-30 19:23:17	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:23:17	WorkItem ID Created: 32899
+2020-04-30 19:23:18	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:23:18	WorkItem ID Created: 32900
+2020-04-30 19:23:19	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:23:19	WorkItem ID Created: 32901
+2020-04-30 19:23:20	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:23:20	WorkItem ID Created: 32902
+2020-04-30 19:23:20	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:23:20	WorkItem ID Created: 32903
+2020-04-30 19:23:21	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:23:21	WorkItem ID Created: 32904
+2020-04-30 19:23:22	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:23:22	WorkItem ID Created: 32905
+2020-04-30 19:23:22	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:23:22	WorkItem ID Created: 32906
+2020-04-30 19:23:23	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:23:23	WorkItem ID Created: 32907
+2020-04-30 19:23:24	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:23:24	WorkItem ID Created: 32908
+2020-04-30 19:23:25	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:23:25	WorkItem ID Created: 32909
+2020-04-30 19:23:26	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:23:26	WorkItem ID Created: 32910
+2020-04-30 19:23:27	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:23:27	WorkItem ID Created: 32911
+2020-04-30 19:23:29	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:23:29	WorkItem ID Created: 32912
+2020-04-30 19:23:31	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:23:31	WorkItem ID Created: 32913
+2020-04-30 19:23:32	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:23:32	WorkItem ID Created: 32914
+2020-04-30 19:23:34	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:23:34	WorkItem ID Created: 32915
+2020-04-30 19:23:35	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:23:35	WorkItem ID Created: 32916
+2020-04-30 19:23:36	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:23:36	WorkItem ID Created: 32917
+2020-04-30 19:23:36	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:23:36	WorkItem ID Created: 32918
+2020-04-30 19:23:37	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:23:37	WorkItem ID Created: 32919
+2020-04-30 19:23:37	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:23:37	WorkItem ID Created: 32920
+2020-04-30 19:23:38	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:23:38	WorkItem ID Created: 32921
+2020-04-30 19:23:39	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:23:39	WorkItem ID Created: 32922
+2020-04-30 19:23:40	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:23:40	WorkItem ID Created: 32923
+2020-04-30 19:23:40	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:23:40	WorkItem ID Created: 32924
+2020-04-30 19:23:41	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:23:41	WorkItem ID Created: 32925
+2020-04-30 19:23:42	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:23:42	WorkItem ID Created: 32926
+2020-04-30 19:23:43	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:23:43	WorkItem ID Created: 32927
+2020-04-30 19:23:44	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:23:44	WorkItem ID Created: 32928
+2020-04-30 19:23:45	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:23:45	WorkItem ID Created: 32929
+2020-04-30 19:23:46	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:23:46	WorkItem ID Created: 32930
+2020-04-30 19:23:47	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:23:47	WorkItem ID Created: 32931
+2020-04-30 19:23:47	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:23:47	WorkItem ID Created: 32932
+2020-04-30 19:23:47	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:23:47	WorkItem ID Created: 32933
+2020-04-30 19:23:48	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:23:48	WorkItem ID Created: 32934
+2020-04-30 19:23:49	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:23:49	WorkItem ID Created: 32935
+2020-04-30 19:23:51	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:23:51	WorkItem ID Created: 32936
+2020-04-30 19:23:52	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:23:52	WorkItem ID Created: 32937
+2020-04-30 19:23:53	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:23:53	WorkItem ID Created: 32938
+2020-04-30 19:23:54	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:23:54	WorkItem ID Created: 32939
+2020-04-30 19:23:56	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:23:56	WorkItem ID Created: 32940
+2020-04-30 19:23:57	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:23:57	WorkItem ID Created: 32941
+2020-04-30 19:23:58	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:23:58	WorkItem ID Created: 32942
+2020-04-30 19:23:59	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:23:59	WorkItem ID Created: 32943
+2020-04-30 19:24:01	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:01	WorkItem ID Created: 32944
+2020-04-30 19:24:03	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:03	WorkItem ID Created: 32945
+2020-04-30 19:24:04	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:04	WorkItem ID Created: 32946
+2020-04-30 19:24:06	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:06	WorkItem ID Created: 32947
+2020-04-30 19:24:06	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:06	WorkItem ID Created: 32948
+2020-04-30 19:24:08	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:08	WorkItem ID Created: 32949
+2020-04-30 19:24:08	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:08	WorkItem ID Created: 32950
+2020-04-30 19:24:09	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:09	WorkItem ID Created: 32951
+2020-04-30 19:24:09	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:09	WorkItem ID Created: 32952
+2020-04-30 19:24:10	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:10	WorkItem ID Created: 32953
+2020-04-30 19:24:10	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:10	WorkItem ID Created: 32954
+2020-04-30 19:24:10	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:10	WorkItem ID Created: 32955
+2020-04-30 19:24:11	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:11	WorkItem ID Created: 32956
+2020-04-30 19:24:11	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:11	WorkItem ID Created: 32957
+2020-04-30 19:24:12	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:12	WorkItem ID Created: 32958
+2020-04-30 19:24:12	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:12	WorkItem ID Created: 32959
+2020-04-30 19:24:12	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:12	WorkItem ID Created: 32960
+2020-04-30 19:24:13	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:13	WorkItem ID Created: 32961
+2020-04-30 19:24:13	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:13	WorkItem ID Created: 32962
+2020-04-30 19:24:14	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:14	WorkItem ID Created: 32963
+2020-04-30 19:24:14	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:14	WorkItem ID Created: 32964
+2020-04-30 19:24:15	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:15	WorkItem ID Created: 32965
+2020-04-30 19:24:15	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:15	WorkItem ID Created: 32966
+2020-04-30 19:24:16	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:16	WorkItem ID Created: 32967
+2020-04-30 19:24:16	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:16	WorkItem ID Created: 32968
+2020-04-30 19:24:16	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:16	WorkItem ID Created: 32969
+2020-04-30 19:24:17	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:17	WorkItem ID Created: 32970
+2020-04-30 19:24:17	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:17	WorkItem ID Created: 32971
+2020-04-30 19:24:18	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:18	WorkItem ID Created: 32972
+2020-04-30 19:24:18	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:18	WorkItem ID Created: 32973
+2020-04-30 19:24:19	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:19	WorkItem ID Created: 32974
+2020-04-30 19:24:19	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:19	WorkItem ID Created: 32975
+2020-04-30 19:24:19	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:19	WorkItem ID Created: 32976
+2020-04-30 19:24:20	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:20	WorkItem ID Created: 32977
+2020-04-30 19:24:20	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:20	WorkItem ID Created: 32978
+2020-04-30 19:24:21	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:21	WorkItem ID Created: 32979
+2020-04-30 19:24:21	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:21	WorkItem ID Created: 32980
+2020-04-30 19:24:22	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:22	WorkItem ID Created: 32981
+2020-04-30 19:24:22	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:22	WorkItem ID Created: 32982
+2020-04-30 19:24:23	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:23	WorkItem ID Created: 32983
+2020-04-30 19:24:23	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:23	WorkItem ID Created: 32984
+2020-04-30 19:24:24	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:24	WorkItem ID Created: 32985
+2020-04-30 19:24:24	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:24	WorkItem ID Created: 32986
+2020-04-30 19:24:24	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:24	WorkItem ID Created: 32987
+2020-04-30 19:24:25	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:25	WorkItem ID Created: 32988
+2020-04-30 19:24:25	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:25	WorkItem ID Created: 32989
+2020-04-30 19:24:26	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:26	WorkItem ID Created: 32990
+2020-04-30 19:24:26	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:26	WorkItem ID Created: 32991
+2020-04-30 19:24:27	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:27	WorkItem ID Created: 32992
+2020-04-30 19:24:27	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:27	WorkItem ID Created: 32993
+2020-04-30 19:24:27	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:27	WorkItem ID Created: 32994
+2020-04-30 19:24:28	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:28	WorkItem ID Created: 32995
+2020-04-30 19:24:28	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:28	WorkItem ID Created: 32996
+2020-04-30 19:24:29	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:29	WorkItem ID Created: 32997
+2020-04-30 19:24:29	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:29	WorkItem ID Created: 32998
+2020-04-30 19:24:29	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:30	WorkItem ID Created: 32999
+2020-04-30 19:24:30	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:30	WorkItem ID Created: 33000
+2020-04-30 19:24:30	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:30	WorkItem ID Created: 33001
+2020-04-30 19:24:31	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:31	WorkItem ID Created: 33002
+2020-04-30 19:24:31	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:31	WorkItem ID Created: 33003
+2020-04-30 19:24:32	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:32	WorkItem ID Created: 33004
+2020-04-30 19:24:32	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:32	WorkItem ID Created: 33005
+2020-04-30 19:24:32	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:32	WorkItem ID Created: 33006
+2020-04-30 19:24:33	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:33	WorkItem ID Created: 33007
+2020-04-30 19:24:33	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:33	WorkItem ID Created: 33008
+2020-04-30 19:24:34	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:34	WorkItem ID Created: 33009
+2020-04-30 19:24:34	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:34	WorkItem ID Created: 33010
+2020-04-30 19:24:35	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:35	WorkItem ID Created: 33011
+2020-04-30 19:24:35	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:35	WorkItem ID Created: 33012
+2020-04-30 19:24:35	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:35	WorkItem ID Created: 33013
+2020-04-30 19:24:36	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:36	WorkItem ID Created: 33014
+2020-04-30 19:24:36	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:36	WorkItem ID Created: 33015
+2020-04-30 19:24:37	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:37	WorkItem ID Created: 33016
+2020-04-30 19:24:37	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:37	WorkItem ID Created: 33017
+2020-04-30 19:24:37	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:37	WorkItem ID Created: 33018
+2020-04-30 19:24:38	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:38	WorkItem ID Created: 33019
+2020-04-30 19:24:38	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:38	WorkItem ID Created: 33020
+2020-04-30 19:24:39	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:39	WorkItem ID Created: 33021
+2020-04-30 19:24:39	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:39	WorkItem ID Created: 33022
+2020-04-30 19:24:39	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:39	WorkItem ID Created: 33023
+2020-04-30 19:24:40	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:40	WorkItem ID Created: 33024
+2020-04-30 19:24:40	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:40	WorkItem ID Created: 33025
+2020-04-30 19:24:41	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:41	WorkItem ID Created: 33026
+2020-04-30 19:24:41	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:41	WorkItem ID Created: 33027
+2020-04-30 19:24:41	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:42	WorkItem ID Created: 33028
+2020-04-30 19:24:42	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:42	WorkItem ID Created: 33029
+2020-04-30 19:24:42	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:42	WorkItem ID Created: 33030
+2020-04-30 19:24:43	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:43	WorkItem ID Created: 33031
+2020-04-30 19:24:43	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:43	WorkItem ID Created: 33032
+2020-04-30 19:24:44	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:44	WorkItem ID Created: 33033
+2020-04-30 19:24:44	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:44	WorkItem ID Created: 33034
+2020-04-30 19:24:44	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:44	WorkItem ID Created: 33035
+2020-04-30 19:24:45	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:45	WorkItem ID Created: 33036
+2020-04-30 19:24:45	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:45	WorkItem ID Created: 33037
+2020-04-30 19:24:46	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:46	WorkItem ID Created: 33038
+2020-04-30 19:24:46	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:46	WorkItem ID Created: 33039
+2020-04-30 19:24:46	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:46	WorkItem ID Created: 33040
+2020-04-30 19:24:47	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:47	WorkItem ID Created: 33041
+2020-04-30 19:24:47	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:47	WorkItem ID Created: 33042
+2020-04-30 19:24:47	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:47	WorkItem ID Created: 33043
+2020-04-30 19:24:48	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:48	WorkItem ID Created: 33044
+2020-04-30 19:24:48	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:48	WorkItem ID Created: 33045
+2020-04-30 19:24:49	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:49	WorkItem ID Created: 33046
+2020-04-30 19:24:49	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:49	WorkItem ID Created: 33047
+2020-04-30 19:24:49	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:49	WorkItem ID Created: 33048
+2020-04-30 19:24:50	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:50	WorkItem ID Created: 33049
+2020-04-30 19:24:50	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:50	WorkItem ID Created: 33050
+2020-04-30 19:24:51	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:51	WorkItem ID Created: 33051
+2020-04-30 19:24:51	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:51	WorkItem ID Created: 33052
+2020-04-30 19:24:51	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:51	WorkItem ID Created: 33053
+2020-04-30 19:24:52	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:52	WorkItem ID Created: 33054
+2020-04-30 19:24:52	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:52	WorkItem ID Created: 33055
+2020-04-30 19:24:53	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:53	WorkItem ID Created: 33056
+2020-04-30 19:24:53	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:53	WorkItem ID Created: 33057
+2020-04-30 19:24:54	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:54	WorkItem ID Created: 33058
+2020-04-30 19:24:54	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:54	WorkItem ID Created: 33059
+2020-04-30 19:24:54	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:54	WorkItem ID Created: 33060
+2020-04-30 19:24:55	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:55	WorkItem ID Created: 33061
+2020-04-30 19:24:55	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:55	WorkItem ID Created: 33062
+2020-04-30 19:24:56	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:56	WorkItem ID Created: 33063
+2020-04-30 19:24:56	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:56	WorkItem ID Created: 33064
+2020-04-30 19:24:56	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:56	WorkItem ID Created: 33065
+2020-04-30 19:24:57	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:57	WorkItem ID Created: 33066
+2020-04-30 19:24:57	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:57	WorkItem ID Created: 33067
+2020-04-30 19:24:58	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:58	WorkItem ID Created: 33068
+2020-04-30 19:24:58	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:58	WorkItem ID Created: 33069
+2020-04-30 19:24:58	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:58	WorkItem ID Created: 33070
+2020-04-30 19:24:59	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:59	WorkItem ID Created: 33071
+2020-04-30 19:24:59	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:59	WorkItem ID Created: 33072
+2020-04-30 19:24:59	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:24:59	WorkItem ID Created: 33073
+2020-04-30 19:25:00	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:00	WorkItem ID Created: 33074
+2020-04-30 19:25:00	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:00	WorkItem ID Created: 33075
+2020-04-30 19:25:01	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:01	WorkItem ID Created: 33076
+2020-04-30 19:25:01	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:01	WorkItem ID Created: 33077
+2020-04-30 19:25:01	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:01	WorkItem ID Created: 33078
+2020-04-30 19:25:02	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:02	WorkItem ID Created: 33079
+2020-04-30 19:25:02	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:02	WorkItem ID Created: 33080
+2020-04-30 19:25:02	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:03	WorkItem ID Created: 33081
+2020-04-30 19:25:03	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:03	WorkItem ID Created: 33082
+2020-04-30 19:25:03	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:03	WorkItem ID Created: 33083
+2020-04-30 19:25:04	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:04	WorkItem ID Created: 33084
+2020-04-30 19:25:04	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:04	WorkItem ID Created: 33085
+2020-04-30 19:25:04	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:04	WorkItem ID Created: 33086
+2020-04-30 19:25:05	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:05	WorkItem ID Created: 33087
+2020-04-30 19:25:05	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:05	WorkItem ID Created: 33088
+2020-04-30 19:25:06	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:06	WorkItem ID Created: 33089
+2020-04-30 19:25:06	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:06	WorkItem ID Created: 33090
+2020-04-30 19:25:06	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:06	WorkItem ID Created: 33091
+2020-04-30 19:25:07	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:07	WorkItem ID Created: 33092
+2020-04-30 19:25:07	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:07	WorkItem ID Created: 33093
+2020-04-30 19:25:08	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:08	WorkItem ID Created: 33094
+2020-04-30 19:25:08	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:08	WorkItem ID Created: 33095
+2020-04-30 19:25:08	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:08	WorkItem ID Created: 33096
+2020-04-30 19:25:09	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:09	WorkItem ID Created: 33097
+2020-04-30 19:25:09	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:09	WorkItem ID Created: 33098
+2020-04-30 19:25:10	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:10	WorkItem ID Created: 33099
+2020-04-30 19:25:10	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:10	WorkItem ID Created: 33100
+2020-04-30 19:25:10	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:10	WorkItem ID Created: 33101
+2020-04-30 19:25:11	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:11	WorkItem ID Created: 33102
+2020-04-30 19:25:11	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:11	WorkItem ID Created: 33103
+2020-04-30 19:25:12	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:12	WorkItem ID Created: 33104
+2020-04-30 19:25:12	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:12	WorkItem ID Created: 33105
+2020-04-30 19:25:12	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:12	WorkItem ID Created: 33106
+2020-04-30 19:25:13	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:13	WorkItem ID Created: 33107
+2020-04-30 19:25:13	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:13	WorkItem ID Created: 33108
+2020-04-30 19:25:13	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:14	WorkItem ID Created: 33109
+2020-04-30 19:25:14	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:14	WorkItem ID Created: 33110
+2020-04-30 19:25:14	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:14	WorkItem ID Created: 33111
+2020-04-30 19:25:15	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:15	WorkItem ID Created: 33112
+2020-04-30 19:25:15	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:15	WorkItem ID Created: 33113
+2020-04-30 19:25:15	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:15	WorkItem ID Created: 33114
+2020-04-30 19:25:16	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:16	WorkItem ID Created: 33115
+2020-04-30 19:25:16	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:17	WorkItem ID Created: 33116
+2020-04-30 19:25:17	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:17	WorkItem ID Created: 33117
+2020-04-30 19:25:17	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:17	WorkItem ID Created: 33118
+2020-04-30 19:25:18	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:18	WorkItem ID Created: 33119
+2020-04-30 19:25:18	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:18	WorkItem ID Created: 33120
+2020-04-30 19:25:18	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:18	WorkItem ID Created: 33121
+2020-04-30 19:25:19	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:19	WorkItem ID Created: 33122
+2020-04-30 19:25:19	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:19	WorkItem ID Created: 33123
+2020-04-30 19:25:20	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:20	WorkItem ID Created: 33124
+2020-04-30 19:25:21	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:21	WorkItem ID Created: 33125
+2020-04-30 19:25:21	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:21	WorkItem ID Created: 33126
+2020-04-30 19:25:22	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:22	WorkItem ID Created: 33127
+2020-04-30 19:25:22	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:22	WorkItem ID Created: 33128
+2020-04-30 19:25:22	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:22	WorkItem ID Created: 33129
+2020-04-30 19:25:23	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:23	WorkItem ID Created: 33130
+2020-04-30 19:25:23	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:23	WorkItem ID Created: 33131
+2020-04-30 19:25:24	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:24	WorkItem ID Created: 33132
+2020-04-30 19:25:25	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:25	WorkItem ID Created: 33133
+2020-04-30 19:25:25	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:25	WorkItem ID Created: 33134
+2020-04-30 19:25:26	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:26	WorkItem ID Created: 33135
+2020-04-30 19:25:26	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:26	WorkItem ID Created: 33136
+2020-04-30 19:25:27	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:27	WorkItem ID Created: 33137
+2020-04-30 19:25:27	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:27	WorkItem ID Created: 33138
+2020-04-30 19:25:28	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:28	WorkItem ID Created: 33139
+2020-04-30 19:25:28	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:28	WorkItem ID Created: 33140
+2020-04-30 19:25:28	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:28	WorkItem ID Created: 33141
+2020-04-30 19:25:29	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:29	WorkItem ID Created: 33142
+2020-04-30 19:25:29	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:29	WorkItem ID Created: 33143
+2020-04-30 19:25:30	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:30	WorkItem ID Created: 33144
+2020-04-30 19:25:30	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:30	WorkItem ID Created: 33145
+2020-04-30 19:25:31	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:31	WorkItem ID Created: 33146
+2020-04-30 19:25:32	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:32	WorkItem ID Created: 33147
+2020-04-30 19:25:32	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:32	WorkItem ID Created: 33148
+2020-04-30 19:25:33	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:33	WorkItem ID Created: 33149
+2020-04-30 19:25:33	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:33	WorkItem ID Created: 33150
+2020-04-30 19:25:34	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:34	WorkItem ID Created: 33151
+2020-04-30 19:25:34	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:34	WorkItem ID Created: 33152
+2020-04-30 19:25:35	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:35	WorkItem ID Created: 33153
+2020-04-30 19:25:35	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:35	WorkItem ID Created: 33154
+2020-04-30 19:25:36	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:36	WorkItem ID Created: 33155
+2020-04-30 19:25:36	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:36	WorkItem ID Created: 33156
+2020-04-30 19:25:37	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:37	WorkItem ID Created: 33157
+2020-04-30 19:25:38	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:38	WorkItem ID Created: 33158
+2020-04-30 19:25:38	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:38	WorkItem ID Created: 33159
+2020-04-30 19:25:39	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:39	WorkItem ID Created: 33160
+2020-04-30 19:25:39	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:39	WorkItem ID Created: 33161
+2020-04-30 19:25:40	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:40	WorkItem ID Created: 33162
+2020-04-30 19:25:40	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:40	WorkItem ID Created: 33163
+2020-04-30 19:25:41	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:41	WorkItem ID Created: 33164
+2020-04-30 19:25:41	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:41	WorkItem ID Created: 33165
+2020-04-30 19:25:41	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:41	WorkItem ID Created: 33166
+2020-04-30 19:25:42	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:42	WorkItem ID Created: 33167
+2020-04-30 19:25:42	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:42	WorkItem ID Created: 33168
+2020-04-30 19:25:43	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:43	WorkItem ID Created: 33169
+2020-04-30 19:25:43	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:43	WorkItem ID Created: 33170
+2020-04-30 19:25:43	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:43	WorkItem ID Created: 33171
+2020-04-30 19:25:44	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:44	WorkItem ID Created: 33172
+2020-04-30 19:25:44	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:44	WorkItem ID Created: 33173
+2020-04-30 19:25:45	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:45	WorkItem ID Created: 33174
+2020-04-30 19:25:45	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:45	WorkItem ID Created: 33175
+2020-04-30 19:25:45	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:45	WorkItem ID Created: 33176
+2020-04-30 19:25:46	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:46	WorkItem ID Created: 33177
+2020-04-30 19:25:46	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:46	WorkItem ID Created: 33178
+2020-04-30 19:25:46	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:46	WorkItem ID Created: 33179
+2020-04-30 19:25:47	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:47	WorkItem ID Created: 33180
+2020-04-30 19:25:47	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:47	WorkItem ID Created: 33181
+2020-04-30 19:25:48	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:48	WorkItem ID Created: 33182
+2020-04-30 19:25:48	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:48	WorkItem ID Created: 33183
+2020-04-30 19:25:49	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:49	WorkItem ID Created: 33184
+2020-04-30 19:25:49	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:49	WorkItem ID Created: 33185
+2020-04-30 19:25:50	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:50	WorkItem ID Created: 33186
+2020-04-30 19:25:50	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:50	WorkItem ID Created: 33187
+2020-04-30 19:25:51	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:51	WorkItem ID Created: 33188
+2020-04-30 19:25:51	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:51	WorkItem ID Created: 33189
+2020-04-30 19:25:52	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:52	WorkItem ID Created: 33190
+2020-04-30 19:25:52	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:52	WorkItem ID Created: 33191
+2020-04-30 19:25:53	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:53	WorkItem ID Created: 33192
+2020-04-30 19:25:53	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:53	WorkItem ID Created: 33193
+2020-04-30 19:25:54	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:54	WorkItem ID Created: 33194
+2020-04-30 19:25:54	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:54	WorkItem ID Created: 33195
+2020-04-30 19:25:54	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:54	WorkItem ID Created: 33196
+2020-04-30 19:25:55	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:55	WorkItem ID Created: 33197
+2020-04-30 19:25:56	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:56	WorkItem ID Created: 33198
+2020-04-30 19:25:56	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:56	WorkItem ID Created: 33199
+2020-04-30 19:25:56	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:56	WorkItem ID Created: 33200
+2020-04-30 19:25:57	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:57	WorkItem ID Created: 33201
+2020-04-30 19:25:57	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:57	WorkItem ID Created: 33202
+2020-04-30 19:25:58	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:58	WorkItem ID Created: 33203
+2020-04-30 19:25:58	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:58	WorkItem ID Created: 33204
+2020-04-30 19:25:58	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:58	WorkItem ID Created: 33205
+2020-04-30 19:25:59	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:59	WorkItem ID Created: 33206
+2020-04-30 19:25:59	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:25:59	WorkItem ID Created: 33207
+2020-04-30 19:26:00	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:00	WorkItem ID Created: 33208
+2020-04-30 19:26:00	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:00	WorkItem ID Created: 33209
+2020-04-30 19:26:00	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:00	WorkItem ID Created: 33210
+2020-04-30 19:26:01	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:01	WorkItem ID Created: 33211
+2020-04-30 19:26:01	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:01	WorkItem ID Created: 33212
+2020-04-30 19:26:02	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:02	WorkItem ID Created: 33213
+2020-04-30 19:26:02	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:02	WorkItem ID Created: 33214
+2020-04-30 19:26:03	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:03	WorkItem ID Created: 33215
+2020-04-30 19:26:03	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:03	WorkItem ID Created: 33216
+2020-04-30 19:26:03	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:03	WorkItem ID Created: 33217
+2020-04-30 19:26:04	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:04	WorkItem ID Created: 33218
+2020-04-30 19:26:04	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:04	WorkItem ID Created: 33219
+2020-04-30 19:26:05	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:05	WorkItem ID Created: 33220
+2020-04-30 19:26:05	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:05	WorkItem ID Created: 33221
+2020-04-30 19:26:06	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:06	WorkItem ID Created: 33222
+2020-04-30 19:26:06	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:06	WorkItem ID Created: 33223
+2020-04-30 19:26:06	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:06	WorkItem ID Created: 33224
+2020-04-30 19:26:07	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:07	WorkItem ID Created: 33225
+2020-04-30 19:26:07	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:07	WorkItem ID Created: 33226
+2020-04-30 19:26:07	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:07	WorkItem ID Created: 33227
+2020-04-30 19:26:08	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:08	WorkItem ID Created: 33228
+2020-04-30 19:26:08	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:08	WorkItem ID Created: 33229
+2020-04-30 19:26:09	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:09	WorkItem ID Created: 33230
+2020-04-30 19:26:09	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:09	WorkItem ID Created: 33231
+2020-04-30 19:26:09	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:09	WorkItem ID Created: 33232
+2020-04-30 19:26:10	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:10	WorkItem ID Created: 33233
+2020-04-30 19:26:10	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:10	WorkItem ID Created: 33234
+2020-04-30 19:26:11	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:11	WorkItem ID Created: 33235
+2020-04-30 19:26:11	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:11	WorkItem ID Created: 33236
+2020-04-30 19:26:12	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:12	WorkItem ID Created: 33237
+2020-04-30 19:26:12	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:12	WorkItem ID Created: 33238
+2020-04-30 19:26:12	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:12	WorkItem ID Created: 33239
+2020-04-30 19:26:13	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:13	WorkItem ID Created: 33240
+2020-04-30 19:26:13	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:13	WorkItem ID Created: 33241
+2020-04-30 19:26:14	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:14	WorkItem ID Created: 33242
+2020-04-30 19:26:14	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:14	WorkItem ID Created: 33243
+2020-04-30 19:26:15	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:15	WorkItem ID Created: 33244
+2020-04-30 19:26:15	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:15	WorkItem ID Created: 33245
+2020-04-30 19:26:15	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:15	WorkItem ID Created: 33246
+2020-04-30 19:26:16	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:16	WorkItem ID Created: 33247
+2020-04-30 19:26:16	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:16	WorkItem ID Created: 33248
+2020-04-30 19:26:17	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:17	WorkItem ID Created: 33249
+2020-04-30 19:26:17	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:17	WorkItem ID Created: 33250
+2020-04-30 19:26:18	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:18	WorkItem ID Created: 33251
+2020-04-30 19:26:18	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:18	WorkItem ID Created: 33252
+2020-04-30 19:26:18	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:18	WorkItem ID Created: 33253
+2020-04-30 19:26:19	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:19	WorkItem ID Created: 33254
+2020-04-30 19:26:19	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:19	WorkItem ID Created: 33255
+2020-04-30 19:26:20	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:20	WorkItem ID Created: 33256
+2020-04-30 19:26:20	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:20	WorkItem ID Created: 33257
+2020-04-30 19:26:20	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:20	WorkItem ID Created: 33258
+2020-04-30 19:26:21	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:21	WorkItem ID Created: 33259
+2020-04-30 19:26:21	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:21	WorkItem ID Created: 33260
+2020-04-30 19:26:22	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:22	WorkItem ID Created: 33261
+2020-04-30 19:26:22	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:22	WorkItem ID Created: 33262
+2020-04-30 19:26:22	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:22	WorkItem ID Created: 33263
+2020-04-30 19:26:23	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:23	WorkItem ID Created: 33264
+2020-04-30 19:26:23	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:23	WorkItem ID Created: 33265
+2020-04-30 19:26:24	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:24	WorkItem ID Created: 33266
+2020-04-30 19:26:24	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:24	WorkItem ID Created: 33267
+2020-04-30 19:26:24	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:24	WorkItem ID Created: 33268
+2020-04-30 19:26:25	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:25	WorkItem ID Created: 33269
+2020-04-30 19:26:25	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:25	WorkItem ID Created: 33270
+2020-04-30 19:26:26	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:26	WorkItem ID Created: 33271
+2020-04-30 19:26:27	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:27	WorkItem ID Created: 33272
+2020-04-30 19:26:27	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:27	WorkItem ID Created: 33273
+2020-04-30 19:26:27	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:27	WorkItem ID Created: 33274
+2020-04-30 19:26:28	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:28	WorkItem ID Created: 33275
+2020-04-30 19:26:28	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:28	WorkItem ID Created: 33276
+2020-04-30 19:26:28	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:28	WorkItem ID Created: 33277
+2020-04-30 19:26:29	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:29	WorkItem ID Created: 33278
+2020-04-30 19:26:29	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:29	WorkItem ID Created: 33279
+2020-04-30 19:26:30	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:30	WorkItem ID Created: 33280
+2020-04-30 19:26:30	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:30	WorkItem ID Created: 33281
+2020-04-30 19:26:30	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:30	WorkItem ID Created: 33282
+2020-04-30 19:26:31	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:31	WorkItem ID Created: 33283
+2020-04-30 19:26:31	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:31	WorkItem ID Created: 33284
+2020-04-30 19:26:31	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:31	WorkItem ID Created: 33285
+2020-04-30 19:26:32	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:32	WorkItem ID Created: 33286
+2020-04-30 19:26:32	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:32	WorkItem ID Created: 33287
+2020-04-30 19:26:33	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:33	WorkItem ID Created: 33288
+2020-04-30 19:26:33	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:33	WorkItem ID Created: 33289
+2020-04-30 19:26:34	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:34	WorkItem ID Created: 33290
+2020-04-30 19:26:34	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:34	WorkItem ID Created: 33291
+2020-04-30 19:26:34	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:34	WorkItem ID Created: 33292
+2020-04-30 19:26:35	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:35	WorkItem ID Created: 33293
+2020-04-30 19:26:35	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:35	WorkItem ID Created: 33294
+2020-04-30 19:26:36	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:36	WorkItem ID Created: 33295
+2020-04-30 19:26:36	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:36	WorkItem ID Created: 33296
+2020-04-30 19:26:36	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:36	WorkItem ID Created: 33297
+2020-04-30 19:26:37	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:37	WorkItem ID Created: 33298
+2020-04-30 19:26:37	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:37	WorkItem ID Created: 33299
+2020-04-30 19:26:38	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:38	WorkItem ID Created: 33300
+2020-04-30 19:26:38	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:38	WorkItem ID Created: 33301
+2020-04-30 19:26:38	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:38	WorkItem ID Created: 33302
+2020-04-30 19:26:39	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:39	WorkItem ID Created: 33303
+2020-04-30 19:26:39	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:39	WorkItem ID Created: 33304
+2020-04-30 19:26:40	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:40	WorkItem ID Created: 33305
+2020-04-30 19:26:40	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:40	WorkItem ID Created: 33306
+2020-04-30 19:26:41	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:41	WorkItem ID Created: 33307
+2020-04-30 19:26:41	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:41	WorkItem ID Created: 33308
+2020-04-30 19:26:41	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:41	WorkItem ID Created: 33309
+2020-04-30 19:26:42	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:42	WorkItem ID Created: 33310
+2020-04-30 19:26:43	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:43	WorkItem ID Created: 33311
+2020-04-30 19:26:43	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:43	WorkItem ID Created: 33312
+2020-04-30 19:26:43	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:43	WorkItem ID Created: 33313
+2020-04-30 19:26:44	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:44	WorkItem ID Created: 33314
+2020-04-30 19:26:44	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:44	WorkItem ID Created: 33315
+2020-04-30 19:26:45	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:45	WorkItem ID Created: 33316
+2020-04-30 19:26:45	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:45	WorkItem ID Created: 33317
+2020-04-30 19:26:45	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:45	WorkItem ID Created: 33318
+2020-04-30 19:26:46	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:46	WorkItem ID Created: 33319
+2020-04-30 19:26:46	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:46	WorkItem ID Created: 33320
+2020-04-30 19:26:47	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:47	WorkItem ID Created: 33321
+2020-04-30 19:26:47	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:47	WorkItem ID Created: 33322
+2020-04-30 19:26:47	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:48	WorkItem ID Created: 33323
+2020-04-30 19:26:48	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:48	WorkItem ID Created: 33324
+2020-04-30 19:26:48	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:48	WorkItem ID Created: 33325
+2020-04-30 19:26:49	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:49	WorkItem ID Created: 33326
+2020-04-30 19:26:49	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:49	WorkItem ID Created: 33327
+2020-04-30 19:26:49	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:49	WorkItem ID Created: 33328
+2020-04-30 19:26:50	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:50	WorkItem ID Created: 33329
+2020-04-30 19:26:50	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:50	WorkItem ID Created: 33330
+2020-04-30 19:26:51	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:51	WorkItem ID Created: 33331
+2020-04-30 19:26:51	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:51	WorkItem ID Created: 33332
+2020-04-30 19:26:51	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:52	WorkItem ID Created: 33333
+2020-04-30 19:26:52	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:52	WorkItem ID Created: 33334
+2020-04-30 19:26:53	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:53	WorkItem ID Created: 33335
+2020-04-30 19:26:53	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:53	WorkItem ID Created: 33336
+2020-04-30 19:26:53	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:54	WorkItem ID Created: 33337
+2020-04-30 19:26:54	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:54	WorkItem ID Created: 33338
+2020-04-30 19:26:54	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:54	WorkItem ID Created: 33339
+2020-04-30 19:26:55	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:55	WorkItem ID Created: 33340
+2020-04-30 19:26:55	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:55	WorkItem ID Created: 33341
+2020-04-30 19:26:55	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:56	WorkItem ID Created: 33342
+2020-04-30 19:26:56	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:56	WorkItem ID Created: 33343
+2020-04-30 19:26:56	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:56	WorkItem ID Created: 33344
+2020-04-30 19:26:57	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:57	WorkItem ID Created: 33345
+2020-04-30 19:26:58	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:58	WorkItem ID Created: 33346
+2020-04-30 19:26:58	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:58	WorkItem ID Created: 33347
+2020-04-30 19:26:59	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:59	WorkItem ID Created: 33348
+2020-04-30 19:26:59	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:26:59	WorkItem ID Created: 33349
+2020-04-30 19:27:00	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:00	WorkItem ID Created: 33350
+2020-04-30 19:27:00	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:00	WorkItem ID Created: 33351
+2020-04-30 19:27:00	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:00	WorkItem ID Created: 33352
+2020-04-30 19:27:01	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:01	WorkItem ID Created: 33353
+2020-04-30 19:27:01	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:01	WorkItem ID Created: 33354
+2020-04-30 19:27:02	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:02	WorkItem ID Created: 33355
+2020-04-30 19:27:02	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:02	WorkItem ID Created: 33356
+2020-04-30 19:27:02	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:02	WorkItem ID Created: 33357
+2020-04-30 19:27:03	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:03	WorkItem ID Created: 33358
+2020-04-30 19:27:03	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:03	WorkItem ID Created: 33359
+2020-04-30 19:27:04	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:04	WorkItem ID Created: 33360
+2020-04-30 19:27:04	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:04	WorkItem ID Created: 33361
+2020-04-30 19:27:04	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:04	WorkItem ID Created: 33362
+2020-04-30 19:27:05	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:05	WorkItem ID Created: 33363
+2020-04-30 19:27:05	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:05	WorkItem ID Created: 33364
+2020-04-30 19:27:06	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:06	WorkItem ID Created: 33365
+2020-04-30 19:27:06	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:06	WorkItem ID Created: 33366
+2020-04-30 19:27:06	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:06	WorkItem ID Created: 33367
+2020-04-30 19:27:07	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:07	WorkItem ID Created: 33368
+2020-04-30 19:27:07	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:07	WorkItem ID Created: 33369
+2020-04-30 19:27:08	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:08	WorkItem ID Created: 33370
+2020-04-30 19:27:08	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:08	WorkItem ID Created: 33371
+2020-04-30 19:27:08	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:08	WorkItem ID Created: 33372
+2020-04-30 19:27:09	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:09	WorkItem ID Created: 33373
+2020-04-30 19:27:09	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:09	WorkItem ID Created: 33374
+2020-04-30 19:27:10	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:10	WorkItem ID Created: 33375
+2020-04-30 19:27:10	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:10	WorkItem ID Created: 33376
+2020-04-30 19:27:11	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:11	WorkItem ID Created: 33377
+2020-04-30 19:27:11	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:11	WorkItem ID Created: 33378
+2020-04-30 19:27:11	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:11	WorkItem ID Created: 33379
+2020-04-30 19:27:12	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:12	WorkItem ID Created: 33380
+2020-04-30 19:27:12	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:12	WorkItem ID Created: 33381
+2020-04-30 19:27:13	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:13	WorkItem ID Created: 33382
+2020-04-30 19:27:13	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:13	WorkItem ID Created: 33383
+2020-04-30 19:27:13	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:13	WorkItem ID Created: 33384
+2020-04-30 19:27:14	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:14	WorkItem ID Created: 33385
+2020-04-30 19:27:14	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:14	WorkItem ID Created: 33386
+2020-04-30 19:27:15	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:15	WorkItem ID Created: 33387
+2020-04-30 19:27:15	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:15	WorkItem ID Created: 33388
+2020-04-30 19:27:15	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:15	WorkItem ID Created: 33389
+2020-04-30 19:27:16	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:16	WorkItem ID Created: 33390
+2020-04-30 19:27:16	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:16	WorkItem ID Created: 33391
+2020-04-30 19:27:17	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:17	WorkItem ID Created: 33392
+2020-04-30 19:27:17	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:17	WorkItem ID Created: 33393
+2020-04-30 19:27:17	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:17	WorkItem ID Created: 33394
+2020-04-30 19:27:18	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:18	WorkItem ID Created: 33395
+2020-04-30 19:27:18	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:18	WorkItem ID Created: 33396
+2020-04-30 19:27:19	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:19	WorkItem ID Created: 33397
+2020-04-30 19:27:19	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:19	WorkItem ID Created: 33398
+2020-04-30 19:27:19	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:19	WorkItem ID Created: 33399
+2020-04-30 19:27:20	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:20	WorkItem ID Created: 33400
+2020-04-30 19:27:20	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:20	WorkItem ID Created: 33401
+2020-04-30 19:27:21	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:21	WorkItem ID Created: 33402
+2020-04-30 19:27:21	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:21	WorkItem ID Created: 33403
+2020-04-30 19:27:21	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:22	WorkItem ID Created: 33404
+2020-04-30 19:27:22	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:22	WorkItem ID Created: 33405
+2020-04-30 19:27:22	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:22	WorkItem ID Created: 33406
+2020-04-30 19:27:23	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:23	WorkItem ID Created: 33407
+2020-04-30 19:27:23	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:23	WorkItem ID Created: 33408
+2020-04-30 19:27:23	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:24	WorkItem ID Created: 33409
+2020-04-30 19:27:24	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:24	WorkItem ID Created: 33410
+2020-04-30 19:27:24	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:24	WorkItem ID Created: 33411
+2020-04-30 19:27:25	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:25	WorkItem ID Created: 33412
+2020-04-30 19:27:25	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:25	WorkItem ID Created: 33413
+2020-04-30 19:27:26	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:26	WorkItem ID Created: 33414
+2020-04-30 19:27:26	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:26	WorkItem ID Created: 33415
+2020-04-30 19:27:26	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:26	WorkItem ID Created: 33416
+2020-04-30 19:27:27	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:27	WorkItem ID Created: 33417
+2020-04-30 19:27:27	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:27	WorkItem ID Created: 33418
+2020-04-30 19:27:28	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:28	WorkItem ID Created: 33419
+2020-04-30 19:27:28	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:28	WorkItem ID Created: 33420
+2020-04-30 19:27:29	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:29	WorkItem ID Created: 33421
+2020-04-30 19:27:29	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:29	WorkItem ID Created: 33422
+2020-04-30 19:27:30	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:30	WorkItem ID Created: 33423
+2020-04-30 19:27:30	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:30	WorkItem ID Created: 33424
+2020-04-30 19:27:31	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:31	WorkItem ID Created: 33425
+2020-04-30 19:27:31	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:31	WorkItem ID Created: 33426
+2020-04-30 19:27:31	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:31	WorkItem ID Created: 33427
+2020-04-30 19:27:32	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:32	WorkItem ID Created: 33428
+2020-04-30 19:27:32	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:32	WorkItem ID Created: 33429
+2020-04-30 19:27:33	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:33	WorkItem ID Created: 33430
+2020-04-30 19:27:33	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:33	WorkItem ID Created: 33431
+2020-04-30 19:27:34	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:34	WorkItem ID Created: 33432
+2020-04-30 19:27:34	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:34	WorkItem ID Created: 33433
+2020-04-30 19:27:35	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:35	WorkItem ID Created: 33434
+2020-04-30 19:27:35	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:35	WorkItem ID Created: 33435
+2020-04-30 19:27:35	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:35	WorkItem ID Created: 33436
+2020-04-30 19:27:36	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:36	WorkItem ID Created: 33437
+2020-04-30 19:27:36	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:36	WorkItem ID Created: 33438
+2020-04-30 19:27:37	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:37	WorkItem ID Created: 33439
+2020-04-30 19:27:37	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:37	WorkItem ID Created: 33440
+2020-04-30 19:27:37	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:37	WorkItem ID Created: 33441
+2020-04-30 19:27:38	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:38	WorkItem ID Created: 33442
+2020-04-30 19:27:38	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:38	WorkItem ID Created: 33443
+2020-04-30 19:27:39	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:39	WorkItem ID Created: 33444
+2020-04-30 19:27:39	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:39	WorkItem ID Created: 33445
+2020-04-30 19:27:39	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:39	WorkItem ID Created: 33446
+2020-04-30 19:27:40	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:40	WorkItem ID Created: 33447
+2020-04-30 19:27:40	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:40	WorkItem ID Created: 33448
+2020-04-30 19:27:41	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:41	WorkItem ID Created: 33449
+2020-04-30 19:27:41	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:41	WorkItem ID Created: 33450
+2020-04-30 19:27:41	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:41	WorkItem ID Created: 33451
+2020-04-30 19:27:42	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:42	WorkItem ID Created: 33452
+2020-04-30 19:27:42	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:42	WorkItem ID Created: 33453
+2020-04-30 19:27:43	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:43	WorkItem ID Created: 33454
+2020-04-30 19:27:43	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:43	WorkItem ID Created: 33455
+2020-04-30 19:27:43	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:43	WorkItem ID Created: 33456
+2020-04-30 19:27:44	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:44	WorkItem ID Created: 33457
+2020-04-30 19:27:44	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:44	WorkItem ID Created: 33458
+2020-04-30 19:27:45	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:45	WorkItem ID Created: 33459
+2020-04-30 19:27:45	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:45	WorkItem ID Created: 33460
+2020-04-30 19:27:45	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:45	WorkItem ID Created: 33461
+2020-04-30 19:27:46	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:46	WorkItem ID Created: 33462
+2020-04-30 19:27:46	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:46	WorkItem ID Created: 33463
+2020-04-30 19:27:47	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:47	WorkItem ID Created: 33464
+2020-04-30 19:27:47	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:47	WorkItem ID Created: 33465
+2020-04-30 19:27:47	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:47	WorkItem ID Created: 33466
+2020-04-30 19:27:48	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:48	WorkItem ID Created: 33467
+2020-04-30 19:27:48	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:48	WorkItem ID Created: 33468
+2020-04-30 19:27:49	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:49	WorkItem ID Created: 33469
+2020-04-30 19:27:49	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:49	WorkItem ID Created: 33470
+2020-04-30 19:27:49	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:49	WorkItem ID Created: 33471
+2020-04-30 19:27:50	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:50	WorkItem ID Created: 33472
+2020-04-30 19:27:50	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:50	WorkItem ID Created: 33473
+2020-04-30 19:27:51	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:51	WorkItem ID Created: 33474
+2020-04-30 19:27:51	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:51	WorkItem ID Created: 33475
+2020-04-30 19:27:51	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:51	WorkItem ID Created: 33476
+2020-04-30 19:27:52	Project Name: HOLMES-TrainingStudio	 Organization Selected: sagorg1
+2020-04-30 19:27:52	WorkItem ID Created: 33477
