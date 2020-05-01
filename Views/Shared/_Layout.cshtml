@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="~/vendor/bootstrap/css/bootstrap.min.css">
     <!-- Font Awesome CSS-->
     <link rel="stylesheet" href="~/vendor/font-awesome/css/font-awesome.min.css">
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
     <!-- Fontastic Custom icon font-->
     <link rel="stylesheet" href="~/css/fontastic.css">
     <!-- Google fonts - Roboto -->
@@ -49,22 +50,29 @@
 <body>
     <header>
         <div class="navbar navbar-inverse navbar-fixed-top fixed-top" style="background-color:#4b4276;height:30px;">
-            @Html.ActionLink("Canarys", "Index", "Home", new { area = "" }, new { @class = "    " })
-            <div class="container">
+            <div style="font-size:20px;">
+                @Html.ActionLink("WorkItem Migrator", "Index", "Home", new { area = "" }, new { @class = "    ", @style = "color:#e2edf7;" })
+            </div>
+            <div class="container container-fluid">
 
                 @*<div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
 
-                </div>*@
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
+                    </div>*@
+                <div style="margin-left:75%;">
+                    <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
                         @*<li>@Html.ActionLink("Home", "Index", "Home")</li>
                             <li>@Html.ActionLink("About", "About", "Home")</li>
                             <li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
+                        <li>
+                            <a id="user" href="#"><i class="fa  fa-user">   </i>  <span class="">  @Session["User"]</span></a>
+                        </li>
+
+                        <li class="nav-item"><a href="../ExcelReader/SignOut" class="nav-link logout" id="logout"> <span class="d-none d-sm-inline-block">Logout</span>  <i class="fa fa-sign-out"></i>   </a></li>
                     </ul>
                 </div>
             </div>

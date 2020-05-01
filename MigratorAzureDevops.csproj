@@ -374,6 +374,7 @@
     <Compile Include="Controllers\ExcelReaderController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\WelcomeController.cs" />
+    <Compile Include="ErrorHandler\ExceptionHandler.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -385,6 +386,7 @@
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\ProfileDetails.cs" />
     <Compile Include="Models\ProjectModel.cs" />
+    <Compile Include="Models\StatModel.cs" />
     <Compile Include="Models\WiModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\AccountService.cs" />
@@ -548,6 +550,7 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\ExcelReader\Sheets.cshtml" />
     <Content Include="Views\ExcelReader\Destin.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

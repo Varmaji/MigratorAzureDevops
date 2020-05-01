@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "Error";
+}
+
+<h1 style="margin-left:260px; margin-top:30px;color:red;">Error Occured</h1>
+@*<p style="margin-left:265px; margin-top:30px;color:red">An Error Occured While Processing Your Request</p>*@
+
+@*<p style="margin-left:265px; margin-top:30px;color:red">@Session["Error"]</p>*@
+
+@if (ViewBag.Error != null)
+{
+    <p style="margin-left:265px; margin-top:30px;color:red">@ViewBag.Error</p>
+}
